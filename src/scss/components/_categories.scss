@@ -1,0 +1,48 @@
+@import '../variables.scss';
+
+.categories {
+  ul {
+    display: flex;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 23px;
+    width: 100%;
+    min-width: 1200px;
+    padding: 32px 60px;
+    justify-content: space-around;
+
+    li {
+      border-radius: 30px;
+      margin-right: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.1s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      @include noselect();
+
+      img {
+        width: 40px;
+      }
+
+      h2 {
+        margin-top: 5px;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        letter-spacing: 0.015em;
+        color: #fff;
+
+        &:active {
+          color: #EF4137;
+        }
+      }
+
+      &:active .h2 {
+        color: #EF4137;
+      }
+    }
+  }
+}
