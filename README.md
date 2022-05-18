@@ -1,6 +1,6 @@
 # 🚀 Проект: «Марсик»
 
-![Лендинг](http://pochemuha.ru/wp-content/uploads/2019/03/Почему-Марс-называют-красной-планетой.jpg)
+![Лендинг](https://sun9-52.userapi.com/s/v1/ig2/x3O61wWGjTcaRKopmPKfKL7guy34iKi2_z-Fg4KvtTU97FZ5fz8tFrXPi7pVVEw8GLdzWgx3Lvgc5yiRrsG7kEcm.jpg?size=1335x957&quality=95&type=album)
 
 ### <img src="https://cdn-icons-png.flaticon.com/512/7135/7135133.png" width="25" />[ Ссылка на проект](https://kejjero.github.io/mars-food/)
 
