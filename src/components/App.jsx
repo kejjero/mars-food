@@ -12,11 +12,11 @@ function App() {
                   <div className="container">
                       <div className="content__top">
                           <Categories/>
-                          {/*<Sort/>*/}
                       </div>
-
-
-                      <h2 className="content__title">Меню</h2>
+                      <div className="content__wrapper-title">
+                          <h2 className="content__title">Меню</h2>
+                          <Sort/>
+                      </div>
                       <div className="content__items">
                           <div className="pizza-block">
                               <img

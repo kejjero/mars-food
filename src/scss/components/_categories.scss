@@ -2,12 +2,14 @@
 
 .categories {
   ul {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(7, 150px);
+    grid-template-rows: 1fr;
+    justify-content: space-around;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 23px;
-    width: 1220px;
+    width: 100%;
     padding: 32px 60px;
-    justify-content: space-around;
 
     li {
       border-radius: 30px;
