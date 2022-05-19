@@ -9,9 +9,15 @@ body {
 .wrapper {
   width: calc(100vw - 100px);
   height: 100%;
-  margin: 50px auto;
+  margin: 10px auto;
   border-radius: 10px;
   max-width: 1400px;
+}
+
+.content__wrapper-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .content {
@@ -52,6 +58,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
 
   .content__title {
