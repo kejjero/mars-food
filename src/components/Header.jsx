@@ -2,7 +2,7 @@ import logo from '../images/logo.svg'
 
 function Header() {
     return (
-        <div className="header">
+        <header className="header">
             <div className="container">
                 <div className="header__logo">
                     <img width="38" src={logo} alt="Pizza logo"/>
@@ -10,7 +10,8 @@ function Header() {
                 <div className="header__cart">
                     <a href="/cart.html" className="button button--cart">
                         <span>520 &psi;</span>
-                        <div className="button__delimiter"></div>
+                        <div className="button__delimiter">
+                        </div>
                         <svg
                             width="18"
                             height="18"
@@ -44,7 +45,7 @@ function Header() {
                     </a>
                 </div>
             </div>
-        </div>
+        </header>
     )
 }
 

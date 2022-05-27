@@ -16,15 +16,24 @@
       margin-right: 10px;
       font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.1s ease-in-out;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
       @include noselect();
 
+      &:hover img {
+        top: -7px;
+      }
+
+      &.active h2 {
+        color: #EF4137;
+      }
+
       img {
         width: 40px;
+        position: relative;
+        top: 0;
       }
 
       h2 {
@@ -35,14 +44,6 @@
         text-align: center;
         letter-spacing: 0.015em;
         color: #fff;
-
-        &:active {
-          color: #EF4137;
-        }
-      }
-
-      &:active .h2 {
-        color: #EF4137;
       }
     }
   }

@@ -1,7 +1,7 @@
 @import '../variables.scss';
 
 .pizza-block {
-  width: 280px;
+  width: 260px;
   text-align: center;
   margin-bottom: 65px;
 
@@ -66,5 +66,6 @@
     line-height: 27px;
     letter-spacing: 0.015em;
     color: #fff;
+    margin-right: 30px;
   }
 }
