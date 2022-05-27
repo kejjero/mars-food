@@ -1,0 +1,42 @@
+[
+  {
+    "id": 0,
+    "imageUrl": "https://i.ibb.co/DtcJRvq/burger.png",
+    "title": "Марсбургер",
+    "price":"150",
+    "category": 1,
+    "rating": 5
+  },
+  {
+    "id": 1,
+    "imageUrl": "https://i.ibb.co/DtcJRvq/burger.png",
+    "title": "Свинянбургер",
+    "price":"230",
+    "category": 2,
+    "rating": 9
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://i.ibb.co/DtcJRvq/burger.png",
+    "title": "Ануннак",
+    "price":"310",
+    "category": 2,
+    "rating": 10
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://i.ibb.co/DtcJRvq/burger.png",
+    "title": "Малыш",
+    "price":"140",
+    "category": 3,
+    "rating": 6
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://i.ibb.co/DtcJRvq/burger.png",
+    "title": "Зимбаба",
+    "price":"400",
+    "category": 3,
+    "rating": 2
+  }
+]
