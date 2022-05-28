@@ -1,12 +1,12 @@
 import '../scss/app.scss'
 import Header from "./Header";
-import Categories from "./Categories";
-import Sort from "./Sort";
-import MenuBlock from "./menuBlock";
-import products from "../assets/products.json"
 import {useState} from "react";
+import {Routes, Route} from "react-router-dom";
 import PurchasePopup from "./PurchasePopup";
 import Footer from "./Footer"
+import Home from "../pages/Home";
+import NotFound from "../pages/NotFound";
+import Cart from "../pages/Cart";
 
 function App() {
     const [isPurchasePopupOpen, setIsPurchasePopupOpen] = useState(false);
@@ -19,38 +19,28 @@ function App() {
         setIsPurchasePopupOpen(false)
     }
 
+
   return (
           <div className="wrapper">
               <Header/>
               <main className="content">
                   <div className="container">
-                      <div className="content__top">
-                          <Categories/>
-                      </div>
-                      <div className="content__wrapper-title">
-                          <h2 className="content__title">Меню</h2>
-                          <Sort/>
-                      </div>
-                      <div className="content__items">
-                          {
-                              products.map((item) => {
-                                  return(
-                                      <MenuBlock
-                                          key={item.id}
-                                          title={item.title}
-                                          price={item.price}
-                                          purchasePopup={handlePurchasePopup}
-                                      />
-                                  )
-                              })
-                          }
-                      </div>
+                      <Routes>
+                          <Route exact path="/" element={
+                              <Home
+                                  handlePurchasePopup={handlePurchasePopup}
+                              />
+                          }/>
+                          <Route path="/cart" element={<Cart/>}/>
+                          <Route path="*" element={<NotFound/>}/>
+                      </Routes>
                   </div>
               </main>
               <Footer/>
               <PurchasePopup
                   isOpen={isPurchasePopupOpen}
                   onClose={closeAllPopups}
+                  price={232}
 
               />
           </div>
@@ -58,3 +48,4 @@ function App() {
 }
 
 export default App;
+
