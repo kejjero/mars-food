@@ -1,5 +1,20 @@
+import {useState} from "react";
 
 function Sort() {
+    const list = ['по пулярности', 'цене', 'алфавиту']
+    const [isOpen, setIsOpen] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const sortName = list[activeIndex]
+
+    function handleSortOpen() {
+        setIsOpen(!isOpen)
+    }
+
+    function handleSelectItem(i) {
+        setActiveIndex(i)
+        setIsOpen(!isOpen)
+    }
+
     return (
         <div className="sort">
             <div className="sort__label">
@@ -16,15 +31,25 @@ function Sort() {
                     />
                 </svg>
                 <b>Сортировка по:</b>
-                <span>по пулярности</span>
+                <span onClick={handleSortOpen}>{sortName}</span>
             </div>
-            <div className="sort__popup">
-                <ul>
-                    <li className="active">по пулярности</li>
-                    <li>цене</li>
-                    <li>алфавиту</li>
-                </ul>
-            </div>
+            { isOpen &&
+                <div className="sort__popup">
+                    <ul>
+                        {
+                            list.map((item, i) =>  (
+                                <li
+                                    key={i}
+                                    onClick={() => handleSelectItem(i)}
+                                    className={activeIndex === i ? "active" : ""}
+                                >
+                                    {item}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            }
         </div>
     )
 }
