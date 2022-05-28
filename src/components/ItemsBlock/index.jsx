@@ -1,6 +1,8 @@
-import burger from "../images/burger.png"
+import burger from "../../images/burger.png"
+import OrderButton from "../OrderButton";
 
-function MenuBlock(props) {
+
+function Index(props) {
     return (
         <div className="pizza-block">
             <img
@@ -16,12 +18,13 @@ function MenuBlock(props) {
             </p>
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">от {props.price} &psi;</div>
-                <div className="button button--outline button--add" onClick={props.purchasePopup}>
-                    <span>Заказать</span>
-                </div>
+                <OrderButton
+                    actionButton={props.purchasePopup}
+                    name={'Заказать'}
+                />
             </div>
         </div>
     )
 }
 
-export default MenuBlock;
+export default Index;

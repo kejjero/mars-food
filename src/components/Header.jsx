@@ -1,14 +1,15 @@
 import logo from '../images/logo.svg'
+import {Link} from "react-router-dom";
 
 function Header() {
     return (
         <header className="header">
             <div className="container">
-                <div className="header__logo">
+                <Link to="/" className="header__logo">
                     <img width="38" src={logo} alt="Pizza logo"/>
-                </div>
+                </Link>
                 <div className="header__cart">
-                    <a href="/cart.html" className="button button--cart">
+                    <Link to="/cart" className="button button--cart">
                         <span>520 &psi;</span>
                         <div className="button__delimiter">
                         </div>
@@ -42,7 +43,7 @@ function Header() {
                             />
                         </svg>
                         <span>3</span>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </header>
