@@ -4,20 +4,37 @@
   width: 240px;
   text-align: center;
   margin-bottom: 65px;
+  animation: opacity-block ease-in-out 0.3s;
+
+  .skeleton {
+    width: 240px;
+    text-align: center;
+    margin-bottom: 65px;
+  }
+  
+  @keyframes opacity-block {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
 
   &:not(:nth-of-type(n)) {
     margin-right: 35px;
   }
 
   &__image {
-    width: 260px;
+    width: 200px;
+    margin-bottom: 20px;
   }
 
   &__title {
     font-size: 20px;
     font-weight: 900;
     letter-spacing: 1px;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
     color: #fff;
   }
 
