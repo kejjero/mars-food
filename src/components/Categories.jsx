@@ -46,34 +46,3 @@ function Categories() {
 }
 
 export default Categories;
-
-// <ul>
-//     <li className="active">
-//         <img src={iconFork} alt=""/>
-//         <h2>Все</h2>
-//     </li>
-//     <li>
-//         <img src={iconBurger} alt=""/>
-//         <h2>Бургеры</h2>
-//     </li>
-//     <li>
-//         <img src={iconPizza} alt=""/>
-//         <h2>Пицца</h2>
-//     </li>
-//     <li>
-//         <img src={iconSalad} alt=""/>
-//         <h2>Салаты</h2>
-//     </li>
-//     <li>
-//         <img src={iconPie} alt=""/>
-//         <h2>Горячее</h2>
-//     </li>
-//     <li>
-//         <img src={iconLasagna} alt=""/>
-//         <h2 className="">Десерты</h2>
-//     </li>
-//     <li>
-//         <img src={iconJuice} alt=""/>
-//         <h2 className="">Напитки</h2>
-//     </li>
-// </ul>
