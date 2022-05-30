@@ -2,8 +2,16 @@
 
 .header {
   padding: 40px 0;
+  width: $container-width;
+  margin: 0 auto;
+
+  .header__search {
+    width: 300px;
+  }
 
   .container {
+    width: 100%;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
