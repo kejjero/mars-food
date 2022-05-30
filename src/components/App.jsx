@@ -7,6 +7,7 @@ import Footer from "./Footer"
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
 import Cart from "../pages/Cart";
+import axios from "axios";
 
 function App() {
     const [isPurchasePopupOpen, setIsPurchasePopupOpen] = useState(false);
@@ -35,21 +36,19 @@ function App() {
     }
 
     useEffect(() => {
-        fetch('https://6291e4289d159855f081d72e.mockapi.io/items')
-            .then((res) => {
-                return res.json();
-            })
-            .then((arr) => {
-                // потом убрать
-                setTimeout(() => {
-                    setItems(arr)
-                    setIsLoading(false)
-                }, 1000)
-            })
+        const getItems = () => {
+            return async () => {
+                const response = axios.get('https://6291e4289d159855f081d72e.mockapi.io/items')
+                return await response.data
+            }
+        }
+        console.log(getItems())
+        setIsLoading(false)
     },[])
 
 
   return (
+      <>
           <div className="wrapper">
               <Header/>
               <main className="content">
@@ -68,18 +67,21 @@ function App() {
                   </div>
               </main>
               <Footer/>
-              <PurchasePopup
-                  isOpen={isPurchasePopupOpen}
-                  onClose={closeAllPopups}
-                  price={pricePopup}
-                  title={titlePopup}
-                  image={imagePopup}
-                  handlePurchaseButton={handlePurchaseButton}
-                  count={purchaseCounter}
-              />
           </div>
+          <PurchasePopup
+              isOpen={isPurchasePopupOpen}
+              onClose={closeAllPopups}
+              price={pricePopup}
+              title={titlePopup}
+              image={imagePopup}
+              handlePurchaseButton={handlePurchaseButton}
+              count={purchaseCounter}
+          />
+      </>
   )
 }
 
 export default App;
 
+// setItems(res)
+// setIsLoading(false)

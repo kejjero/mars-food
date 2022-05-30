@@ -16,6 +16,7 @@ function Home(props) {
             </div>
             <div className="content__items">
                 {props.isLoading ?
+                    // используем фейковый массив для заполнения скелетона
                     [...new Array(5)].map((_, i) => <Skeleton key={i}/>)
                     :
                     props.items.map((item) => {
@@ -23,7 +24,7 @@ function Home(props) {
                             <ItemBlock
                                 key={item.id}
                                 title={item.title}
-                                price={item.price}
+                                price={item.price.size[0]}
                                 image={item.imageUrl}
                                 purchasePopup={props.handlePurchasePopup}
                             />

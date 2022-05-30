@@ -1,0 +1,44 @@
+[
+  {
+    "id": 0,
+    "title": "Азари",
+    "imageUrl": "https://i.ibb.co/1vmFwkR/burger-one.png",
+    "rating": 5,
+    "price": {"custom": [230, 200], "size": [150, 220, 340]},
+    "category": {"custom": ["Нормальный", "Острый"], "size": ["120гр.", "210гр.", "350гр."]}
+  },
+  {
+    "id": 1,
+    "title": "Саларианский малыш",
+    "imageUrl": "https://i.ibb.co/MV7pSHN/burger-two.png",
+    "rating": 9,
+    "price": {"custom": [230, 200], "size": [150, 220, 340]
+    },
+    "category": {"custom": ["Нормальный", "Острый"], "size": ["120гр.", "210гр.", "350гр."]
+    }
+  },
+  {
+    "id": 2,
+    "title": "Жгучий аннунак",
+    "imageUrl": "https://i.ibb.co/VD2TPmw/burger-three.png",
+    "rating": 10,
+    "price": {"custom": [230, 200], "size": [150, 220, 340]},
+    "category": {"custom": ["Нормальный", "Острый"], "size": ["120гр.", "210гр.", "350гр."]}
+  },
+  {
+    "id": 3,
+    "title": "Марсбургер",
+    "imageUrl": "https://i.ibb.co/VtwV9Rg/five.png",
+    "rating": 6,
+    "price": {"custom": [230, 200], "size": [150, 220, 340]},
+    "category": {"custom": ["Нормальный", "Острый"], "size": ["120гр.", "210гр.", "350гр."]}
+    },
+  {
+    "id": 4,
+    "title": "Той'хан",
+    "imageUrl": "https://i.ibb.co/6PTY3vj/burger-four.png",
+    "rating": 6,
+    "price": {"custom": [230, 200], "size": [150, 220, 340]},
+    "category": {"custom": ["Нормальный", "Острый"], "size": ["120гр.", "210гр.", "350гр."]}
+  }
+]
