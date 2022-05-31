@@ -5,7 +5,7 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import {useLocation} from "react-router";
 
-function Header() {
+function Header(props) {
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
@@ -46,8 +46,6 @@ function Header() {
         },
     }));
 
-    const location = useLocation();
-
     return (
         <header className="header">
             <div className="container">
@@ -55,7 +53,7 @@ function Header() {
                     <img width="38" src={logo} alt="Pizza logo"/>
                 </Link>
                 {
-                    location.pathname === "/" &&
+                    props.location.pathname === "/" &&
                     <div className="header__search">
                         <Search>
                             <SearchIconWrapper>
