@@ -7,7 +7,8 @@ import Footer from "./Footer"
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
 import Cart from "../pages/Cart";
-import axios from "axios";
+import backgorundSpace from "../images/background_space.svg"
+import {useLocation} from "react-router";
 
 function App() {
     const [isPurchasePopupOpen, setIsPurchasePopupOpen] = useState(false);
@@ -18,6 +19,7 @@ function App() {
     const [pricePopup, setPricePopup] = useState(0)
     const [imagePopup, setImagePopup] = useState('')
     const [purchaseCounter, setPurchaseCounter] = useState(0)
+    const location = useLocation();
 
     function handlePurchasePopup(title, price, image) {
         setIsPurchasePopupOpen(true)
@@ -36,21 +38,27 @@ function App() {
     }
 
     useEffect(() => {
-        const getItems = () => {
-            return async () => {
-                const response = axios.get('https://6291e4289d159855f081d72e.mockapi.io/items')
-                return await response.data
-            }
-        }
-        console.log(getItems())
-        setIsLoading(false)
+        fetch('https://6291e4289d159855f081d72e.mockapi.io/items')
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) => {
+                setItems(data)
+                setIsLoading(false)
+            })
     },[])
 
 
   return (
       <>
           <div className="wrapper">
-              <Header/>
+              {
+                  location.pathname === '/' &&
+                  <img className="background-space" src={backgorundSpace} alt=""/>
+              }
+              <Header
+                  location={location}
+              />
               <main className="content">
                   <div className="container">
                       <Routes>
