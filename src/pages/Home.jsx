@@ -2,12 +2,14 @@ import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import Skeleton from "../components/ItemsBlock/Skeleton";
 import ItemBlock from "../components/ItemsBlock";
+import ufoMenu from "../images/ufo_menu.svg"
 
 function Home(props) {
 
     return (
         <>
             <div className="content__top">
+                <img className="content__ufo-menu" src={ufoMenu} alt=""/>
                 <Categories/>
             </div>
             <div className="content__wrapper-title">
