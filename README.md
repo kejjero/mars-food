@@ -1,6 +1,6 @@
 # 🚀 Проект: «Марсик»
 
-![Лендинг](https://sun9-16.userapi.com/s/v1/ig2/-gUf9OKXhR6aOFNS8xd9FAJtU31_f1muT2x4pyb9QP2sP4FtR19cdw2ooXvzW7g68Jo9NQK4bsQaXiFyAKL4OX5T.jpg?size=2276x1390&quality=96&type=album)
+![Лендинг](https://sun9-west.userapi.com/sun9-49/s/v1/ig2/XrKhdpFdpp1oLsXssgVTkVoJIWo227z7VadTi1VIgwZ-XsVUcWN-uXM0kCoVb6fUiwcIzWYo8AtajIf5GgVF0iD9.jpg?size=2029x1314&quality=96&type=album)
 
 ### <img src="https://cdn-icons-png.flaticon.com/512/7135/7135133.png" width="25" />[ Ссылка на проект](https://kejjero.github.io/mars-food/)
 
