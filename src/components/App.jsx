@@ -14,12 +14,41 @@ function App() {
     const [isPurchasePopupOpen, setIsPurchasePopupOpen] = useState(false);
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
     const [titlePopup, setTitlePopup] = useState('')
     const [pricePopup, setPricePopup] = useState(0)
     const [imagePopup, setImagePopup] = useState('')
     const [purchaseCounter, setPurchaseCounter] = useState(0)
     const location = useLocation();
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [sortCategory, setSortCategory] = useState('');
+    const [sortType, setSortType] = useState(`sortBy=rating&order=desc`)
+    const [searchValue, setSearchValue] = useState('')
+    const [currentPage, setCurrentPage] = useState(1)
+
+    useEffect(() => {
+        fetch(`https://6291e4289d159855f081d72e.mockapi.io/items?category=${sortCategory}&${sortType}&page=${currentPage}&limit=4`)
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) => {
+                setItems(data)
+                setIsLoading(false)
+            })
+    },[sortCategory, sortType, currentPage])
+
+    function handleActiveCategory(index) {
+        setActiveIndex(index)
+        if (index === 0) {
+            setSortCategory('')
+        } else {
+            setSortCategory(index)
+        }
+    }
+
+    function handleActiveSort(sortProperty, sortType) {
+        const sortingRequest = `sortBy=${sortProperty}&order=${sortType}`
+        setSortType(sortingRequest)
+    }
 
     function handlePurchasePopup(title, price, image) {
         setIsPurchasePopupOpen(true)
@@ -37,18 +66,6 @@ function App() {
         setPurchaseCounter(purchaseCounter + 1)
     }
 
-    useEffect(() => {
-        fetch('https://6291e4289d159855f081d72e.mockapi.io/items')
-            .then((res) => {
-                return res.json()
-            })
-            .then((data) => {
-                setItems(data)
-                setIsLoading(false)
-            })
-    },[])
-
-
   return (
       <>
           <div className="wrapper">
@@ -58,6 +75,8 @@ function App() {
               }
               <Header
                   location={location}
+                  searchValue={searchValue}
+                  setSearchValue={setSearchValue}
               />
               <main className="content">
                   <div className="container">
@@ -67,6 +86,11 @@ function App() {
                                   items={items}
                                   isLoading={isLoading}
                                   handlePurchasePopup={handlePurchasePopup}
+                                  handleIndexMenu={handleActiveCategory}
+                                  activeIndex={activeIndex}
+                                  handleActiveSort={handleActiveSort}
+                                  searchValue={searchValue}
+                                  onChangePage={(number) => setCurrentPage(number)}
                               />
                           }/>
                           <Route path="/cart" element={<Cart/>}/>
