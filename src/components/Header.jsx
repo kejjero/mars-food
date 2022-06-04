@@ -1,51 +1,8 @@
 import logo from '../images/logo.svg'
 import {Link} from "react-router-dom";
-import { styled, alpha } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
-import {useLocation} from "react-router";
+import styles from "../scss/modules/header.module.scss"
 
-function Header(props) {
-    const Search = styled('div')(({ theme }) => ({
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: alpha(theme.palette.common.black, 0.15),
-        '&:hover': {
-            backgroundColor: alpha(theme.palette.common.black, 0.25),
-        },
-        marginRight: theme.spacing(2),
-        marginLeft: 0,
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(3),
-            width: 'auto',
-        },
-    }));
-
-    const SearchIconWrapper = styled('div')(({ theme }) => ({
-        padding: theme.spacing(0, 2),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    }));
-
-    const StyledInputBase = styled(InputBase)(({ theme }) => ({
-        color: 'inherit',
-        '& .MuiInputBase-input': {
-            padding: theme.spacing(1, 1, 1, 0),
-            // vertical padding + font size from searchIcon
-            paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-            transition: theme.transitions.create('width'),
-            width: '100%',
-            [theme.breakpoints.up('md')]: {
-                width: '20ch',
-            },
-        },
-    }));
-
+function Header({setSearchValue,searchValue, location}) {
     return (
         <header className="header">
             <div className="container">
@@ -53,17 +10,34 @@ function Header(props) {
                     <img width="38" src={logo} alt="Pizza logo"/>
                 </Link>
                 {
-                    props.location.pathname === "/" &&
+                    location.pathname === "/" &&
                     <div className="header__search">
-                        <Search>
-                            <SearchIconWrapper>
-                                <SearchIcon />
-                            </SearchIconWrapper>
-                            <StyledInputBase
-                                placeholder="Поиск вкусной еды"
-                                inputProps={{ 'aria-label': 'search' }}
+                        <svg
+                            className={styles.search__icon}
+                            viewBox="0 0 487.95 487.95"
+                        >
+                            <path d="m481.8 453-140-140.1c27.6-33.1 44.2-75.4 44.2-121.6C386 85.9 299.5.2 193.1.2S0 86 0 191.4s86.5 191.1 192.9 191.1c45.2 0 86.8-15.5 119.8-41.4l140.5 140.5c8.2 8.2 20.4 8.2 28.6 0 8.2-8.2 8.2-20.4 0-28.6zM41 191.4c0-82.8 68.2-150.1 151.9-150.1s151.9 67.3 151.9 150.1-68.2 150.1-151.9 150.1S41 274.1 41 191.4z"
+                                  fill="#fff"
                             />
-                        </Search>
+                        </svg>
+                        <input
+                            value={searchValue}
+                            onChange={(evt) => setSearchValue(evt.target.value)}
+                            className={styles.search}
+                            placeholder={'Поиск вкусной еды...'}
+                        />
+                        {
+                            searchValue &&
+                            <svg
+                                className={styles.search__close}
+                                viewBox="0 0 24 24"
+                                onClick={() => setSearchValue('')}
+                            >
+                                <path
+                                    d="M6.22566 4.81096C5.83514 4.42044 5.20197 4.42044 4.81145 4.81096C4.42092 5.20148 4.42092 5.83465 4.81145 6.22517L10.5862 11.9999L4.81151 17.7746C4.42098 18.1651 4.42098 18.7983 4.81151 19.1888C5.20203 19.5793 5.8352 19.5793 6.22572 19.1888L12.0004 13.4141L17.7751 19.1888C18.1656 19.5793 18.7988 19.5793 19.1893 19.1888C19.5798 18.7983 19.5798 18.1651 19.1893 17.7746L13.4146 11.9999L19.1893 6.22517C19.5799 5.83465 19.5799 5.20148 19.1893 4.81096C18.7988 4.42044 18.1657 4.42044 17.7751 4.81096L12.0004 10.5857L6.22566 4.81096Z"
+                                    fill="#EF4137"/>
+                            </svg>
+                        }
                     </div>
                 }
                 <div className="header__cart">

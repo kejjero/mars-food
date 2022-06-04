@@ -3,14 +3,8 @@ import iconBurger from '../images/icon-burger.png'
 import iconLasagna from '../images/icon-lasagna.png'
 import iconJuice from '../images/icon-juice.png'
 import iconFork from '../images/icon-fork.png'
-import {useState} from "react";
 
-function Categories() {
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    function handleActiveCategory(index) {
-        setActiveIndex(index)
-    }
+function Categories(props) {
 
     const categories  = [
         {name: 'Все', img: iconFork},
@@ -27,8 +21,8 @@ function Categories() {
                     return (
                         <li
                             key={i}
-                            className={activeIndex === i ? "active" : ""}
-                            onClick={() => handleActiveCategory(i)}
+                            className={props.activeIndex === i ? "active" : ""}
+                            onClick={() => props.handleIndexMenu(i)}
                         >
                             <img src={category.img} alt="category"/>
                             <h2>{category.name}</h2>

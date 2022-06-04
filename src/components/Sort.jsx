@@ -1,18 +1,21 @@
 import {useState} from "react";
 
-function Sort() {
-    const list = ['по пулярности', 'цене', 'алфавиту']
+function Sort(props) {
+    const list = [
+        {name: 'cначала популярные', sortProperty: 'rating', sortType: 'desc'},
+        {name: 'сначала дорогие', sortProperty: 'price', sortType: 'desc'},
+        {name: 'сначала недорогие', sortProperty: 'price', sortType: 'asc'},
+        {name: 'по наименованию', sortProperty: 'title', sortType: 'asc'},
+    ]
     const [isOpen, setIsOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
-    const sortName = list[activeIndex]
+    const sortName = list[activeIndex].name
 
-    function handleSortOpen() {
-        setIsOpen(!isOpen)
-    }
 
-    function handleSelectItem(i) {
+    function handleSelectSort(i, obj) {
         setActiveIndex(i)
         setIsOpen(!isOpen)
+        props.handleActiveSort(obj.sortProperty, obj.sortType)
     }
 
     return (
@@ -30,20 +33,20 @@ function Sort() {
                         fill="#DBDBDB"
                     />
                 </svg>
-                <b>Сортировка по:</b>
-                <span onClick={handleSortOpen}>{sortName}</span>
+                <b>Сортировка:</b>
+                <span onClick={() => setIsOpen(!isOpen)}>{sortName}</span>
             </div>
             { isOpen &&
                 <div className="sort__popup">
                     <ul>
                         {
-                            list.map((item, i) =>  (
+                            list.map((obj, i) =>  (
                                 <li
                                     key={i}
-                                    onClick={() => handleSelectItem(i)}
+                                    onClick={() => handleSelectSort(i, obj)}
                                     className={activeIndex === i ? "active" : ""}
                                 >
-                                    {item}
+                                    {obj.name}
                                 </li>
                             ))
                         }
