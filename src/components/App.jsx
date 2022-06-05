@@ -1,6 +1,6 @@
 import '../scss/app.scss'
 import Header from "./Header";
-import {useState, useEffect} from "react";
+import {useState, useEffect, createContext} from "react";
 import {Routes, Route} from "react-router-dom";
 import PurchasePopup from "./PurchasePopup";
 import Footer from "./Footer"
@@ -9,6 +9,8 @@ import NotFound from "../pages/NotFound";
 import Cart from "../pages/Cart";
 import backgorundSpace from "../images/background_space.svg"
 import {useLocation} from "react-router";
+
+export const SearchContext = createContext('');
 
 function App() {
     const [isPurchasePopupOpen, setIsPurchasePopupOpen] = useState(false);
@@ -22,9 +24,8 @@ function App() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [sortCategory, setSortCategory] = useState('');
     const [sortType, setSortType] = useState(`sortBy=rating&order=desc`)
-    const [searchValue, setSearchValue] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
-
+    const [searchValue, setSearchValue] = useState('');
     useEffect(() => {
         fetch(`https://6291e4289d159855f081d72e.mockapi.io/items?category=${sortCategory}&${sortType}&page=${currentPage}&limit=4`)
             .then((res) => {
@@ -73,11 +74,8 @@ function App() {
                   location.pathname === '/' &&
                   <img className="background-space" src={backgorundSpace} alt=""/>
               }
-              <Header
-                  location={location}
-                  searchValue={searchValue}
-                  setSearchValue={setSearchValue}
-              />
+              <SearchContext.Provider value={{searchValue, setSearchValue}}>
+              <Header location={location}/>
               <main className="content">
                   <div className="container">
                       <Routes>
@@ -89,7 +87,6 @@ function App() {
                                   handleIndexMenu={handleActiveCategory}
                                   activeIndex={activeIndex}
                                   handleActiveSort={handleActiveSort}
-                                  searchValue={searchValue}
                                   onChangePage={(number) => setCurrentPage(number)}
                               />
                           }/>
@@ -98,6 +95,7 @@ function App() {
                       </Routes>
                   </div>
               </main>
+              </SearchContext.Provider>
               <Footer/>
           </div>
           <PurchasePopup
@@ -115,5 +113,3 @@ function App() {
 
 export default App;
 
-// setItems(res)
-// setIsLoading(false)
