@@ -5,10 +5,14 @@ import ItemBlock from "../components/ItemsBlock";
 import ufoMenu from "../images/ufo_menu.svg"
 import ReactPaginate from "react-paginate";
 import styles from "../scss/modules/pagination.module.scss"
+import {useContext} from "react";
+import {SearchContext} from "../components/App";
 
 function Home(props) {
+    const {searchValue} = useContext(SearchContext);
+
     const items = props.items.filter(obj => {
-        return obj.title.toLowerCase().includes(props.searchValue.toLowerCase())
+        return obj.title.toLowerCase().includes(searchValue.toLowerCase())
     }).map((item) => {
         return (
             <ItemBlock
@@ -19,8 +23,8 @@ function Home(props) {
                 purchasePopup={props.handlePurchasePopup}
             />
         )
-
     })
+
     const skeleton = [...new Array(4)].map((_, i) => <Skeleton key={i}/>)
 
     return (

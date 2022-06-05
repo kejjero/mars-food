@@ -1,8 +1,12 @@
 import logo from '../images/logo.svg'
 import {Link} from "react-router-dom";
 import styles from "../scss/modules/header.module.scss"
+import {useContext} from "react";
+import {SearchContext} from "./App"
 
-function Header({setSearchValue,searchValue, location}) {
+function Header({location}) {
+
+    const {searchValue, setSearchValue} = useContext(SearchContext);
     return (
         <header className="header">
             <div className="container">
