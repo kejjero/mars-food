@@ -1,21 +1,25 @@
 import {useState} from "react";
+import {setSort} from "../redux/slices/filterSlice";
+import {useDispatch, useSelector} from "react-redux";
+const sortList = [
+    {name: 'cначала популярные', sortProperty: 'rating', sortType: 'desc'},
+    {name: 'сначала дорогие', sortProperty: 'price', sortType: 'desc'},
+    {name: 'сначала недорогие', sortProperty: 'price', sortType: 'asc'},
+    {name: 'по наименованию', sortProperty: 'title', sortType: 'asc'},
+]
 
-function Sort(props) {
-    const list = [
-        {name: 'cначала популярные', sortProperty: 'rating', sortType: 'desc'},
-        {name: 'сначала дорогие', sortProperty: 'price', sortType: 'desc'},
-        {name: 'сначала недорогие', sortProperty: 'price', sortType: 'asc'},
-        {name: 'по наименованию', sortProperty: 'title', sortType: 'asc'},
-    ]
+function Sort() {
+    const sort = useSelector((state) => state.filterReducer.sort)
+    const dispatch = useDispatch();
+
     const [isOpen, setIsOpen] = useState(false);
-    const [activeIndex, setActiveIndex] = useState(0);
-    const sortName = list[activeIndex].name
+    const sortName = sortList[sort.sortId].name
 
 
-    function handleSelectSort(i, obj) {
-        setActiveIndex(i)
+    function handleSelectSort(index, obj) {
         setIsOpen(!isOpen)
-        props.handleActiveSort(obj.sortProperty, obj.sortType)
+        const objSort = {sortId: index, property: obj.sortProperty, type: obj.sortType}
+        dispatch(setSort(objSort))
     }
 
     return (
@@ -40,11 +44,11 @@ function Sort(props) {
                 <div className="sort__popup">
                     <ul>
                         {
-                            list.map((obj, i) =>  (
+                            sortList.map((obj, index) =>  (
                                 <li
-                                    key={i}
-                                    onClick={() => handleSelectSort(i, obj)}
-                                    className={activeIndex === i ? "active" : ""}
+                                    key={index}
+                                    onClick={() => handleSelectSort(index, obj)}
+                                    className={sort.sortId === index ? "active" : ""}
                                 >
                                     {obj.name}
                                 </li>
