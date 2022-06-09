@@ -2,11 +2,11 @@ import '../scss/app.scss'
 import Header from "./Header";
 import {useState, useEffect, createContext, useRef} from "react";
 import {Routes, Route } from "react-router-dom";
-import PurchasePopup from "./PurchasePopup";
+import BuyPopup from "./BuyPopup";
 import Footer from "./Footer"
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
-import Cart from "../pages/Cart";
+import Cart from "../pages/cart/Cart";
 import backgorundSpace from "../images/background_space.svg"
 import {useLocation, useNavigate} from "react-router";
 import {useSelector, useDispatch} from "react-redux";
@@ -24,25 +24,39 @@ function App() {
     const [isPurchasePopupOpen, setIsPurchasePopupOpen] = useState(false);
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [titlePopup, setTitlePopup] = useState('')
-    const [pricePopup, setPricePopup] = useState(0)
-    const [imagePopup, setImagePopup] = useState('')
     const [purchaseCounter, setPurchaseCounter] = useState(0)
     const [searchValue, setSearchValue] = useState('');
     const {categoryId, sort, currentPage, pageCount} = useSelector((state) => state.filterReducer)
 
     const isSearch = useRef(false);
+    const isMounted = useRef(false);
+
     const isCategory = categoryId !== 0 ? categoryId : ''
     const isSort = `sortBy=${sort.property}&order=${sort.type}`
     const filterRequest = `category=${isCategory}&${isSort}&page=${currentPage}&limit=4`
+
+    useEffect(() => {
+        if(isMounted.current) {
+            const queryString = qs.stringify({
+                category: categoryId,
+                property: sort.property,
+                order: sort.type,
+                sortId: sort.sortId,
+                page: currentPage
+            })
+            navigate(`?${queryString}`)
+        }
+        isMounted.current = true;
+    }, [categoryId, currentPage, sort])
 
     useEffect(() => {
         if(window.location.search){
             const params = qs.parse(window.location.search.substring(1))
             dispatch(setFilters(params))
         }
-        isSearch.current = false;
+        isSearch.current = true;
     }, [])
+
 
     function fetchItems() {
         axios.get(`https://6291e4289d159855f081d72e.mockapi.io/items?${filterRequest}`)
@@ -55,34 +69,16 @@ function App() {
                     alert('Статус ошибки: ' + res.status)
                 }
             })
-            .catch((err) => alert('Статус ошибки: ' + err))
+            .catch((err) => alert('Ошибка: ' + err))
     }
 
+    // потставить ! isSearch.current и isSearch.current = false;
     useEffect(() => {
-        if(!isSearch.current) {
+        if(isSearch.current) {
             fetchItems();
         }
-        isSearch.current = false;
-
-    },[filterRequest])
-
-    useEffect(() => {
-        const queryString = qs.stringify({
-            category: categoryId,
-            property: sort.property,
-            order: sort.type,
-            sortId: sort.sortId,
-            page: currentPage
-        })
-        navigate(`?${queryString}`)
-    }, [categoryId, currentPage, navigate, sort.property, sort.sortId, sort.type])
-
-    function handlePurchasePopup(title, price, image) {
-        setIsPurchasePopupOpen(true)
-        setTitlePopup(title)
-        setPricePopup(price)
-        setImagePopup(image)
-    }
+        isSearch.current = true;
+    },[categoryId, currentPage, sort])
 
     function closeAllPopups() {
         setIsPurchasePopupOpen(false)
@@ -109,7 +105,6 @@ function App() {
                               <Home
                                   items={items}
                                   isLoading={isLoading}
-                                  handlePurchasePopup={handlePurchasePopup}
                                   pageCount={pageCount}
                               />
                           }/>
@@ -121,12 +116,9 @@ function App() {
               </SearchContext.Provider>
               <Footer/>
           </div>
-          <PurchasePopup
+          <BuyPopup
               isOpen={isPurchasePopupOpen}
               onClose={closeAllPopups}
-              price={pricePopup}
-              title={titlePopup}
-              image={imagePopup}
               handlePurchaseButton={handlePurchaseButton}
               count={purchaseCounter}
           />
