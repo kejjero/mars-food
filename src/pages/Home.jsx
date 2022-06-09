@@ -21,10 +21,14 @@ function Home(props) {
         return (
             <ItemBlock
                 key={item.id}
+                id={item.id}
                 title={item.title}
+                description={item.description}
                 price={item.price}
                 image={item.imageUrl}
-                purchasePopup={props.handlePurchasePopup}
+                rating={item.rating}
+                property={item.property}
+                handlePurchasePopup={props.handlePurchasePopup}
             />
         )
     })
