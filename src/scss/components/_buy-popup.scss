@@ -1,14 +1,14 @@
-.purchase-popup {
+.buy-popup {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(1, 1fr);
 
-  .purchase-popup__preview{
+  .buy-popup__preview{
     display: flex;
     justify-content: center;
     align-items: center;
 
-    .purchase-popup__image-preview {
+    .buy-popup__image-preview {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -16,13 +16,13 @@
     }
   }
 
-  .purchase-popup__wrapper {
+  .buy-popup__wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
 
-    .purchase-popup__title {
+    .buy-popup__title {
        margin: 0 0 20px;
        padding: 0;
       font-weight: 800;
@@ -32,7 +32,7 @@
       color: #FFFFFF;
     }
 
-    .purchase-popup__description {
+    .buy-popup__description {
       max-width: 320px;
       margin: 0 0 14px;
       padding: 0;
@@ -44,14 +44,14 @@
     }
   }
 
-  .purchase-popup__constructor {
+  .buy-popup__constructor {
     display: flex;
     flex-direction: column;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     margin-bottom: 30px;
 
-    .purchase-popup__category {
+    .buy-popup__category {
       display: flex;
       justify-content:space-around;
       align-items: center;
@@ -81,12 +81,12 @@
     }
   }
 
-  .purchase-popup__price-wrapper {
+  .buy-popup__price-wrapper {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
-    .purchase-popup__price {
+    .buy-popup__price {
       font-weight: bold;
       font-size: 22px;
       line-height: 27px;
@@ -94,10 +94,5 @@
       color: #fff;
       margin-right: 30px;
     }
-
-
   }
-
-
-
 }
