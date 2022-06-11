@@ -4,7 +4,7 @@ const initialState = {
     totalPrice: 0,
     countTypePrice: 0,
     countSizePrice: 0,
-    type: 'Нормальный',
+    type: 'Классический',
     size: 'M',
     activeType: 0,
     activeSize: 0,
@@ -40,6 +40,8 @@ export const buyPopupSlice = createSlice({
         resetActiveCategory(state) {
             state.activeType = 0;
             state.activeSize = 0;
+            state.type = 'Классический';
+            state.size = 'M'
         },
         setCountTypePrice(state, action) {
             state.activeType = action.payload.id;
@@ -62,5 +64,8 @@ export const {
     setCountTypePrice,
     setCountSizePrice
 } = buyPopupSlice.actions;
+
+export const selectBuyPopupData = (state) => state.buyPopupReducer.data;
+export const selectBuyPopup = state => state.buyPopupReducer;
 
 export default buyPopupSlice.reducer;

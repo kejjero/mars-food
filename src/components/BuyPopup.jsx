@@ -1,12 +1,12 @@
 import PopupWithForm from "./PopupWithForm";
 import {useDispatch, useSelector} from "react-redux";
-import {setCountSizePrice, setCountTypePrice} from "../redux/slices/buyPopupSlice";
+import {selectBuyPopup, selectBuyPopupData, setCountSizePrice, setCountTypePrice} from "../redux/slices/buyPopupSlice";
 import {addItemForCart} from "../redux/slices/cartSlice";
 
 function BuyPopup() {
     const dispatch = useDispatch();
-    const {data, type, size, activeType, activeSize, totalPrice} = useSelector(state => state.buyPopupReducer)
-    const {property, id, title, imageUrl, } = useSelector(state => state.buyPopupReducer.data)
+    const {data, type, size, activeType, activeSize, totalPrice} = useSelector(selectBuyPopup)
+    const {property, id, title, imageUrl, } = useSelector(selectBuyPopupData)
 
     function handleActiveType(typeId, obj) {
         dispatch(setCountTypePrice({
