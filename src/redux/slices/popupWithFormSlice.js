@@ -21,5 +21,6 @@ export const popupWithFormSlice = createSlice({
 })
 
 export const { closeAllPopups, openBuyPopup } =popupWithFormSlice.actions;
+export const selectPopupWithForm = (state) => state.popupWithFormReducer
 
 export default popupWithFormSlice.reducer;
