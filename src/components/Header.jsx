@@ -1,18 +1,23 @@
 import logo from '../images/logo.svg'
 import {Link} from "react-router-dom";
 import styles from "../scss/modules/header.module.scss"
-import {useContext, useRef} from "react";
-import {SearchContext} from "./App"
-import {useSelector} from "react-redux";
+import {useRef} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {cartSelector} from "../redux/slices/cartSlice";
+import {selectFilter, setSearchValue} from "../redux/slices/filterSlice";
+import backgorundSpace from "../images/background_space.svg";
+import {useLocation} from "react-router";
 
-function Header({location}) {
 
-    const { cartCount, cartValue } = useSelector((state) => state.cartReducer)
-    const {searchValue, setSearchValue} = useContext(SearchContext);
+function Header() {
+    const { cartCount, cartPrice } = useSelector(cartSelector)
+    const { searchValue } = useSelector(selectFilter)
+    const location = useLocation();
     const inputRef = useRef();
+    const dispatch = useDispatch();
 
     function onClickClear () {
-        setSearchValue('')
+        dispatch(setSearchValue(''))
         inputRef.current.focus();
     }
 
@@ -36,7 +41,7 @@ function Header({location}) {
                         <input
                             ref={inputRef}
                             value={searchValue}
-                            onChange={(evt) => setSearchValue(evt.target.value)}
+                            onChange={(evt) => dispatch(setSearchValue(evt.target.value))}
                             className={styles.search}
                             placeholder={'Поиск вкусной еды...'}
                         />
@@ -56,7 +61,7 @@ function Header({location}) {
                 }
                 <div className="header__cart">
                     <Link to="/cart" className="button button--cart">
-                        <span>{cartValue} &lambda;</span>
+                        <span>{cartPrice} &lambda;</span>
                         <div className="button__delimiter">
                         </div>
                         <svg fill="#fff" version="1.0" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512">

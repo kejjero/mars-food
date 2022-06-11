@@ -3,6 +3,7 @@ import filterReducer from './slices/filterSlice'
 import buyPopupReducer from './slices/buyPopupSlice'
 import popupWithFormReducer from './slices/popupWithFormSlice'
 import cartReducer from "./slices/cartSlice";
+import itemsReducer from "./slices/itemSlice";
 
 export const store = configureStore({
     reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
         buyPopupReducer,
         popupWithFormReducer,
         cartReducer,
+        itemsReducer
     },
 })

@@ -4,9 +4,10 @@
 
 body {
   background: linear-gradient(180deg, #240048 0%, #060117 42.71%);
-  min-height: 720px;
   width: 100%;
+  min-height: 100vh;
   height: 100%;
+  cursor: default;
 }
 
 .wrapper {
@@ -18,6 +19,8 @@ body {
   .background-space {
     position: absolute;
     z-index: -1;
+    width: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -238,9 +241,27 @@ body {
   &__bottom {
     margin: 50px 0;
 
+    &-progress {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    &-progress-title {
+      position: absolute;
+      color: #000;
+      opacity: 0.7;
+      z-index: 1;
+      font-size: 16px;
+      top: 18px;
+
+    }
+
     &-details {
       display: flex;
       justify-content: space-between;
+
 
       span {
         font-size: 22px;
@@ -268,7 +289,6 @@ body {
 
         span {
           color: darken($color: $gray-line, $amount: 20);
-          font-weight: 500;
           font-weight: 600;
         }
 
@@ -295,6 +315,12 @@ body {
         font-weight: 600;
         width: 210px;
         padding: 16px;
+      }
+
+      .pay-btn-disabled {
+        background-color: #7b7b7b;
+        color: #f3f3f3;
+        cursor: default;
       }
     }
   }
@@ -351,4 +377,64 @@ body {
   position: absolute;
   top: 0;
   left: 290px;
+  animation: 2.5s ease-in-out infinite pulse-ufo;
+}
+
+@keyframes pulse-ufo {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(7px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+.cartEmpty {
+  margin: 0 auto;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+  }
+  &__img {
+    position: relative;
+    left: 10px;
+    margin-top: 40px;
+    height: 350px;
+  }
+}
+
+.cartEmpty_type_button {
+  margin: 0;
+}
+
+
+.errorBlock {
+  margin: 30px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    margin-bottom: 20px;
+  }
+  &__paragraph {
+    font-size: 18px;
+  }
 }

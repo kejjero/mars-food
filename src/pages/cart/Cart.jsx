@@ -1,10 +1,52 @@
 import {Link} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import CartItem from "./CartItem";
+import {clearCart, selectCart} from "../../redux/slices/cartSlice";
+import CartEmpty from "./CartEmpty";
+import {useEffect, useState} from "react";
+import Box from '@mui/material/Box';
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import { styled } from '@mui/material/styles';
 
 function Cart() {
+    const { cartItems, cartCount, cartPrice } = useSelector(selectCart)
+    const [isPay, setIsPay] = useState(true);
+    const dispatch = useDispatch();
 
-    const { cartItems } = useSelector((state) => state.cartReducer)
+    const BorderLinearProgress = styled(LinearProgress)(() => ({
+        height: 53.5,
+        borderRadius: 30,
+        [`&.${linearProgressClasses.colorPrimary}`]: {
+            backgroundColor: '#fff',
+        },
+        [`& .${linearProgressClasses.bar}`]: {
+            borderRadius: 0,
+            backgroundColor: '#EF4137',
+        },
+    }));
+
+    const ProgressBlock = () => {
+        return (
+            <div className="cart__bottom-progress">
+                <h3 className="cart__bottom-progress-title">Заказ от 1 000 λ</h3>
+                <Box sx={{ width: '210px'}}>
+                    <BorderLinearProgress variant="determinate" value={(cartPrice / 1000) * 100} />
+                </Box>
+            </div>
+        )
+    }
+
+    useEffect(() => {
+        if (cartPrice >= 1000) {
+            setIsPay(false)
+        } else {
+            setIsPay(true)
+        }
+    },[cartPrice, isPay])
+
+    if (cartCount === 0){
+        return <CartEmpty />
+    }
 
     return (
         <div className="content">
@@ -50,15 +92,15 @@ function Cart() {
                                       stroke-linecap="round" stroke-linejoin="round">
                                 </path>
                             </svg>
-                            <span>Очистить корзину</span></div>
+                            <span onClick={() => dispatch(clearCart())}>Очистить корзину</span></div>
                     </div>
                     <div className="cart__items">
                         {
                             cartItems.map((item) => {
-                                console.log(item)
                                 return (
                                     <CartItem
                                         key={item.id}
+                                        id={item.id}
                                         title={item.title}
                                         image={item.imageUrl}
                                         price={item.price}
@@ -71,8 +113,9 @@ function Cart() {
                         }
                     </div>
                     <div className="cart__bottom">
-                        <div className="cart__bottom-details"><span> Всего: <b>2 шт.</b> </span><span> Сумма заказа: <b>1070 &lambda;</b> </span>
+                        <div className="cart__bottom-details"><span> Всего: <b>{cartCount} шт.</b> </span><span> Сумма заказа: <b>{cartPrice} &lambda;</b> </span>
                         </div>
+
                         <div className="cart__bottom-buttons">
                             <Link
                                 className="button button--outline button--add go-back-btn"
@@ -87,7 +130,12 @@ function Cart() {
                             </svg>
                             <span>Вернуться назад</span>
                             </Link>
-                            <div className="button pay-btn"><span>Оформить заказ</span></div>
+                            {
+                                isPay ? <ProgressBlock/> :
+                                    <div className={`button pay-btn ${isPay && 'pay-btn-disabled'}`}>
+                                        <span>Оформить заказ</span>
+                                    </div>
+                            }
                         </div>
                     </div>
                 </div>
