@@ -9,7 +9,7 @@
     "price": 230,
     "property": {
       "custom": [
-        { "nameCustom": "Нормальный", "customPrice": 0},
+        { "nameCustom": "Классический", "customPrice": 0},
         { "nameCustom": "Острый", "customPrice": 15}
       ],
       "size": [
@@ -19,8 +19,6 @@
       ]
     }
   },
-
-
   {
     "id": 1,
     "title": "Саларианский малыш",
@@ -31,7 +29,7 @@
     "price": 120,
     "property": {
       "custom": [
-        { "nameCustom": "Нормальный", "customPrice": 0},
+        { "nameCustom": "Классический", "customPrice": 0},
         { "nameCustom": "Острый", "customPrice": 15}
       ],
       "size": [
@@ -51,7 +49,7 @@
     "price": 155,
     "property": {
       "custom": [
-        { "nameCustom": "Нормальный", "customPrice": 0},
+        { "nameCustom": "Классический", "customPrice": 0},
         { "nameCustom": "Острый", "customPrice": 15}
       ],
       "size": [
@@ -71,7 +69,7 @@
     "price": 170,
     "property": {
       "custom": [
-        { "nameCustom": "Нормальный", "customPrice": 0},
+        { "nameCustom": "Классический", "customPrice": 0},
         { "nameCustom": "Острый", "customPrice": 15}
       ],
       "size": [
@@ -91,7 +89,7 @@
     "price": 110,
     "property": {
       "custom": [
-        { "nameCustom": "Нормальный", "customPrice": 0},
+        { "nameCustom": "Классический", "customPrice": 0},
         { "nameCustom": "Острый", "customPrice": 15}
       ],
       "size": [
@@ -111,7 +109,7 @@
     "price": 180,
     "property": {
       "custom": [
-        { "nameCustom": "Нормальный", "customPrice": 0},
+        { "nameCustom": "Классический", "customPrice": 0},
         { "nameCustom": "Острый", "customPrice": 15}
       ],
       "size": [
@@ -131,7 +129,7 @@
     "price": 115,
     "property": {
       "custom": [
-        { "nameCustom": "Нормальный", "customPrice": 0},
+        { "nameCustom": "Классический", "customPrice": 0},
         { "nameCustom": "Острый", "customPrice": 15}
       ],
       "size": [
@@ -151,7 +149,7 @@
     "price": 120,
     "property": {
       "custom": [
-        { "nameCustom": "Нормальный", "customPrice": 0},
+        { "nameCustom": "Классический", "customPrice": 0},
         { "nameCustom": "Острый", "customPrice": 15}
       ],
       "size": [
@@ -171,7 +169,7 @@
     "price": 120,
     "property": {
       "custom": [
-        { "nameCustom": "Нормальный", "customPrice": 0},
+        { "nameCustom": "Классический", "customPrice": 0},
         { "nameCustom": "Острый", "customPrice": 15}
       ],
       "size": [
@@ -191,7 +189,7 @@
     "price": 120,
     "property": {
       "custom": [
-        { "nameCustom": "Нормальный", "customPrice": 0},
+        { "nameCustom": "Классический", "customPrice": 0},
         { "nameCustom": "Острый", "customPrice": 15}
       ],
       "size": [
