@@ -1,12 +1,11 @@
 import {useDispatch, useSelector} from "react-redux";
-import {closeAllPopups} from "../redux/slices/popupWithFormSlice";
+import {closeAllPopups, selectPopupWithForm} from "../redux/slices/popupWithFormSlice";
 
 function PopupWithForm({children, onSubmit}) {
     const dispatch = useDispatch();
-    const popup = useSelector(state => state.popupWithFormReducer)
-
+    const {name, isOpen} = useSelector(selectPopupWithForm)
     return (
-        <div className={`popup popup_${popup.name} ${popup.isOpen && 'popup_opened'}`}>
+        <div className={`popup popup_${name} ${isOpen && 'popup_opened'}`}>
             <div className="popup__container">
                 <button
                     type="button"
@@ -18,7 +17,7 @@ function PopupWithForm({children, onSubmit}) {
                 <form
                     className={"popup__form"}
                     method={"post"}
-                    name={popup.name}
+                    name={name}
                     onSubmit={onSubmit}
                 >{children}
                 </form>
