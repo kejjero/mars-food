@@ -4,7 +4,8 @@ import iconLasagna from '../images/icon-lasagna.png'
 import iconJuice from '../images/icon-juice.png'
 import iconFork from '../images/icon-fork.png'
 import {useSelector, useDispatch} from "react-redux";
-import {setCategoryId} from "../redux/slices/filterSlice";
+import {selectCategoryId, setCategoryId, setPageCount} from "../redux/slices/filterSlice";
+import {fetchCategoryItems, selectItemsCategory} from "../redux/slices/itemSlice";
 
 const categories  = [
     {name: 'Все', img: iconFork},
@@ -14,13 +15,21 @@ const categories  = [
     {name: 'Напитки', img: iconJuice},
 ]
 
-function Categories({ getCountPages }) {
-    const categoryId = useSelector((state) => state.filterReducer.categoryId)
+function Categories() {
+    const categoryId = useSelector(selectCategoryId)
+    const itemsCategory = useSelector(selectItemsCategory)
     const dispatch = useDispatch()
 
     function onClickCategory(index) {
         dispatch(setCategoryId(index))
-        getCountPages(index)
+        mathItems(index)
+    }
+
+    function mathItems(index) {
+        const indexCategory = index !== 0 ? index : ''
+        dispatch(fetchCategoryItems(indexCategory))
+        const mathPages = Math.ceil(itemsCategory.length / 4)
+        dispatch(setPageCount(mathPages))
     }
 
     return (
