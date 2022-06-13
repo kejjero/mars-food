@@ -5,9 +5,10 @@
   width: $container-width;
   margin: 0 auto;
 
-  .header__search {
+  &__search {
     width: 270px;
     position: relative;
+
   }
 
   .container {

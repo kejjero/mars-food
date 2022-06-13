@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
 import spaceEmpty from "../../images/spaceEmpty.svg"
+import React from "react";
 
 function CartEmpty() {
     return (

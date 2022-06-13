@@ -6,14 +6,61 @@ import ufoMenu from "../images/ufo_menu.svg"
 import ReactPaginate from "react-paginate";
 import styles from "../scss/modules/pagination.module.scss"
 import {useDispatch, useSelector} from "react-redux";
-import {selectSearchValue, setCurrentPage} from "../redux/slices/filterSlice";
-import {selectItems} from "../redux/slices/itemSlice";
+import {selectFilter, selectSearchValue, setCurrentPage, setFilters} from "../redux/slices/filterSlice";
+import {fetchItems, selectItems} from "../redux/slices/itemSlice";
+import {useNavigate} from "react-router";
+import {useEffect, useRef} from "react";
+import qs from "qs";
 
 function Home() {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
+    const isSearch = useRef(false);
+    const isMounted = useRef(false);
+    const {categoryId, sort, currentPage, pageCount} = useSelector(selectFilter)
     const searchValue = useSelector(selectSearchValue)
     const {itemsData, statusItems} = useSelector(selectItems);
     // const pageCount = useSelector((state) => state.filterReducer.pageCount)
+
+    // асинхронная функция получения данных из mockAPI
+    function getItems () {
+        const isCategory = categoryId !== 0 ? categoryId : ''
+        const isSort = `sortBy=${sort.property}&order=${sort.type}`
+        const filterRequest = `category=${isCategory}&${isSort}&page=${currentPage}&limit=4`
+        dispatch(fetchItems(filterRequest))
+    }
+
+    useEffect(() => {
+        if(isMounted.current) {
+            const queryString = qs.stringify({
+                category: categoryId,
+                property: sort.property,
+                order: sort.type,
+                sortId: sort.sortId,
+                page: currentPage
+            })
+            navigate(`?${queryString}`)
+        }
+        isMounted.current = true;
+    }, [categoryId, currentPage, sort])
+
+    useEffect(() => {
+        if(window.location.search){
+            const params = qs.parse(window.location.search.substring(1))
+            dispatch(setFilters(params))
+        }
+        isSearch.current = true;
+    }, [])
+
+
+    // потставить ! isSearch.current и isSearch.current = false;
+    useEffect(() => {
+        if(isSearch.current) {
+            getItems();
+        }
+        isSearch.current = true;
+    },[categoryId, currentPage, sort])
+
     const ErrorGetItems = () => {
         return (
             <div className="errorBlock">

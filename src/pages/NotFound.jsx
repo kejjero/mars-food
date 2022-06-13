@@ -1,6 +1,6 @@
 import image from "../images/error404.svg"
 
-function NotFound() {
+function NotFound () {
     return(
         <div className="noteFound">
             <img className="noteFound__image" src={image} alt=""/>

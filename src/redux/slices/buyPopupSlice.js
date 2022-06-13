@@ -1,47 +1,27 @@
-import {createSlice} from "@reduxjs/toolkit"
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit"
+import axios from "axios";
 
 const initialState = {
     totalPrice: 0,
     countTypePrice: 0,
     countSizePrice: 0,
-    type: 'Классический',
-    size: 'M',
     activeType: 0,
     activeSize: 0,
-    data: {
-        id: 0,
-        title: '',
-        description: '',
-        imageUrl: '',
-        rating: 5,
-        price: 0,
-        property: {
-            custom: [
-                {nameCustom: "", customPrice: 0},
-                {nameCustom: "", customPrice: 0}
-            ],
-            size: [
-                {nameSize: "M", sizePrice: 0},
-                {nameSize: "L", sizePrice: 0},
-                {nameSize: "XL", sizePrice: 0}
-            ]
-        }
-    },
+    data: {},
 }
+
+export const fetchItemId = createAsyncThunk('itemId/fetchItemId', async (id) => {
+    const {data} = await axios.get(`https://6291e4289d159855f081d72e.mockapi.io/items?id=${id}`)
+    return data.shift(data)
+})
 
 export const buyPopupSlice = createSlice({
     name: 'buyPopup',
     initialState,
     reducers: {
-        loadDataForPopup(state, action) {
-            state.data = action.payload;
-            state.totalPrice = action.payload.price;
-        },
         resetActiveCategory(state) {
             state.activeType = 0;
             state.activeSize = 0;
-            state.type = 'Классический';
-            state.size = 'M'
         },
         setCountTypePrice(state, action) {
             state.activeType = action.payload.id;
@@ -54,6 +34,21 @@ export const buyPopupSlice = createSlice({
             state.countSizePrice = action.payload.price;
             state.size = action.payload.name;
             state.totalPrice = state.countTypePrice + state.countSizePrice + state.data.price
+        }
+    },
+    extraReducers: {
+        [fetchItemId.pending]: (state) => {
+            state.data = {};
+            state.statusItems = 'loading';
+        },
+        [fetchItemId.fulfilled]: (state, action) => {
+            state.data = action.payload;
+            state.statusItems = 'success';
+            state.totalPrice = action.payload.price
+        },
+        [fetchItemId.rejected]: (state) => {
+            state.data = {};
+            state.statusItems = 'error'
         }
     }
 })
