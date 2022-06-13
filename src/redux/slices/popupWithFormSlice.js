@@ -11,7 +11,7 @@ export const popupWithFormSlice = createSlice({
     reducers: {
         openBuyPopup(state, action) {
             state.isOpen = true
-            state.name = action.payload;
+            state.name = action.payload.name;
         },
         closeAllPopups(state) {
           state.isOpen = false;
