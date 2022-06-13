@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {loadDataForPopup, resetActiveCategory} from "../../redux/slices/buyPopupSlice";
+import {fetchItemId, resetActiveCategory} from "../../redux/slices/buyPopupSlice";
 import {openBuyPopup} from "../../redux/slices/popupWithFormSlice";
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import {styled} from "@mui/material/styles";
@@ -27,29 +27,9 @@ function Index(props) {
         размер: ${filterItem && filterItem.size}, 
         ${filterItem && filterItem.count}шт. `
 
-    const item = () => {
-        return(
-            <ul>
-                <li>asd</li>
-            </ul>
-        )
-    }
-
-
     function handleBuyPopup() {
         dispatch(resetActiveCategory())
-        dispatch(loadDataForPopup(
-                {
-                    id: props.id,
-                    title: props.title,
-                    description: props.description,
-                    imageUrl: props.image,
-                    rating: props.rating,
-                    price: props.price,
-                    property: props.property
-                }
-            )
-        )
+        dispatch(fetchItemId(props.id))
         dispatch(openBuyPopup({name: 'buy-popup'}))
     }
 
@@ -67,12 +47,13 @@ function Index(props) {
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">от {props.price} &lambda;</div>
                 {
+
                     <LightTooltip title={titleTooltip} placement="top">
-                        <button className={`button button--outline button--add`}
-                                onClick={(evt) => handleBuyPopup(evt)}>
-                            <span>Заказать</span>
-                            { filterItem && <i>{filterItem.count}</i> }
-                        </button>
+                            <button className={`button button--outline button--add`}
+                                    onClick={(evt) => handleBuyPopup(evt)}>
+                                <span>Заказать</span>
+                                { filterItem && <i>{filterItem.count}</i> }
+                            </button>
                     </LightTooltip>
                 }
             </div>
