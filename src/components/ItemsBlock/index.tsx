@@ -4,12 +4,21 @@ import {openBuyPopup} from "../../redux/slices/popupWithFormSlice";
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import {styled} from "@mui/material/styles";
 import {selectCartItems} from "../../redux/slices/cartSlice";
+import React from "react";
 
-function Index(props) {
+type indexProps = {
+    id: string;
+    image: string;
+    title: string;
+    description: string;
+    price: number;
+}
+
+const Index: React.FC<indexProps> = ({id, image, title, description, price}) => {
 
     const dispatch = useDispatch()
     const cartItems = useSelector(selectCartItems)
-    const filterItem = cartItems.find((item) => item.id === props.id)
+    const filterItem = cartItems.find((item) => item.id === id)
 
     const LightTooltip = styled(({ className, ...props }) => (
         <Tooltip {...props} classes={{ popper: className }} />
@@ -29,7 +38,7 @@ function Index(props) {
 
     function handleBuyPopup() {
         dispatch(resetActiveCategory())
-        dispatch(fetchItemId(props.id))
+        dispatch(fetchItemId(id))
         dispatch(openBuyPopup({name: 'buy-popup'}))
     }
 
@@ -37,17 +46,16 @@ function Index(props) {
         <div className="pizza-block">
             <img
                 className="pizza-block__image"
-                src={props.image}
+                src={image}
                 alt="Pizza"
             />
-            <h4 className="pizza-block__title">{props.title}</h4>
+            <h4 className="pizza-block__title">{title}</h4>
             <p className="pizza-block__description">
-                {props.description}
+                {description}
             </p>
             <div className="pizza-block__bottom">
-                <div className="pizza-block__price">от {props.price} &lambda;</div>
+                <div className="pizza-block__price">от {price} &lambda;</div>
                 {
-
                     <LightTooltip title={titleTooltip} placement="top">
                             <button className={`button button--outline button--add`}
                                     onClick={(evt) => handleBuyPopup(evt)}>

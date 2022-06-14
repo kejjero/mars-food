@@ -9,10 +9,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectFilter, selectSearchValue, setCurrentPage, setFilters} from "../redux/slices/filterSlice";
 import {fetchItems, selectItems} from "../redux/slices/itemSlice";
 import {useNavigate} from "react-router";
-import {useEffect, useRef} from "react";
+import React, {useEffect, useRef} from "react";
 import qs from "qs";
 
-function Home() {
+const Home: React.FC = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const isSearch = useRef(false);
@@ -70,7 +70,7 @@ function Home() {
         )
     }
     const skeleton = [...new Array(4)].map((_, i) => <Skeleton key={i}/>)
-    const items = itemsData.filter(obj => {
+    const items = itemsData.filter((obj: object) => {
         return obj.title.toLowerCase().includes(searchValue.toLowerCase())
     }).map((item) => {
         return (
@@ -116,7 +116,6 @@ function Home() {
                 pageRangeDisplayed={4}
                 pageCount={3}
                 previousLabel="←"
-                renderOnZeroPageCount={null}
             />
         </>
     )
