@@ -1,6 +1,7 @@
 import image from "../images/error404.svg"
+import React from "react";
 
-function NotFound () {
+const NotFound: React.FC = () => {
     return(
         <div className="noteFound">
             <img className="noteFound__image" src={image} alt=""/>

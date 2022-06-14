@@ -26,7 +26,9 @@
 
   &__image {
     width: 200px;
+    height: 150px;
     margin-bottom: 10px;
+    object-fit: contain;
   }
 
   &__title {

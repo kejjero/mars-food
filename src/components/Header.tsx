@@ -1,23 +1,23 @@
 import logo from '../images/logo.svg'
 import {Link} from "react-router-dom";
 import styles from "../scss/modules/header.module.scss"
-import {useRef} from "react";
+import React, {useRef} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {cartSelector} from "../redux/slices/cartSlice";
 import {selectFilter, setSearchValue} from "../redux/slices/filterSlice";
 import {useLocation} from "react-router";
 
 
-function Header() {
+const Header: React.FC = () => {
     const { cartCount, cartPrice } = useSelector(cartSelector)
     const { searchValue } = useSelector(selectFilter)
     const {pathname} = useLocation();
-    const inputRef = useRef();
+    const inputRef = useRef<HTMLInputElement>(null);
     const dispatch = useDispatch();
 
     function onClickClear () {
         dispatch(setSearchValue(''))
-        inputRef.current.focus();
+        inputRef.current?.focus();
     }
 
     return (

@@ -4,12 +4,12 @@ import {selectBuyPopup, selectBuyPopupData, setCountSizePrice, setCountTypePrice
 import {addItemForCart} from "../redux/slices/cartSlice";
 import {useEffect} from "react";
 
-function BuyPopup() {
+const BuyPopup = () => {
     const dispatch = useDispatch();
     const {data, type, size, activeType, activeSize, totalPrice} = useSelector(selectBuyPopup)
     const {property, id, title, imageUrl, } = useSelector(selectBuyPopupData)
 
-    function handleActiveType(typeId, obj) {
+    const handleActiveType = (typeId:number, obj: any) => {
         dispatch(setCountTypePrice({
             id: typeId,
             price: obj.customPrice,
@@ -17,7 +17,7 @@ function BuyPopup() {
         }))
     }
 
-    function handleActiveSize(sizeId, obj) {
+    const handleActiveSize = (sizeId:number, obj: any) => {
         dispatch(setCountSizePrice({
             id: sizeId,
             price: obj.sizePrice,
@@ -25,7 +25,7 @@ function BuyPopup() {
         }))
     }
 
-    function handleItemsForCard(evt) {
+    const handleItemsForCard = (evt: any) => {
         evt.preventDefault()
         dispatch(addItemForCart({
             id,
@@ -55,7 +55,7 @@ function BuyPopup() {
                             <ul className="buy-popup__category">
                                 {
                                     property  &&
-                                    property.custom.map((obj, typeId) => {
+                                    property.custom.map((typeId:number, obj: any) => {
                                         return (
                                             <li
                                                 key={typeId}
@@ -69,7 +69,7 @@ function BuyPopup() {
                             <ul className="buy-popup__category">
                                 {
                                     property  &&
-                                    property.size.map((obj, sizeId) => {
+                                    property.size.map((sizeId:number, obj: any) => {
                                         return (
                                             <li
                                                 key={sizeId}

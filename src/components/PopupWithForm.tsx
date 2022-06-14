@@ -1,7 +1,12 @@
 import {useDispatch, useSelector} from "react-redux";
 import {closeAllPopups, selectPopupWithForm} from "../redux/slices/popupWithFormSlice";
+import React from "react";
 
-function PopupWithForm({children, onSubmit}) {
+type FormProps = {
+    children: any;
+}
+
+const PopupWithForm: React.FC<FormProps> = ({children}) => {
     const dispatch = useDispatch();
     const {name, isOpen} = useSelector(selectPopupWithForm)
     return (
@@ -18,7 +23,6 @@ function PopupWithForm({children, onSubmit}) {
                     className={"popup__form"}
                     method={"post"}
                     name={name}
-                    onSubmit={onSubmit}
                 >{children}
                 </form>
             </div>

@@ -9,7 +9,7 @@ import Cart from "../pages/cart/Cart";
 import backgroundSpace from "../images/background_space.svg"
 import React from "react";
 
-const App = () => {
+const App: React.FC = () => {
     return (
         <>
             <div className="wrapper">
@@ -18,7 +18,7 @@ const App = () => {
                 <main className="content">
                     <div className="container">
                         <Routes>
-                            <Route exact path="/" element={<Home/>}/>
+                            <Route path="/" element={<Home/>}/>
                             <Route path="/cart" element={<Cart/>}/>
                             <Route path="*" element={<NotFound/>}/>
                         </Routes>
