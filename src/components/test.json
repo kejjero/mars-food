@@ -3,19 +3,34 @@
     "id": 0,
     "title": "Азари",
     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
-    "imageUrl": "https://i.ibb.co/1vmFwkR/burger-one.png",
+    "imageUrl": "https://svgshare.com/i/iGK.svg",
     "category": 1,
     "rating": 5,
     "price": 230,
     "property": {
       "custom": [
-        { "nameCustom": "Классический", "customPrice": 0},
-        { "nameCustom": "Острый", "customPrice": 15}
+        {
+          "nameCustom": "Классический",
+          "customPrice": 0
+        },
+        {
+          "nameCustom": "Острый",
+          "customPrice": 15
+        }
       ],
       "size": [
-        { "nameSize": "M", "sizePrice": 0},
-        { "nameSize": "L", "sizePrice": 30},
-        { "nameSize": "XL", "sizePrice": 70}
+        {
+          "nameSize": "M",
+          "sizePrice": 0
+        },
+        {
+          "nameSize": "L",
+          "sizePrice": 30
+        },
+        {
+          "nameSize": "XL",
+          "sizePrice": 70
+        }
       ]
     }
   },
@@ -25,17 +40,32 @@
     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
     "imageUrl": "https://i.ibb.co/MV7pSHN/burger-two.png",
     "category": 1,
-    "rating": 9,
+    "rating": 8,
     "price": 120,
     "property": {
       "custom": [
-        { "nameCustom": "Классический", "customPrice": 0},
-        { "nameCustom": "Острый", "customPrice": 15}
+        {
+          "nameCustom": "Классический",
+          "customPrice": 0
+        },
+        {
+          "nameCustom": "Острый",
+          "customPrice": 15
+        }
       ],
       "size": [
-        { "nameSize": "M", "sizePrice": 0},
-        { "nameSize": "L", "sizePrice": 30},
-        { "nameSize": "XL", "sizePrice": 70}
+        {
+          "nameSize": "M",
+          "sizePrice": 0
+        },
+        {
+          "nameSize": "L",
+          "sizePrice": 30
+        },
+        {
+          "nameSize": "XL",
+          "sizePrice": 70
+        }
       ]
     }
   },
@@ -43,19 +73,34 @@
     "id": 2,
     "title": "Жгучий аннунак",
     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
-    "imageUrl": "https://i.ibb.co/VD2TPmw/burger-three.png",
+    "imageUrl": "https://svgshare.com/i/iGK.svg",
     "category": 1,
     "rating": 10,
     "price": 155,
     "property": {
       "custom": [
-        { "nameCustom": "Классический", "customPrice": 0},
-        { "nameCustom": "Острый", "customPrice": 15}
+        {
+          "nameCustom": "Классический",
+          "customPrice": 0
+        },
+        {
+          "nameCustom": "Острый",
+          "customPrice": 15
+        }
       ],
       "size": [
-        { "nameSize": "M", "sizePrice": 0},
-        { "nameSize": "L", "sizePrice": 30},
-        { "nameSize": "XL", "sizePrice": 70}
+        {
+          "nameSize": "M",
+          "sizePrice": 0
+        },
+        {
+          "nameSize": "L",
+          "sizePrice": 30
+        },
+        {
+          "nameSize": "XL",
+          "sizePrice": 70
+        }
       ]
     }
   },
@@ -69,13 +114,28 @@
     "price": 170,
     "property": {
       "custom": [
-        { "nameCustom": "Классический", "customPrice": 0},
-        { "nameCustom": "Острый", "customPrice": 15}
+        {
+          "nameCustom": "Классический",
+          "customPrice": 0
+        },
+        {
+          "nameCustom": "Острый",
+          "customPrice": 15
+        }
       ],
       "size": [
-        { "nameSize": "M", "sizePrice": 0},
-        { "nameSize": "L", "sizePrice": 30},
-        { "nameSize": "XL", "sizePrice": 70}
+        {
+          "nameSize": "M",
+          "sizePrice": 0
+        },
+        {
+          "nameSize": "L",
+          "sizePrice": 30
+        },
+        {
+          "nameSize": "XL",
+          "sizePrice": 70
+        }
       ]
     }
   },
@@ -89,13 +149,28 @@
     "price": 110,
     "property": {
       "custom": [
-        { "nameCustom": "Классический", "customPrice": 0},
-        { "nameCustom": "Острый", "customPrice": 15}
+        {
+          "nameCustom": "Классический",
+          "customPrice": 0
+        },
+        {
+          "nameCustom": "Острый",
+          "customPrice": 15
+        }
       ],
       "size": [
-        { "nameSize": "M", "sizePrice": 0},
-        { "nameSize": "L", "sizePrice": 30},
-        { "nameSize": "XL", "sizePrice": 70}
+        {
+          "nameSize": "M",
+          "sizePrice": 0
+        },
+        {
+          "nameSize": "L",
+          "sizePrice": 30
+        },
+        {
+          "nameSize": "XL",
+          "sizePrice": 70
+        }
       ]
     }
   },
@@ -109,13 +184,28 @@
     "price": 180,
     "property": {
       "custom": [
-        { "nameCustom": "Классический", "customPrice": 0},
-        { "nameCustom": "Острый", "customPrice": 15}
+        {
+          "nameCustom": "Классический",
+          "customPrice": 0
+        },
+        {
+          "nameCustom": "Острый",
+          "customPrice": 15
+        }
       ],
       "size": [
-        { "nameSize": "M", "sizePrice": 0},
-        { "nameSize": "L", "sizePrice": 30},
-        { "nameSize": "XL", "sizePrice": 70}
+        {
+          "nameSize": "M",
+          "sizePrice": 0
+        },
+        {
+          "nameSize": "L",
+          "sizePrice": 30
+        },
+        {
+          "nameSize": "XL",
+          "sizePrice": 70
+        }
       ]
     }
   },
@@ -129,13 +219,28 @@
     "price": 115,
     "property": {
       "custom": [
-        { "nameCustom": "Классический", "customPrice": 0},
-        { "nameCustom": "Острый", "customPrice": 15}
+        {
+          "nameCustom": "Классический",
+          "customPrice": 0
+        },
+        {
+          "nameCustom": "Острый",
+          "customPrice": 15
+        }
       ],
       "size": [
-        { "nameSize": "M", "sizePrice": 0},
-        { "nameSize": "L", "sizePrice": 30},
-        { "nameSize": "XL", "sizePrice": 70}
+        {
+          "nameSize": "M",
+          "sizePrice": 0
+        },
+        {
+          "nameSize": "L",
+          "sizePrice": 30
+        },
+        {
+          "nameSize": "XL",
+          "sizePrice": 70
+        }
       ]
     }
   },
@@ -149,13 +254,28 @@
     "price": 120,
     "property": {
       "custom": [
-        { "nameCustom": "Классический", "customPrice": 0},
-        { "nameCustom": "Острый", "customPrice": 15}
+        {
+          "nameCustom": "Классический",
+          "customPrice": 0
+        },
+        {
+          "nameCustom": "Острый",
+          "customPrice": 15
+        }
       ],
       "size": [
-        { "nameSize": "M", "sizePrice": 0},
-        { "nameSize": "L", "sizePrice": 30},
-        { "nameSize": "XL", "sizePrice": 70}
+        {
+          "nameSize": "M",
+          "sizePrice": 0
+        },
+        {
+          "nameSize": "L",
+          "sizePrice": 30
+        },
+        {
+          "nameSize": "XL",
+          "sizePrice": 70
+        }
       ]
     }
   },
@@ -169,33 +289,63 @@
     "price": 120,
     "property": {
       "custom": [
-        { "nameCustom": "Классический", "customPrice": 0},
-        { "nameCustom": "Острый", "customPrice": 15}
+        {
+          "nameCustom": "Классический",
+          "customPrice": 0
+        },
+        {
+          "nameCustom": "Острый",
+          "customPrice": 15
+        }
       ],
       "size": [
-        { "nameSize": "M", "sizePrice": 0},
-        { "nameSize": "L", "sizePrice": 30},
-        { "nameSize": "XL", "sizePrice": 70}
+        {
+          "nameSize": "M",
+          "sizePrice": 0
+        },
+        {
+          "nameSize": "L",
+          "sizePrice": 30
+        },
+        {
+          "nameSize": "XL",
+          "sizePrice": 70
+        }
       ]
     }
   },
   {
     "id": 9,
-    "title": "Хватит жрать -_-",
+    "title": "Я пицца",
     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
-    "imageUrl": "https://i.ibb.co/VD2TPmw/burger-three.png",
+    "imageUrl": "https://i.ibb.co/1QSjwMy/1-2x.png",
     "category": 2,
-    "rating": 8,
+    "rating": 9,
     "price": 120,
     "property": {
       "custom": [
-        { "nameCustom": "Классический", "customPrice": 0},
-        { "nameCustom": "Острый", "customPrice": 15}
+        {
+          "nameCustom": "Классический",
+          "customPrice": 0
+        },
+        {
+          "nameCustom": "Острый",
+          "customPrice": 15
+        }
       ],
       "size": [
-        { "nameSize": "M", "sizePrice": 0},
-        { "nameSize": "L", "sizePrice": 30},
-        { "nameSize": "XL", "sizePrice": 70}
+        {
+          "nameSize": "M",
+          "sizePrice": 0
+        },
+        {
+          "nameSize": "L",
+          "sizePrice": 30
+        },
+        {
+          "nameSize": "XL",
+          "sizePrice": 70
+        }
       ]
     }
   }
