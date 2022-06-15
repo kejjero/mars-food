@@ -3,8 +3,8 @@ import axios from "axios";
 
 const initialState = {
     totalPrice: 0,
-    countTypePrice: 0,
-    countSizePrice: 0,
+    countTypeValue: 0,
+    countSizeValue: 0,
     activeType: 0,
     activeSize: 0,
     data: {},
@@ -25,15 +25,15 @@ export const buyPopupSlice = createSlice({
         },
         setCountTypePrice(state, action) {
             state.activeType = action.payload.id;
-            state.countTypePrice = action.payload.price;
+            state.countTypeValue = action.payload.value;
             state.type = action.payload.name;
-            state.totalPrice = state.countTypePrice + state.countSizePrice + state.data.price
+            state.totalPrice = state.countTypeValue + state.countSizeValue + state.data.price
         },
         setCountSizePrice(state, action) {
             state.activeSize = action.payload.id;
-            state.countSizePrice = action.payload.price;
+            state.countSizeValue = action.payload.value;
             state.size = action.payload.name;
-            state.totalPrice = state.countTypePrice + state.countSizePrice + state.data.price
+            state.totalPrice = state.countTypeValue + state.countSizeValue + state.data.price
         }
     },
     extraReducers: {
