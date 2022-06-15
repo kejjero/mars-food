@@ -10,26 +10,26 @@
     "property": {
       "custom": [
         {
-          "nameCustom": "Классический",
-          "customPrice": 0
+          "name": "Классический",
+          "value": 0
         },
         {
-          "nameCustom": "Острый",
-          "customPrice": 15
+          "name": "Острый",
+          "value": 15
         }
       ],
       "size": [
         {
-          "nameSize": "M",
-          "sizePrice": 0
+          "name": "M",
+          "value": 0
         },
         {
-          "nameSize": "L",
-          "sizePrice": 30
+          "name": "L",
+          "value": 30
         },
         {
-          "nameSize": "XL",
-          "sizePrice": 70
+          "name": "XL",
+          "value": 70
         }
       ]
     }
@@ -45,26 +45,26 @@
     "property": {
       "custom": [
         {
-          "nameCustom": "Классический",
-          "customPrice": 0
+          "name": "Классический",
+          "value": 0
         },
         {
-          "nameCustom": "Острый",
-          "customPrice": 15
+          "name": "Острый",
+          "value": 15
         }
       ],
       "size": [
         {
-          "nameSize": "M",
-          "sizePrice": 0
+          "name": "M",
+          "value": 0
         },
         {
-          "nameSize": "L",
-          "sizePrice": 30
+          "name": "L",
+          "value": 30
         },
         {
-          "nameSize": "XL",
-          "sizePrice": 70
+          "name": "XL",
+          "value": 70
         }
       ]
     }
@@ -80,26 +80,26 @@
     "property": {
       "custom": [
         {
-          "nameCustom": "Классический",
-          "customPrice": 0
+          "name": "Классический",
+          "value": 0
         },
         {
-          "nameCustom": "Острый",
-          "customPrice": 15
+          "name": "Острый",
+          "value": 15
         }
       ],
       "size": [
         {
-          "nameSize": "M",
-          "sizePrice": 0
+          "name": "M",
+          "value": 0
         },
         {
-          "nameSize": "L",
-          "sizePrice": 30
+          "name": "L",
+          "value": 30
         },
         {
-          "nameSize": "XL",
-          "sizePrice": 70
+          "name": "XL",
+          "value": 70
         }
       ]
     }
@@ -115,26 +115,26 @@
     "property": {
       "custom": [
         {
-          "nameCustom": "Классический",
-          "customPrice": 0
+          "name": "Классический",
+          "value": 0
         },
         {
-          "nameCustom": "Острый",
-          "customPrice": 15
+          "name": "Острый",
+          "value": 15
         }
       ],
       "size": [
         {
-          "nameSize": "M",
-          "sizePrice": 0
+          "name": "M",
+          "value": 0
         },
         {
-          "nameSize": "L",
-          "sizePrice": 30
+          "name": "L",
+          "value": 30
         },
         {
-          "nameSize": "XL",
-          "sizePrice": 70
+          "name": "XL",
+          "value": 70
         }
       ]
     }
@@ -150,26 +150,26 @@
     "property": {
       "custom": [
         {
-          "nameCustom": "Классический",
-          "customPrice": 0
+          "name": "Классический",
+          "value": 0
         },
         {
-          "nameCustom": "Острый",
-          "customPrice": 15
+          "name": "Острый",
+          "value": 15
         }
       ],
       "size": [
         {
-          "nameSize": "M",
-          "sizePrice": 0
+          "name": "M",
+          "value": 0
         },
         {
-          "nameSize": "L",
-          "sizePrice": 30
+          "name": "L",
+          "value": 30
         },
         {
-          "nameSize": "XL",
-          "sizePrice": 70
+          "name": "XL",
+          "value": 70
         }
       ]
     }
@@ -185,26 +185,26 @@
     "property": {
       "custom": [
         {
-          "nameCustom": "Классический",
-          "customPrice": 0
+          "name": "Классический",
+          "value": 0
         },
         {
-          "nameCustom": "Острый",
-          "customPrice": 15
+          "name": "Острый",
+          "value": 15
         }
       ],
       "size": [
         {
-          "nameSize": "M",
-          "sizePrice": 0
+          "name": "M",
+          "value": 0
         },
         {
-          "nameSize": "L",
-          "sizePrice": 30
+          "name": "L",
+          "value": 30
         },
         {
-          "nameSize": "XL",
-          "sizePrice": 70
+          "name": "XL",
+          "value": 70
         }
       ]
     }
@@ -220,26 +220,26 @@
     "property": {
       "custom": [
         {
-          "nameCustom": "Классический",
-          "customPrice": 0
+          "name": "Классический",
+          "value": 0
         },
         {
-          "nameCustom": "Острый",
-          "customPrice": 15
+          "name": "Острый",
+          "value": 15
         }
       ],
       "size": [
         {
-          "nameSize": "M",
-          "sizePrice": 0
+          "name": "M",
+          "value": 0
         },
         {
-          "nameSize": "L",
-          "sizePrice": 30
+          "name": "L",
+          "value": 30
         },
         {
-          "nameSize": "XL",
-          "sizePrice": 70
+          "name": "XL",
+          "value": 70
         }
       ]
     }
@@ -255,26 +255,26 @@
     "property": {
       "custom": [
         {
-          "nameCustom": "Классический",
-          "customPrice": 0
+          "name": "Классический",
+          "value": 0
         },
         {
-          "nameCustom": "Острый",
-          "customPrice": 15
+          "name": "Острый",
+          "value": 15
         }
       ],
       "size": [
         {
-          "nameSize": "M",
-          "sizePrice": 0
+          "name": "M",
+          "value": 0
         },
         {
-          "nameSize": "L",
-          "sizePrice": 30
+          "name": "L",
+          "value": 30
         },
         {
-          "nameSize": "XL",
-          "sizePrice": 70
+          "name": "XL",
+          "value": 70
         }
       ]
     }
@@ -290,26 +290,26 @@
     "property": {
       "custom": [
         {
-          "nameCustom": "Классический",
-          "customPrice": 0
+          "name": "Классический",
+          "value": 0
         },
         {
-          "nameCustom": "Острый",
-          "customPrice": 15
+          "name": "Острый",
+          "value": 15
         }
       ],
       "size": [
         {
-          "nameSize": "M",
-          "sizePrice": 0
+          "name": "M",
+          "value": 0
         },
         {
-          "nameSize": "L",
-          "sizePrice": 30
+          "name": "L",
+          "value": 30
         },
         {
-          "nameSize": "XL",
-          "sizePrice": 70
+          "name": "XL",
+          "value": 70
         }
       ]
     }
@@ -325,26 +325,26 @@
     "property": {
       "custom": [
         {
-          "nameCustom": "Классический",
-          "customPrice": 0
+          "name": "Классический",
+          "value": 0
         },
         {
-          "nameCustom": "Острый",
-          "customPrice": 15
+          "name": "Острый",
+          "value": 15
         }
       ],
       "size": [
         {
-          "nameSize": "M",
-          "sizePrice": 0
+          "name": "M",
+          "value": 0
         },
         {
-          "nameSize": "L",
-          "sizePrice": 30
+          "name": "L",
+          "value": 30
         },
         {
-          "nameSize": "XL",
-          "sizePrice": 70
+          "name": "XL",
+          "value": 70
         }
       ]
     }
