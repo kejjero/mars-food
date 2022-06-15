@@ -6,7 +6,7 @@ import {styled} from "@mui/material/styles";
 import {selectCartItems} from "../../redux/slices/cartSlice";
 import React from "react";
 
-type indexProps = {
+type IndexProps = {
     id: string;
     image: string;
     title: string;
@@ -14,8 +14,8 @@ type indexProps = {
     price: number;
 }
 
-const Index: React.FC<indexProps> = ({id, image, title, description, price}) => {
 
+const Index: React.FC<IndexProps> = ({id, image, title, description, price}) => {
     const dispatch = useDispatch()
     const cartItems = useSelector(selectCartItems)
     const filterItem = cartItems.find((item) => item.id === id)
@@ -31,12 +31,12 @@ const Index: React.FC<indexProps> = ({id, image, title, description, price}) => 
         },
     }));
 
-    const titleTooltip =
+    const titleTooltip: string =
         `${filterItem && filterItem.type}, 
         размер: ${filterItem && filterItem.size}, 
         ${filterItem && filterItem.count}шт. `
 
-    function handleBuyPopup() {
+    const handleBuyPopup = (): void => {
         dispatch(resetActiveCategory())
         dispatch(fetchItemId(id))
         dispatch(openBuyPopup({name: 'buy-popup'}))
@@ -58,7 +58,7 @@ const Index: React.FC<indexProps> = ({id, image, title, description, price}) => 
                 {
                     <LightTooltip title={titleTooltip} placement="top">
                             <button className={`button button--outline button--add`}
-                                    onClick={(evt) => handleBuyPopup(evt)}>
+                                    onClick={() => handleBuyPopup()}>
                                 <span>Заказать</span>
                                 { filterItem && <i>{filterItem.count}</i> }
                             </button>

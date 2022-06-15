@@ -3,7 +3,7 @@ import {closeAllPopups, selectPopupWithForm} from "../redux/slices/popupWithForm
 import React from "react";
 
 type FormProps = {
-    children: any;
+    children: JSX.Element|JSX.Element[]
 }
 
 const PopupWithForm: React.FC<FormProps> = ({children}) => {

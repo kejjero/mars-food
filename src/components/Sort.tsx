@@ -2,11 +2,15 @@ import React, {useEffect, useRef, useState} from "react";
 import {setSort} from "../redux/slices/filterSlice";
 import {useDispatch, useSelector} from "react-redux";
 
-type SortItem = {
+interface SortItem {
     name: string;
     sortProperty: string;
     sortType: string;
 }
+
+type PopupClick = MouseEvent & {
+    path: Node[];
+};
 
 const sortList: SortItem[] = [
     {name: 'cначала популярные', sortProperty: 'rating', sortType: 'desc'},
@@ -22,12 +26,8 @@ const Sort: React.FC = () => {
     const sortName = sortList[sort.sortId].name
     const sortRef = useRef<HTMLDivElement>(null);
 
-    type PopupClick = MouseEvent & {
-        path: Node[];
-    };
-
     useEffect(() => {
-        const handleClickOutside = (evt: MouseEvent) => {
+        const handleClickOutside = (evt: MouseEvent): void => {
             const _event = evt as PopupClick
             if (sortRef.current && !_event.path.includes(sortRef.current)) {
                 setIsOpen(false)
@@ -37,7 +37,7 @@ const Sort: React.FC = () => {
         return () => document.body.removeEventListener('click', handleClickOutside)
     }, [])
 
-    function handleSelectSort(index: number, obj: object) {
+    const handleSelectSort = (index: number, obj: SortItem): void => {
         setIsOpen(!isOpen)
         const objSort = {sortId: index, property: obj.sortProperty, type: obj.sortType}
         dispatch(setSort(objSort))
@@ -65,7 +65,7 @@ const Sort: React.FC = () => {
                 <div className="sort__popup">
                     <ul>
                         {
-                            sortList.map((obj: object, index: number) =>  (
+                            sortList.map((obj: SortItem, index: number) =>  (
                                 <li
                                     key={index}
                                     onClick={() => handleSelectSort(index, obj)}

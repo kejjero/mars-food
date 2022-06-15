@@ -26,13 +26,13 @@ const Categories: React.FC = () => {
     const itemsCategory = useSelector(selectItemsCategory)
     const dispatch = useDispatch()
 
-    function onClickCategory(index: number) {
+    const onClickCategory = (index: number): void => {
         dispatch(setCategoryId(index))
         mathItems(index)
     }
 
-    function mathItems(index: number) {
-        const indexCategory = index !== 0 ? index : ''
+    const mathItems = (index: number): void => {
+        const indexCategory: number | string = index !== 0 ? index : ''
         dispatch(fetchCategoryItems(indexCategory))
         const mathPages = Math.ceil(itemsCategory.length / 4)
         dispatch(setPageCount(mathPages))
