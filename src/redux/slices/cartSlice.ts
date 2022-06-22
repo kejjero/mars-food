@@ -1,4 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit"
+import {RootState} from "../store";
+
+type CartItem = {
+    id: string;
+    title: string;
+    price: number;
+    imageUrl: string;
+    type: string;
+    size: number;
+    count: number;
+};
+
+interface CartSliceState {
+    totalPrice: number;
+    items: CartItem[];
+}
 
 const initialState = {
     cartCount: 0,
@@ -6,14 +22,15 @@ const initialState = {
     cartItems: [],
 }
 
-export const cartSlice = createSlice({
+const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
         addItemForCart(state, action) {
             state.cartCount++
             state.cartPrice += action.payload.price
-            const findItem = state.cartItems.find((obj) => {
+
+            const findItem: CartSliceState = state.cartItems.find((obj) => {
                 return (
                     obj.id === action.payload.id &&
                     obj.type === action.payload.type &&
@@ -63,9 +80,8 @@ export const cartSlice = createSlice({
     }
 })
 
-
-export const cartSelector = (state) => state.cartReducer
 export const { addItemForCart, clearCart, minusCartItem, deleteCartItem } = cartSlice.actions;
-export const selectCartItems = (state) => state.cartReducer.cartItems
-export const selectCart = (state) => state.cartReducer
+export const cartSelector = (state: RootState) => state.cartReducer
+export const selectCartItems = (state: RootState) => state.cartReducer.cartItems
+export const selectCart = (state: RootState) => state.cartReducer
 export default cartSlice.reducer;

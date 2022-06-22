@@ -40,7 +40,7 @@
     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
     "imageUrl": "https://i.ibb.co/MV7pSHN/burger-two.png",
     "category": 1,
-    "rating": 8,
+    "rating": 7,
     "price": 120,
     "property": {
       "custom": [
@@ -73,7 +73,7 @@
     "id": 2,
     "title": "Жгучий аннунак",
     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
-    "imageUrl": "https://svgshare.com/i/iGK.svg",
+    "imageUrl": "https://i.ibb.co/RygM3yC/2-2x.png",
     "category": 1,
     "rating": 10,
     "price": 155,
@@ -106,11 +106,11 @@
   },
   {
     "id": 3,
-    "title": "Марсбургер",
+    "title": "я мороженка",
     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
-    "imageUrl": "https://i.ibb.co/VtwV9Rg/five.png",
+    "imageUrl": "https://i.ibb.co/cv4W0VZ/1-1-2x.png",
     "category": 3,
-    "rating": 6,
+    "rating": 8,
     "price": 170,
     "property": {
       "custom": [
@@ -318,7 +318,7 @@
     "id": 9,
     "title": "Я пицца",
     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
-    "imageUrl": "https://i.ibb.co/1QSjwMy/1-2x.png",
+    "imageUrl": "https://i.ibb.co/5jXvK67/1-2x.png",
     "category": 2,
     "rating": 9,
     "price": 120,

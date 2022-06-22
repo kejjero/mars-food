@@ -9,11 +9,10 @@ type Params = {
     value: number;
 }
 
-
 const BuyPopup: React.FC = () => {
     const dispatch = useDispatch();
     const {data, type, size, activeType, activeSize, totalPrice} = useSelector(selectBuyPopup)
-    const {property, id, title, imageUrl,} = useSelector(selectBuyPopupData)
+    const {property, id, title, imageUrl} = useSelector(selectBuyPopupData)
 
     const handleActiveType = (id: number, params: Params): void => {
         dispatch(setCountTypePrice({
@@ -51,8 +50,8 @@ const BuyPopup: React.FC = () => {
         <PopupWithForm>
             <div className="buy-popup">
                 <div className="buy-popup__preview">
-                    <img className="buy-popup__rating" src=""/>
-                    <img className="buy-popup__image-preview" src={data.imageUrl}/>
+                    <img className="buy-popup__rating" src="" alt="image"/>
+                    <img className="buy-popup__image-preview" src={data.imageUrl} alt="image"/>
                 </div>
                 <div className="buy-popup__wrapper">
                     <h2 className="buy-popup__title">{data.title}</h2>

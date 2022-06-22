@@ -1,13 +1,51 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit"
+import {RootState} from "../store";
 import axios from "axios";
 
-const initialState = {
+interface dataType {
+    id: number,
+    title: string,
+    price: number,
+    imageUrl: string,
+    description: string,
+    property: propertyType
+}
+
+type propertyType = {
+    custom: [];
+    size: [];
+}
+
+interface buyPopupTypes {
+    totalPrice: number;
+    countTypeValue: number;
+    countSizeValue: number;
+    activeType: number;
+    activeSize: number;
+    type: string;
+    size: string;
+    data: dataType;
+}
+
+const initialState: buyPopupTypes = {
     totalPrice: 0,
     countTypeValue: 0,
     countSizeValue: 0,
     activeType: 0,
     activeSize: 0,
-    data: {},
+    type: '',
+    size: '',
+    data: {
+        property: {
+            custom: [],
+            size: [],
+        },
+        id: 0,
+        title: '',
+        price: 0,
+        description: '',
+        imageUrl: '',
+    },
 }
 
 export const fetchItemId = createAsyncThunk('itemId/fetchItemId', async (id) => {
@@ -36,31 +74,15 @@ export const buyPopupSlice = createSlice({
             state.totalPrice = state.countTypeValue + state.countSizeValue + state.data.price
         }
     },
-    extraReducers: {
-        [fetchItemId.pending]: (state) => {
-            state.data = {};
-            state.statusItems = 'loading';
-        },
-        [fetchItemId.fulfilled]: (state, action) => {
-            state.data = action.payload;
-            state.statusItems = 'success';
-            state.totalPrice = action.payload.price
-        },
-        [fetchItemId.rejected]: (state) => {
-            state.data = {};
-            state.statusItems = 'error'
-        }
-    }
 })
 
 export const {
-    loadDataForPopup,
     resetActiveCategory,
     setCountTypePrice,
     setCountSizePrice
 } = buyPopupSlice.actions;
 
-export const selectBuyPopupData = (state) => state.buyPopupReducer.data;
-export const selectBuyPopup = state => state.buyPopupReducer;
+export const selectBuyPopupData = (state: RootState) => state.buyPopupReducer.data;
+export const selectBuyPopup = (state: RootState) => state.buyPopupReducer;
 
 export default buyPopupSlice.reducer;

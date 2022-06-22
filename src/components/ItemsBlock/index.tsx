@@ -14,11 +14,18 @@ type IndexProps = {
     price: number;
 }
 
+type filterItemTypes = {
+    type: string;
+    size: string;
+    count: number;
+}
+
 
 const Index: React.FC<IndexProps> = ({id, image, title, description, price}) => {
     const dispatch = useDispatch()
     const cartItems = useSelector(selectCartItems)
-    const filterItem = cartItems.find((item) => item.id === id)
+    const filterItem: filterItemTypes = cartItems.find((item: IndexProps) => item.id === id)
+
 
     const LightTooltip = styled(({ className, ...props }) => (
         <Tooltip {...props} classes={{ popper: className }} />
