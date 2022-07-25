@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/mars-food/static/css/main.76e7110d.css",
-    "main.js": "/mars-food/static/js/main.086f51f4.js",
+    "main.css": "/mars-food/static/css/main.cf07c0e2.css",
+    "main.js": "/mars-food/static/js/main.c8c73a99.js",
     "static/media/error404.svg": "/mars-food/static/media/error404.555bb4053df97b3b96eac32a6e1ce7eb.svg",
     "static/media/logo.svg": "/mars-food/static/media/logo.c8b732d549a2b7a6e12ce75f54f6a01c.svg",
     "static/media/icon-fork.png": "/mars-food/static/media/icon-fork.9834fca07dbb4853599f.png",
     "static/media/spaceEmpty.svg": "/mars-food/static/media/spaceEmpty.93a917e93ff892cfe2f6e29a41ff5c09.svg",
     "static/media/background_space.svg": "/mars-food/static/media/background_space.3adde1e9187261e2ea7845fbc40798fe.svg",
+    "static/media/background_space-mobile.svg": "/mars-food/static/media/background_space-mobile.14637bde7eb62f78ecd399d55751c400.svg",
     "static/media/ufo_menu.svg": "/mars-food/static/media/ufo_menu.d85abca7326b1fa2a6aa346c45e4f949.svg",
     "static/media/logo-mobile.svg": "/mars-food/static/media/logo-mobile.257bd5bb9e4a297c93fa85cd03f803f2.svg",
     "index.html": "/mars-food/index.html",
-    "main.76e7110d.css.map": "/mars-food/static/css/main.76e7110d.css.map",
-    "main.086f51f4.js.map": "/mars-food/static/js/main.086f51f4.js.map"
+    "main.cf07c0e2.css.map": "/mars-food/static/css/main.cf07c0e2.css.map",
+    "main.c8c73a99.js.map": "/mars-food/static/js/main.c8c73a99.js.map"
   },
   "entrypoints": [
-    "static/css/main.76e7110d.css",
-    "static/js/main.086f51f4.js"
+    "static/css/main.cf07c0e2.css",
+    "static/js/main.c8c73a99.js"
   ]
 }
