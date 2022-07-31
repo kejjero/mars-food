@@ -1,21 +1,25 @@
 {
   "files": {
-    "main.css": "/mars-food/static/css/main.cf07c0e2.css",
-    "main.js": "/mars-food/static/js/main.c8c73a99.js",
+    "main.css": "/mars-food/static/css/main.8995e062.css",
+    "main.js": "/mars-food/static/js/main.512af727.js",
     "static/media/error404.svg": "/mars-food/static/media/error404.555bb4053df97b3b96eac32a6e1ce7eb.svg",
     "static/media/logo.svg": "/mars-food/static/media/logo.c8b732d549a2b7a6e12ce75f54f6a01c.svg",
-    "static/media/icon-fork.png": "/mars-food/static/media/icon-fork.9834fca07dbb4853599f.png",
     "static/media/spaceEmpty.svg": "/mars-food/static/media/spaceEmpty.93a917e93ff892cfe2f6e29a41ff5c09.svg",
     "static/media/background_space.svg": "/mars-food/static/media/background_space.3adde1e9187261e2ea7845fbc40798fe.svg",
     "static/media/background_space-mobile.svg": "/mars-food/static/media/background_space-mobile.14637bde7eb62f78ecd399d55751c400.svg",
     "static/media/ufo_menu.svg": "/mars-food/static/media/ufo_menu.d85abca7326b1fa2a6aa346c45e4f949.svg",
     "static/media/logo-mobile.svg": "/mars-food/static/media/logo-mobile.257bd5bb9e4a297c93fa85cd03f803f2.svg",
+    "static/media/icon-fork.svg": "/mars-food/static/media/icon-fork.d6caa8a3639e187afde05b4588426733.svg",
+    "static/media/icon-burger.svg": "/mars-food/static/media/icon-burger.c6a133f346db91420c353a3ee4c43f92.svg",
+    "static/media/icon-juice.svg": "/mars-food/static/media/icon-juice.3693fe5d3e0326a9170428989db6d4f8.svg",
+    "static/media/icon-lasagna.svg": "/mars-food/static/media/icon-lasagna.6038c9d416f4a43697e3f8a822e00882.svg",
+    "static/media/icon-pizza.svg": "/mars-food/static/media/icon-pizza.3e0fbf87120d3d8b50cf5aea3b650e6a.svg",
     "index.html": "/mars-food/index.html",
-    "main.cf07c0e2.css.map": "/mars-food/static/css/main.cf07c0e2.css.map",
-    "main.c8c73a99.js.map": "/mars-food/static/js/main.c8c73a99.js.map"
+    "main.8995e062.css.map": "/mars-food/static/css/main.8995e062.css.map",
+    "main.512af727.js.map": "/mars-food/static/js/main.512af727.js.map"
   },
   "entrypoints": [
-    "static/css/main.cf07c0e2.css",
-    "static/js/main.c8c73a99.js"
+    "static/css/main.8995e062.css",
+    "static/js/main.512af727.js"
   ]
 }
