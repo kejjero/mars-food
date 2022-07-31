@@ -85,7 +85,7 @@ function Header() {
     return (
         <header className={`header ${ headerActive && 'header__mobile_active'}`}>
             <div className="container">
-                <Link to="/" className="header__logo">
+                <Link to="/mars-food" className="header__logo">
                     {
                         window.screen.width > 950 ?
                             <img className="header__logo-img" width="38" src={logo} alt="logo"/>

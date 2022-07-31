@@ -73,7 +73,7 @@ function App() {
               <main className="content">
                   <div className="container">
                       <Routes>
-                          <Route exact path="/" element={<Home/>}/>
+                          <Route exact path="/mars-food" element={<Home/>}/>
                           <Route path="/cart" element={<Cart/>}/>
                           <Route path="*" element={<NotFound/>}/>
                       </Routes>
