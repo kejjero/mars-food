@@ -1,35 +1,24 @@
-import React, {useEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {setSort} from "../redux/slices/filterSlice";
 import {useDispatch, useSelector} from "react-redux";
 
-type SortItem = {
-    name: string;
-    sortProperty: string;
-    sortType: string;
-}
-
-const sortList: SortItem[] = [
+const sortList = [
     {name: 'cначала популярные', sortProperty: 'rating', sortType: 'desc'},
     {name: 'сначала дорогие', sortProperty: 'price', sortType: 'desc'},
     {name: 'сначала недорогие', sortProperty: 'price', sortType: 'asc'},
     {name: 'по наименованию', sortProperty: 'title', sortType: 'asc'},
 ]
 
-const Sort: React.FC = () => {
+function Sort() {
     const sort = useSelector((state) => state.filterReducer.sort)
     const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
     const sortName = sortList[sort.sortId].name
-    const sortRef = useRef<HTMLDivElement>(null);
-
-    type PopupClick = MouseEvent & {
-        path: Node[];
-    };
+    const sortRef = useRef();
 
     useEffect(() => {
-        const handleClickOutside = (evt: MouseEvent) => {
-            const _event = evt as PopupClick
-            if (sortRef.current && !_event.path.includes(sortRef.current)) {
+        const handleClickOutside = (evt) => {
+            if (!evt.path.includes(sortRef.current)) {
                 setIsOpen(false)
             }
         }
@@ -37,7 +26,7 @@ const Sort: React.FC = () => {
         return () => document.body.removeEventListener('click', handleClickOutside)
     }, [])
 
-    function handleSelectSort(index: number, obj: object) {
+    function handleSelectSort(index, obj) {
         setIsOpen(!isOpen)
         const objSort = {sortId: index, property: obj.sortProperty, type: obj.sortType}
         dispatch(setSort(objSort))
@@ -47,6 +36,7 @@ const Sort: React.FC = () => {
         <div className="sort" ref={sortRef}>
             <div className="sort__label">
                 <svg
+                    className={`"sort__arrow" ${isOpen && "sort__arrow_open"}`}
                     width="10"
                     height="6"
                     viewBox="0 0 10 6"
@@ -58,14 +48,18 @@ const Sort: React.FC = () => {
                         fill="#DBDBDB"
                     />
                 </svg>
-                <b>Сортировка:</b>
+                {
+                    window.screen.width > 520 &&
+                    <b>Сортировка:</b>
+                }
                 <span onClick={() => setIsOpen(!isOpen)}>{sortName}</span>
             </div>
-            { isOpen &&
+            {
+                isOpen &&
                 <div className="sort__popup">
                     <ul>
                         {
-                            sortList.map((obj: object, index: number) =>  (
+                            sortList.map((obj, index) => (
                                 <li
                                     key={index}
                                     onClick={() => handleSelectSort(index, obj)}

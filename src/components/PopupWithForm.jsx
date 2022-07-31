@@ -1,28 +1,34 @@
 import {useDispatch, useSelector} from "react-redux";
 import {closeAllPopups, selectPopupWithForm} from "../redux/slices/popupWithFormSlice";
-import React from "react";
+import CloseButton from "./CloseButton";
+import {useEffect} from "react";
 
-type FormProps = {
-    children: any;
-}
-
-const PopupWithForm: React.FC<FormProps> = ({children}) => {
+function PopupWithForm({children, onSubmit}) {
     const dispatch = useDispatch();
     const {name, isOpen} = useSelector(selectPopupWithForm)
+
+    useEffect(() => {
+      if(isOpen) {
+          document.body.classList.add("hidden");
+      } else {
+          document.body.classList.remove("hidden");
+      }
+    },[isOpen])
+
     return (
         <div className={`popup popup_${name} ${isOpen && 'popup_opened'}`}>
+            {
+                window.screen.width < 620 && <CloseButton/>
+            }
             <div className="popup__container">
-                <button
-                    type="button"
-                    className="popup__close-button"
-                    aria-label="Закрыть"
-                    onClick={() => dispatch(closeAllPopups())}
-                >
-                </button>
+                {
+                    window.screen.width > 620 && <CloseButton/>
+                }
                 <form
                     className={"popup__form"}
                     method={"post"}
                     name={name}
+                    onSubmit={onSubmit}
                 >{children}
                 </form>
             </div>

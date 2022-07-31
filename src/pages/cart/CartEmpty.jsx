@@ -1,10 +1,9 @@
 import {Link} from "react-router-dom";
 import spaceEmpty from "../../images/spaceEmpty.svg"
-import React from "react";
 
 function CartEmpty() {
     return (
-        <div className="content">
+        <div className="content content__cartEmpty">
             <div className="container">
                 <div className="cartEmpty">
                         <h2 className="cartEmpty__title">Корзина пустая 😕</h2>
