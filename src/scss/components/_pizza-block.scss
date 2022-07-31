@@ -5,6 +5,23 @@
   margin-bottom: 65px;
   animation: opacity-block ease-in-out 0.3s;
 
+  @media screen and (max-width: 520px) {
+    margin-bottom: 0;
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    column-gap: 30px;
+    grid-template-rows: repeat(1, 45px 120px 45px);
+    align-items: flex-start;
+    grid-template-areas:
+            "img title"
+            "img desc";
+  }
+
+  &__button {
+    grid-area: button;
+  }
+
+
   .skeleton {
     width: 240px;
     text-align: center;
@@ -26,7 +43,14 @@
 
   &__image {
     width: 200px;
-    margin-bottom: 10px;
+    height: 200px;
+    object-fit: contain;
+
+    @media screen and (max-width: 520px) {
+      width: 140px;
+      height: 140px;
+      grid-area: img;
+    }
   }
 
   &__title {
@@ -35,6 +59,18 @@
     letter-spacing: 1px;
     margin: 0 auto 20px auto;
     color: #fff;
+
+    @media screen and (max-width: 520px) {
+      grid-area: title;
+      margin: 0;
+      text-align: start;
+    }
+  }
+
+  &__description {
+    @media screen and (max-width: 520px) {
+      text-align: start;
+    }
   }
 
   &__selector {
@@ -74,6 +110,11 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
+
+    @media screen and (max-width: 520px) {
+      margin-top: 0;
+      width: 90vw;
+    }
   }
 
   &__price {
@@ -83,5 +124,10 @@
     letter-spacing: 0.015em;
     color: #fff;
     margin-right: 5px;
+
+    @media screen and (max-width: 520px) {
+      grid-area: price;
+      margin-right: 0;
+    }
   }
 }

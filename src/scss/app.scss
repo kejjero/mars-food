@@ -14,6 +14,7 @@ body {
   margin: 0 auto;
   border-radius: 10px;
   max-width: 1280px;
+  min-width: 320px;
   position: relative;
 
   .background-space {
@@ -21,7 +22,25 @@ body {
     z-index: -1;
     width: 100%;
     margin: 0 auto;
+
+    @media screen and (max-width: 520px) {
+      width: 100%;
+    }
   }
+}
+
+.hidden {
+  overflow: hidden;
+}
+
+.content {
+  @media screen and (max-width: 520px) {
+    padding: 100px 0 0;
+  }
+}
+
+.content__cartEmpty {
+  padding: 0;
 }
 
 .content__wrapper-title {
@@ -30,6 +49,11 @@ body {
   align-items: center;
   margin: 0 auto;
   width: $container-width;
+
+  @media screen and (max-width: 520px) {
+    width: 100%;
+    padding: 0 10px;
+  }
 }
 
 .content {
@@ -41,13 +65,41 @@ body {
 
   &__items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 240px);
+    grid-template-columns: repeat(4, 1fr);
     column-gap: 60px;
     grid-template-rows: repeat(auto-fit, 360px);
     grid-auto-flow: row dense;
     row-gap: 100px;
     margin: 0 auto;
     width: $container-width;
+
+    @media screen and (max-width: 1200px) {
+      grid-template-columns: repeat(3, 1fr);
+      width: 100%;
+      padding: 0 40px;
+    }
+
+    @media screen and (max-width: 875px) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 30px;
+      padding: 0 20px;
+    }
+
+    @media screen and (max-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      padding: 0 10px;
+      column-gap: 20px;
+    }
+
+    @media screen and (max-width: 520px) {
+      grid-template-columns: 1fr;
+      padding: 0 10px;
+      row-gap: 50px;
+      column-gap: 0;
+      grid-auto-flow: row;
+    }
+
   }
 
   &__top {
@@ -65,7 +117,6 @@ body {
 
   &--cart {
     max-width: 820px;
-    min-height: 500px;
     border-radius: 20px;
     margin: 0 auto;
     .content__title {
@@ -75,6 +126,8 @@ body {
 }
 
 .cart {
+
+  padding: 0 10px;
   &__top {
     display: flex;
     justify-content: space-between;
@@ -371,6 +424,10 @@ body {
 
   .noteFound__image {
     max-width: 800px;
+
+    @media screen and (max-width: 820px) {
+      width: 100%;
+    }
   }
 }
 
@@ -379,6 +436,11 @@ body {
   top: 0;
   left: 290px;
   animation: 2.5s ease-in-out infinite pulse-ufo;
+
+  @media screen and (max-width: 520px) {
+    left: 28%;
+    width: 170px;
+  }
 }
 
 @keyframes pulse-ufo {
@@ -418,6 +480,12 @@ body {
     left: 10px;
     margin-top: 40px;
     height: 350px;
+
+    @media screen and (max-width: 520px) {
+      height: inherit;
+      width: 100%;
+      padding: 0 10px;
+    }
   }
 }
 
