@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/mars-food/static/css/main.9434368e.css",
-    "main.js": "/mars-food/static/js/main.af8c04d9.js",
+    "main.css": "/mars-food/static/css/main.4966bcd4.css",
+    "main.js": "/mars-food/static/js/main.d077ed20.js",
     "static/media/logo.svg": "/mars-food/static/media/logo.c8b732d549a2b7a6e12ce75f54f6a01c.svg",
     "static/media/error404-mobile.svg": "/mars-food/static/media/error404-mobile.d72ff270dfc8e41521ff13a22dafa8db.svg",
     "static/media/error404.svg": "/mars-food/static/media/error404.4e5cd225f4a6cddba8a3286b784f2a59.svg",
     "static/media/spaceEmpty.svg": "/mars-food/static/media/spaceEmpty.93a917e93ff892cfe2f6e29a41ff5c09.svg",
     "static/media/background_space.svg": "/mars-food/static/media/background_space.3adde1e9187261e2ea7845fbc40798fe.svg",
     "static/media/background_space-mobile.svg": "/mars-food/static/media/background_space-mobile.14637bde7eb62f78ecd399d55751c400.svg",
-    "static/media/ufo_menu.svg": "/mars-food/static/media/ufo_menu.d85abca7326b1fa2a6aa346c45e4f949.svg",
+    "static/media/ufo_menu.svg": "/mars-food/static/media/ufo_menu.3dd3b209d30317f8c61360d6417a9a32.svg",
     "static/media/logo-mobile.svg": "/mars-food/static/media/logo-mobile.257bd5bb9e4a297c93fa85cd03f803f2.svg",
     "static/media/icon-fork.svg": "/mars-food/static/media/icon-fork.e8584ec9d15c973072a74c49472b57da.svg",
     "static/media/icon-burger.svg": "/mars-food/static/media/icon-burger.3ac783c2917cb643607fa62dd75db906.svg",
@@ -16,11 +16,11 @@
     "static/media/icon-lasagna.svg": "/mars-food/static/media/icon-lasagna.d507686b902528c5d5f33e41cf00d432.svg",
     "static/media/icon-pizza.svg": "/mars-food/static/media/icon-pizza.4f09594e9689a2850092726259a81d68.svg",
     "index.html": "/mars-food/index.html",
-    "main.9434368e.css.map": "/mars-food/static/css/main.9434368e.css.map",
-    "main.af8c04d9.js.map": "/mars-food/static/js/main.af8c04d9.js.map"
+    "main.4966bcd4.css.map": "/mars-food/static/css/main.4966bcd4.css.map",
+    "main.d077ed20.js.map": "/mars-food/static/js/main.d077ed20.js.map"
   },
   "entrypoints": [
-    "static/css/main.9434368e.css",
-    "static/js/main.af8c04d9.js"
+    "static/css/main.4966bcd4.css",
+    "static/js/main.d077ed20.js"
   ]
 }
