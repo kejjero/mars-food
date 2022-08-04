@@ -2,10 +2,7 @@
 
 ![Лендинг](https://i.ibb.co/L8TYD2h/2022-06-22-15-56-45.png)
 
-[//]: # (### <img src="https://cdn-icons-png.flaticon.com/512/7135/7135133.png" width="25" />[ Ссылка на проект]&#40;https://kejjero.github.io/mars-food/&#41;)
-
-[//]: # ()
-[//]: # (### <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" width="25" />[ Макет проекта]&#40;https://kejjero.github.io/mars-food/&#41;)
+### <img src="https://cdn-icons-png.flaticon.com/512/7135/7135133.png" width="25" />[ Ссылка на проект](https://kejjero.github.io/mars-food/)
 
 ## Функциональность
 Сервис доставки Марсианской еды. Проект разработан в связке React.js / Redux / TypeScript. Пользователь добавляет в корзину понравившиеся блюда из меню с последующим оформлением заказа.
