@@ -1,6 +1,6 @@
 # 🚀 Проект: «Марсик»
 
-![Лендинг](https://i.ibb.co/L8TYD2h/2022-06-22-15-56-45.png)
+![Лендинг](https://i.ibb.co/YQBXMqj/2022-08-05-10-03-28-1.png)
 
 ### <img src="https://cdn-icons-png.flaticon.com/512/7135/7135133.png" width="25" />[ Ссылка на проект](https://kejjero.github.io/mars-food/)
 
