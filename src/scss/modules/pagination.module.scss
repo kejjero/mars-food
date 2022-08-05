@@ -1,6 +1,15 @@
 .pagination {
   margin-top: 50px;
   margin-left: 60px;
+
+  @media screen and (max-width: 520px) {
+    margin-top: 40px;
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
+  }
+
   li {
     display: inline-block;
 
@@ -15,6 +24,17 @@
       cursor: pointer;
       display: inline-block;
       color: #EF4137;
+
+      @media screen and (max-width: 520px) {
+        font-size: 14px;
+      }
+
+
+      @media screen and (max-width: 520px) {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+      }
 
       &:hover {
         background-color: #EF4137;

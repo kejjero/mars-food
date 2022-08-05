@@ -2,21 +2,39 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(1, 1fr);
-  column-gap: 20px;
+
+  @media screen and (max-width: 620px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr 1fr);
+  }
 
   .buy-popup__preview{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
 
     .buy-popup__image-preview {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 320px;
-      position: absolute;
-      left: -20px;
+      padding-right: 40px;
+
+      @media screen and (max-width: 840px) {
+        width: 80%;
+        padding-right: 0;
+        margin-bottom: 20px;
+      }
+
+      @media screen and (max-width: 620px) {
+        width: 50%;
+        margin-bottom: 40px;
+      }
+
+      @media screen and (max-width: 620px) {
+        width: 70%;
+        margin-bottom: 0;
+      }
     }
   }
 

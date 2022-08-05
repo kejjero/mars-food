@@ -21,6 +21,14 @@
     }
   }
 
+  &__arrow {
+    transform: rotate(0);
+
+    &_open {
+      transform: rotate(180deg);
+    }
+  }
+
   &__popup {
     position: absolute;
     right: 0;
