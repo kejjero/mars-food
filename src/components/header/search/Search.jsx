@@ -1,21 +1,33 @@
 import {selectFilter, setSearchValue} from "../../../redux/slices/filterSlice";
-import {useRef, useState} from "react";
+import {useCallback, useRef, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import SearchIcon from '@mui/icons-material/Search';
 import {createTheme, Input, Stack, ThemeProvider} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import debounce from 'lodash.debounce';
 
 
 function Search() {
     const {searchValue} = useSelector(selectFilter)
-    const inputRef = useRef();
+    const inputRef = useRef(null);
     const dispatch = useDispatch();
-    const [openSearch, setOpenSearch] = useState(false);
 
     function onClickClear() {
         dispatch(setSearchValue(''))
-        inputRef.current.focus();
+        inputRef.current?.focus();
     }
+
+    const updateSearchValue = useCallback(
+        debounce((str) => {
+            dispatch(setSearchValue(str));
+        }, 150),
+        [],
+    );
+
+    const onChangeInput = (evt) => {
+        updateSearchValue(evt.target.value);
+    };
+
 
     const theme = createTheme({
         palette: {
@@ -48,7 +60,7 @@ function Search() {
                     <Input
                         inputRef={inputRef}
                         value={searchValue}
-                        onChange={(evt) => dispatch(setSearchValue(evt.target.value))}
+                        onChange={onChangeInput}
                         placeholder={'Поиск вкусной еды...'}
                         color="neutral"
                         sx={{color: '#fff'}}
@@ -66,54 +78,10 @@ function Search() {
         )
     }
 
-    const MobileSearch = () => {
-        return (
-            <Stack
-                direction="row"
-                spacing={2}
-                flex={'row'}
-                alignItems={'center'}
-                borderRadius={"10px"}
-                height={"30px"}
-            >
-                <ThemeProvider theme={theme}>
-                    <SearchIcon
-                        sx={{
-                            color: '#fff',
-                            padding: '3px',
-                            borderRadius: '30%',
-                            fontSize: '30px',
-                            cursor: 'pointer',
-                        }}
-                    />
-                    {
-                        openSearch &&
-                        <Input
-                            inputRef={inputRef}
-                            value={searchValue}
-                            onChange={(evt) => dispatch(setSearchValue(evt.target.value))}
-                            placeholder={'Поиск вкусной еды...'}
-                            color="neutral"
-                            sx={{color: '#fff'}}
-                        />
-                    }
-                    {
-                        searchValue.length >= 1 &&
-                        <CloseIcon
-                            sx={{color: 'fff'}}
-                            cursor={'pointer'}
-                            onClick={() => onClickClear()}
-                        />
-                    }
-                </ThemeProvider>
-            </Stack>
-        )
-    }
-
     return (
         <div className="header__search">
             {
-                window.screen.width > 950 ? <DesktopSearch/> : <MobileSearch/>
+                window.screen.width > 950 ? <DesktopSearch/> : ''//<MobileSearch/>
             }
 
         </div>

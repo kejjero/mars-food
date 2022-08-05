@@ -13,7 +13,7 @@ function CartEmpty() {
                         <div className="cart__bottom-buttons cartEmpty_type_button">
                             <Link
                                 className="button button--outline button--add go-back-btn"
-                                to="/"
+                                to="/mars-food"
                                 onClick={() => window.scroll(0, 0)}
                             >
                                 <svg width="8" height="34" viewBox="0 0 8 14" fill="none"

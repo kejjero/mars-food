@@ -9,7 +9,7 @@ function CartItem ({title, image, size, type, count, price, id}) {
             <div
                 className="cart__item-img">
                 <img
-                    className="pizza-block__image"
+                    className="cart__image-item"
                     src={image}
                     alt={title}
                 />

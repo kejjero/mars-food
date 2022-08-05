@@ -59,6 +59,10 @@
     letter-spacing: 1px;
     margin: 0 auto 20px auto;
     color: #fff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 245px;
 
     @media screen and (max-width: 520px) {
       grid-area: title;
@@ -68,6 +72,12 @@
   }
 
   &__description {
+    overflow: hidden;
+    max-height: 78px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+
     @media screen and (max-width: 520px) {
       text-align: start;
     }

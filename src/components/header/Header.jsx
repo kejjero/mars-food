@@ -7,7 +7,7 @@ import {useLocation} from "react-router";
 import Search from "./search/Search";
 import {IconButton} from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { styled } from '@mui/material/styles';
+import {styled} from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 import {useEffect, useState} from "react";
 
@@ -28,13 +28,13 @@ function Header() {
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll)
-        if(scroll > 80) {
+        if (scroll > 80) {
             setHeaderActive(true)
         } else {
             setHeaderActive(false)
         }
         return () => window.removeEventListener("scroll", handleScroll)
-    },[scroll])
+    }, [scroll])
 
     const handleScroll = () => {
         setScroll(window.scrollY);
@@ -60,30 +60,30 @@ function Header() {
         )
     }
 
-    const MobileCart = () => {
-        return (
-            <div className="header__cart-mobile">
-                <Link to="/cart">
-                    <div className="header__button-mobile">
-                        <IconButton aria-label="cart">
-                            <StyledBadge badgeContent={cartCount} color="secondary">
-                                <ShoppingCartIcon />
-                            </StyledBadge>
-                        </IconButton>
-                        {
-                            cartPrice > 0 &&
-                            <div className="header__price-mobile">
-                                <span>{cartPrice} &lambda;</span>
-                            </div>
-                        }
-                    </div>
-                </Link>
-            </div>
-        )
-    }
+    // const MobileCart = () => {
+    //     return (
+    //         <div className="header__cart-mobile">
+    //             <Link to="/cart">
+    //                 <div className="header__button-mobile">
+    //                     <IconButton aria-label="cart">
+    //                         <StyledBadge badgeContent={cartCount} color="secondary">
+    //                             <ShoppingCartIcon/>
+    //                         </StyledBadge>
+    //                     </IconButton>
+    //                     {
+    //                         cartPrice > 0 &&
+    //                         <div className="header__price-mobile">
+    //                             <span>{cartPrice} &lambda;</span>
+    //                         </div>
+    //                     }
+    //                 </div>
+    //             </Link>
+    //         </div>
+    //     )
+    // }
 
     return (
-        <header className={`header ${ headerActive && 'header__mobile_active'}`}>
+        <header className={`header ${headerActive && 'header__mobile_active'}`}>
             <div className="container">
                 <Link to="/mars-food" className="header__logo">
                     {
@@ -95,11 +95,11 @@ function Header() {
                 </Link>
                 <div className="header__right-block">
                     {
-                        location.pathname === "/" && <Search/>
-                    } {
-                    window.screen.width > 950 ? <DesktopCart/> : <MobileCart/>
+                        location.pathname === "/mars-food" && <Search/>
+                    }
+                    {
+                    window.screen.width > 950 ? <DesktopCart/> : '<MobileCart/>'
                 }
-
                 </div>
             </div>
         </header>
