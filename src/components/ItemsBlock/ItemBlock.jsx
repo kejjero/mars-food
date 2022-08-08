@@ -3,7 +3,7 @@ import {loadDataForPopup, resetActiveCategory} from "../../redux/slices/buyPopup
 import {openBuyPopup} from "../../redux/slices/popupWithFormSlice";
 import {selectCartItems} from "../../redux/slices/cartSlice";
 
-function Index(props) {
+function ItemBlock(props) {
 
     const dispatch = useDispatch()
     const cartItems = useSelector(selectCartItems)
@@ -50,4 +50,4 @@ function Index(props) {
     )
 }
 
-export default Index;
+export default ItemBlock;
