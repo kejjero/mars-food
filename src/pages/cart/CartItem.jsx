@@ -1,7 +1,7 @@
 import {useDispatch} from "react-redux";
 import {addItemForCart, deleteCartItem, minusCartItem} from "../../redux/slices/cartSlice";
 
-function CartItem ({title, image, size, type, count, price, id}) {
+function CartItem ({title, image, size, type, count, price, id, index}) {
 
     const dispatch = useDispatch();
     return (
@@ -53,7 +53,7 @@ function CartItem ({title, image, size, type, count, price, id}) {
             <div className="cart__item-price"><b>{price * count} &lambda;</b></div>
             <div className="cart__item-remove">
                 <button
-                    onClick={() => dispatch(deleteCartItem({count, price, id}))}
+                    onClick={() => dispatch(deleteCartItem({count, price, index}))}
                     className="button button--outline button--circle">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
