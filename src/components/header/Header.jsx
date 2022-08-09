@@ -5,26 +5,13 @@ import {useSelector} from "react-redux";
 import {cartSelector} from "../../redux/slices/cartSlice";
 import {useLocation} from "react-router";
 import Search from "./search/Search";
-import {IconButton} from "@mui/material";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import {styled} from '@mui/material/styles';
-import Badge from '@mui/material/Badge';
 import {useEffect, useState} from "react";
 
-function Header() {
+const Header = () => {
     const {cartCount, cartPrice} = useSelector(cartSelector)
     const location = useLocation();
     const [scroll, setScroll] = useState(false);
     const [headerActive, setHeaderActive] = useState(false);
-
-    const StyledBadge = styled(Badge)(() => ({
-        '& .MuiBadge-badge': {
-            right: -3,
-            top: 2,
-            padding: '0 4px',
-            backgroundColor: '#EF4137'
-        },
-    }));
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll)
@@ -81,7 +68,6 @@ function Header() {
     //         </div>
     //     )
     // }
-
     return (
         <header className={`header ${headerActive && 'header__mobile_active'}`}>
             <div className="container">
@@ -98,8 +84,8 @@ function Header() {
                         location.pathname === "/mars-food" && <Search/>
                     }
                     {
-                    window.screen.width > 950 ? <DesktopCart/> : '<MobileCart/>'
-                }
+                        <DesktopCart/>
+                    }
                 </div>
             </div>
         </header>

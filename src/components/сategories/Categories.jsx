@@ -8,6 +8,7 @@ import {selectCategoryId, setCategoryId, setPageCount} from "../../redux/slices/
 import {fetchCategoryItems, selectItemsCategory} from "../../redux/slices/itemSlice";
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
+import {memo} from "react";
 
 const categories = [
     {name: 'Все', img: iconFork},
@@ -17,7 +18,7 @@ const categories = [
     {name: 'Напитки', img: iconJuice},
 ]
 
-function Categories() {
+const Categories = () => {
     const categoryId = useSelector(selectCategoryId)
     const itemsCategory = useSelector(selectItemsCategory)
     const dispatch = useDispatch()
@@ -102,4 +103,4 @@ function Categories() {
     )
 }
 
-export default Categories;
+export default memo(Categories);

@@ -103,7 +103,6 @@ function Cart() {
                     <div className="cart__bottom">
                         <div className="cart__bottom-details"><span> Всего: <b>{cartCount} шт.</b> </span><span> Сумма заказа: <b>{cartPrice} &lambda;</b> </span>
                         </div>
-
                         <div className="cart__bottom-buttons">
                             <Link
                                 className="button button--outline button--add go-back-btn"

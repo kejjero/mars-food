@@ -6,7 +6,7 @@ import {addItemForCart} from "../redux/slices/cartSlice";
 function BuyPopup() {
     const dispatch = useDispatch();
     const {data, type, size, activeType, activeSize, totalPrice} = useSelector(selectBuyPopup)
-    const {property, id, title, imageUrl, } = useSelector(selectBuyPopupData)
+    const {property, id, title, imageUrl} = useSelector(selectBuyPopupData)
 
     function handleActiveType(typeId, obj) {
         dispatch(setCountTypePrice({

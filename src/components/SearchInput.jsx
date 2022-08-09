@@ -1,64 +1,45 @@
-import {alpha, styled} from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
-import SearchIcon from "@mui/icons-material/Search";
-import {Input} from "@mui/material";
+import {selectFilter, setSearchValue} from "../redux/slices/filterSlice";
+import {useRef} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import SearchIcon from '@mui/icons-material/Search';
+import {Input} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import debounce from 'lodash.debounce';
+import styles from '../../../scss/modules/header.module.scss'
 
-function SearchInput({searchValue, setSearchValue}) {
-    console.log(searchValue)
 
-    const Search = styled('div')(({ theme }) => ({
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: alpha(theme.palette.common.black, 0.15),
-        '&:hover': {
-            backgroundColor: alpha(theme.palette.common.black, 0.25),
-        },
-        marginRight: theme.spacing(2),
-        marginLeft: 0,
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(3),
-            width: 'auto',
-        },
-    }));
+function Search() {
+    const {searchValue} = useSelector(selectFilter)
+    const inputRef = useRef(null);
+    const dispatch = useDispatch();
 
-    const SearchIconWrapper = styled('div')(({ theme }) => ({
-        padding: theme.spacing(0, 2),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    }));
+    // function onClickClear() {
+    //     dispatch(setSearchValue(''))
+    //     inputRef.current?.focus();
+    // }
 
-    const StyledInputBase = styled(InputBase)(({ theme }) => ({
-        color: 'inherit',
-        '& .MuiInputBase-input': {
-            padding: theme.spacing(1, 1, 1, 0),
-            // vertical padding + font size from searchIcon
-            paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-            transition: theme.transitions.create('width'),
-            width: '100%',
-            [theme.breakpoints.up('md')]: {
-                width: '20ch',
-            },
-        },
-    }));
-
-    return(
-        <Search
-        >
-            <SearchIconWrapper>
-                <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-                placeholder="Поиск вкусной еды"
-                inputProps={{ 'aria-label': 'search' }}
-                value={'asdasd'}
+    return (
+        <div className={styles.wrapper}>
+            <SearchIcon style={{marginRight: '5px', fontSize: '22px', color: '#EF4137'}}/>
+            <Input
+                sx={{
+                    color: '#fff',
+                    fontSize: '14px',
+                    width: '240px',
+                    height: '40px',
+                }}
+                placeholder="Поиск вкусной еды..."
+                type="text"
+                color={"error"}
+                value={searchValue}
+                onChange={(evt) => dispatch(setSearchValue(evt.target.value))}
             />
-        </Search>
+            {
+                searchValue.length >= 1 &&
+                <CloseIcon style={{cursor: 'pointer', fontSize: '22px'}} onClick={() => onClickClear()}/>
+            }
+        </div>
     )
 }
 
-export default SearchInput;
+export default Search;

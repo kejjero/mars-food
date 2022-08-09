@@ -2,13 +2,22 @@ import {useDispatch, useSelector} from "react-redux";
 import {loadDataForPopup, resetActiveCategory} from "../../redux/slices/buyPopupSlice";
 import {openBuyPopup} from "../../redux/slices/popupWithFormSlice";
 import {selectCartItems} from "../../redux/slices/cartSlice";
+import {useEffect, useState} from "react";
+
 
 function ItemBlock(props) {
 
     const dispatch = useDispatch()
     const cartItems = useSelector(selectCartItems)
-    const filterItem = cartItems.find((item) => item.id === props.id)
+    const filterItem = cartItems.filter((item) => Number(item.id === props.id))
 
+    const [itemCounter, setItemCounter] = useState([])
+
+    useEffect(() => {
+        filterItem.map((item) => {
+            setItemCounter([...itemCounter, item.count])
+        })
+    }, [cartItems])
 
     function handleBuyPopup() {
         dispatch(resetActiveCategory())
@@ -43,7 +52,7 @@ function ItemBlock(props) {
                 <button className={`button button--outline button--add pizza-block__button`}
                         onClick={(evt) => handleBuyPopup(evt)}>
                     <span>Заказать</span>
-                    {filterItem && <i>{filterItem.count}</i>}
+                    {itemCounter.length > 0 && <i>{itemCounter.length}</i>}
                 </button>
             </div>
         </div>
@@ -51,3 +60,4 @@ function ItemBlock(props) {
 }
 
 export default ItemBlock;
+
