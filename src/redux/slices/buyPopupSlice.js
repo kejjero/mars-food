@@ -13,7 +13,7 @@ const initialState = {
         title: '',
         description: '',
         imageUrl: '',
-        rating: 5,
+        rating: 0,
         price: 0,
         property: {
             custom: [
