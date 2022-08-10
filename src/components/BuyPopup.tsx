@@ -48,7 +48,6 @@ const BuyPopup: React.FC = () => {
         <PopupWithForm>
             <div className="buy-popup">
                 <div className="buy-popup__preview">
-                    <img className="buy-popup__rating" src="" alt="rating"/>
                     <img className="buy-popup__image-preview" alt={data.title} src={data.imageUrl}/>
                 </div>
                 <div className="buy-popup__wrapper">

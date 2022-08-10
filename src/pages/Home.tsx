@@ -9,32 +9,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectSearchValue, setCurrentPage} from "../redux/slices/filterSlice";
 import {selectItems} from "../redux/slices/itemSlice";
 import React from "react";
+import itemData from "../interfaces/interfaces"
 
 const Home: React.FC = () => {
-
-    interface itemData {
-        id: number;
-        title: string;
-        description: string;
-        imageUrl: string;
-        category: number;
-        rating: number;
-        price: number;
-        property: {
-            custom: [
-                {
-                    name: string;
-                    value: number;
-                }
-            ];
-            size: [
-                {
-                    name: string;
-                    value: number;
-                }
-            ];
-        }
-    }
 
     const dispatch = useDispatch();
     const searchValue = useSelector(selectSearchValue)
@@ -59,8 +36,7 @@ const Home: React.FC = () => {
                 title={item.title}
                 description={item.description}
                 price={item.price}
-                image={item.imageUrl}
-                rating={item.rating}
+                imageUrl={item.imageUrl}
                 property={item.property}
             />
         )
