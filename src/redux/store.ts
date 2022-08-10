@@ -14,3 +14,5 @@ export const store = configureStore({
         itemsReducer
     },
 })
+
+export type RootState = ReturnType<typeof store.getState>

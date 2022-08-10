@@ -10,7 +10,14 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import {memo} from "react";
 
-const categories = [
+type CategoriesItem = {
+    name: string;
+    img: string;
+}
+
+type CurrentIndexItem = number | string;
+
+const categories: CategoriesItem[] = [
     {name: 'Все', img: iconFork},
     {name: 'Бургеры', img: iconBurger},
     {name: 'Пицца', img: iconPizza},
@@ -24,13 +31,13 @@ const Categories = () => {
     const dispatch = useDispatch()
 
 
-    function onClickCategory(index) {
+    function onClickCategory(index: number) {
         dispatch(setCategoryId(index))
         mathItems(index)
     }
 
-    function mathItems(index) {
-        const indexCategory = index !== 0 ? index : ''
+    function mathItems(index: number) {
+        const indexCategory: CurrentIndexItem = index !== 0 ? index : ''
         dispatch(fetchCategoryItems(indexCategory))
         const mathPages = Math.ceil(itemsCategory.length / 4)
         dispatch(setPageCount(mathPages))
@@ -62,7 +69,7 @@ const Categories = () => {
                 slidesPerView={3}
                 spaceBetween={10}
                 centeredSlides
-                atchSlidesProgress
+                watchSlidesProgress
                 centeredSlidesBounds
                 pagination={{
                     type: 'fraction',
@@ -73,6 +80,7 @@ const Categories = () => {
             </Swiper>
         )
     }
+
 
     const slidesCategories = categories.map((category, index) => {
         return (

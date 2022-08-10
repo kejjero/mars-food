@@ -8,8 +8,34 @@ import styles from "../scss/modules/pagination.module.scss"
 import {useDispatch, useSelector} from "react-redux";
 import {selectSearchValue, setCurrentPage} from "../redux/slices/filterSlice";
 import {selectItems} from "../redux/slices/itemSlice";
+import React from "react";
 
-function Home() {
+const Home: React.FC = () => {
+
+    interface itemData {
+        id: number;
+        title: string;
+        description: string;
+        imageUrl: string;
+        category: number;
+        rating: number;
+        price: number;
+        property: {
+            custom: [
+                {
+                    name: string;
+                    value: number;
+                }
+            ];
+            size: [
+                {
+                    name: string;
+                    value: number;
+                }
+            ];
+        }
+    }
+
     const dispatch = useDispatch();
     const searchValue = useSelector(selectSearchValue)
     const {itemsData, statusItems} = useSelector(selectItems);
@@ -23,9 +49,9 @@ function Home() {
         )
     }
     const skeleton = [...new Array(4)].map((_, i) => <Skeleton key={i}/>)
-    const items = itemsData.filter(obj => {
+    const items = itemsData.filter((obj: itemData) => {
         return obj.title.toLowerCase().includes(searchValue.toLowerCase())
-    }).map((item) => {
+    }).map((item: itemData) => {
         return (
             <ItemBlock
                 key={item.id}
@@ -51,7 +77,7 @@ function Home() {
                 <Sort/>
             </div>
             {
-                statusItems ===  'error' && <ErrorGetItems/>
+                statusItems === 'error' && <ErrorGetItems/>
             }
             <div className="content__items">
                 {
@@ -69,7 +95,6 @@ function Home() {
                 pageRangeDisplayed={4}
                 pageCount={3}
                 previousLabel="←"
-                renderOnZeroPageCount={null}
             />
         </>
     )
