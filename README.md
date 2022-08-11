@@ -1,6 +1,6 @@
 # 🚀 Проект: «Марсик»
 
-![Лендинг](https://i.ibb.co/YQBXMqj/2022-08-05-10-03-28-1.png)
+![Лендинг](https://i.ibb.co/qNWLG2z/2022-08-11-10-29-56.png)
 
 ### <img src="https://cdn-icons-png.flaticon.com/512/7135/7135133.png" width="25" />[ Ссылка на проект](https://kejjero.github.io/mars-food/)
 
@@ -9,25 +9,55 @@
 
 ## Стек:
 ![TypeScript](https://img.shields.io/badge/-TypeScript-0d1117?style=for-the-badge&logo=TypeScript)
-![SCSS](https://img.shields.io/badge/-SCSS-0d1117?style=for-the-badge&logo=sass)
-![ReactJS](https://img.shields.io/badge/-ReactJS-0d1117?style=for-the-badge&logo=React)
-![Redux](https://img.shields.io/badge/-Redux-0d1117?style=for-the-badge&logo=Redux)
+![Redux](https://img.shields.io/badge/-Redux_Toolkit-0d1117?style=for-the-badge&logo=Redux)
+![React](https://img.shields.io/badge/-React-0d1117?style=for-the-badge&logo=React)
+![React_router](https://img.shields.io/badge/-React_router-0d1117?style=for-the-badge&logo=React-router)
+![React_Skeleton](https://img.shields.io/badge/-React_Skeleton-0d1117?style=for-the-badge&logo=React_Skeleton)
 ![Axios](https://img.shields.io/badge/-Axios-0d1117?style=for-the-badge&logo=Axios)
+![SCSS](https://img.shields.io/badge/-SCSS-0d1117?style=for-the-badge&logo=sass)
+![Material_UI](https://img.shields.io/badge/-Material_UI-0d1117?style=for-the-badge&logo=mui)
+![Swiper](https://img.shields.io/badge/-Swiper-0d1117?style=for-the-badge&logo=swiper)
+![lodash](https://img.shields.io/badge/-Lodash-0d1117?style=for-the-badge&logo=lodash)
 
-## Графика:
+## Графика и анимации:
 ![Illustrator](https://img.shields.io/badge/-Illustrator-0d1117?style=for-the-badge&logo=adobeIllustrator)
 ![Figma](https://img.shields.io/badge/-Figma-0d1117?style=for-the-badge&logo=Figma)
 ![After Effects](https://img.shields.io/badge/-After_Effects-0d1117?style=for-the-badge&logo=adobeaftereffects)
 ![lottie_files](https://img.shields.io/badge/-lottiefiles-0d1117?style=for-the-badge&logo=lottiefiles)
 
-
-
-
-
 ## Планы по доработке проекта:
-:white_check_mark: Это уже сделано
-:white_large_square: это не сделано
+:white_check_mark: Типизировать проект (TypeScript)
 
+:white_large_square: Сохраненять выбранные блюда в localStorage
+
+:white_large_square: Исправить типизацию асинхронных экшенов Redux-Toolkit
+
+:white_check_mark: Нарисовать красочные иллюстрации для главной страницы блюд
+
+:white_large_square: Оптимизировать загрузку img
+
+:white_large_square: Нарисовать красочные иллюстрации всех блюд из меню
+
+:white_large_square: Исправить баг поиска блюд (повторный рендер страницы)
+
+:white_large_square: Создать lottie_files анимации для категорий и избавиться от повторных рендеров компонента
+
+:white_check_mark: Исправить баг некорректного подсчета корзины
+
+:white_large_square: Внедрить CI/CD (Jest тесты) с автодеплоем ( o˘◡˘o)
+
+:white_large_square: Создать легкую lottie_files анимацию для заднего фона с планетами
+
+:white_check_mark: Оптимизировать приложение под мобильную версию (почти готово)
+
+:white_large_square: Создать lottie_files анимацию перемещения НЛО при выборе категории
+
+:white_large_square: Написать собственный бэкенд (Node.js / Nest.js / MongoDB):
+- Получение блюд
+- Получение количества страниц для корректной пагинации
+- Поиск блюд 
+- Сортировка блюд
+- Отправка заказа на бэкенд
 
 ## Инструкция для работы с проектом:
 ```
