@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit"
+import {RootState} from "../store";
 
 const initialState = {
     totalPrice: 0,
@@ -13,7 +14,7 @@ const initialState = {
         title: '',
         description: '',
         imageUrl: '',
-        rating: 5,
+        rating: 0,
         price: 0,
         property: {
             custom: [
@@ -65,7 +66,7 @@ export const {
     setCountSizePrice
 } = buyPopupSlice.actions;
 
-export const selectBuyPopupData = (state) => state.buyPopupReducer.data;
-export const selectBuyPopup = state => state.buyPopupReducer;
+export const selectBuyPopupData = (state: RootState) => state.buyPopupReducer.data;
+export const selectBuyPopup = (state: RootState) => state.buyPopupReducer;
 
 export default buyPopupSlice.reducer;

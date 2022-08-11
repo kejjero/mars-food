@@ -2,13 +2,19 @@ import PopupWithForm from "./PopupWithForm";
 import {useDispatch, useSelector} from "react-redux";
 import {selectBuyPopup, selectBuyPopupData, setCountSizePrice, setCountTypePrice} from "../redux/slices/buyPopupSlice";
 import {addItemForCart} from "../redux/slices/cartSlice";
+import React from "react";
 
-function BuyPopup() {
+const BuyPopup: React.FC = () => {
     const dispatch = useDispatch();
     const {data, type, size, activeType, activeSize, totalPrice} = useSelector(selectBuyPopup)
     const {property, id, title, imageUrl} = useSelector(selectBuyPopupData)
 
-    function handleActiveType(typeId, obj) {
+    type propertyItem = {
+        name: string;
+        value: number;
+    }
+
+    const handleActiveType = (typeId: number, obj: propertyItem) => {
         dispatch(setCountTypePrice({
             id: typeId,
             price: obj.value,
@@ -16,7 +22,7 @@ function BuyPopup() {
         }))
     }
 
-    function handleActiveSize(sizeId, obj) {
+    function handleActiveSize(sizeId: number, obj: propertyItem) {
         dispatch(setCountSizePrice({
             id: sizeId,
             price: obj.value,
@@ -24,7 +30,7 @@ function BuyPopup() {
         }))
     }
 
-    function handleItemsForCard(evt) {
+    function handleItemsForCard(evt: React.MouseEvent<HTMLButtonElement>) {
         evt.preventDefault()
         dispatch(addItemForCart({
             id,
@@ -41,8 +47,7 @@ function BuyPopup() {
         <PopupWithForm>
             <div className="buy-popup">
                 <div className="buy-popup__preview">
-                    <img className="buy-popup__rating" src=""/>
-                    <img className="buy-popup__image-preview" src={data.imageUrl}/>
+                    <img className="buy-popup__image-preview" alt={data.title} src={data.imageUrl}/>
                 </div>
                 <div className="buy-popup__wrapper">
                     <h2 className="buy-popup__title">{data.title}</h2>
@@ -50,7 +55,8 @@ function BuyPopup() {
                     <nav className="buy-popup__constructor">
                         <ul className="buy-popup__category">
                             {
-                                property.custom.map((obj, typeId) => {
+                                property.custom.map((obj: propertyItem, typeId: number) => {
+                                    console.log(obj)
                                     return (
                                         <li
                                             key={typeId}
@@ -63,7 +69,7 @@ function BuyPopup() {
                         </ul>
                         <ul className="buy-popup__category">
                             {
-                                property.size.map((obj, sizeId) => {
+                                property.size.map((obj: propertyItem, sizeId: number) => {
                                     return (
                                         <li
                                             key={sizeId}
@@ -79,7 +85,7 @@ function BuyPopup() {
                     <div className="buy-popup__price-wrapper">
                         <div className="buy-popup__price">{totalPrice} &lambda;</div>
                         <button className={`button button--outline button--add`}
-                                onClick={(event) => handleItemsForCard(event)}
+                                onClick={handleItemsForCard}
                         >
                             <svg
                                 width="12"

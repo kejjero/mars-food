@@ -1,6 +1,23 @@
 import {createSlice} from "@reduxjs/toolkit"
+import {RootState} from "../store";
 
-const initialState = {
+interface objectItem {
+    count: number;
+    id: number;
+    imageUrl: string;
+    price: number;
+    size: string;
+    title: string;
+    type: string;
+}
+
+interface initalStateSlice {
+    cartCount: number;
+    cartPrice: number;
+    cartItems: objectItem[]
+}
+
+const initialState: initalStateSlice = {
     cartCount: 0,
     cartPrice: 0,
     cartItems: [],
@@ -12,9 +29,9 @@ export const cartSlice = createSlice({
     reducers: {
         addItemForCart(state, action) {
             state.cartCount += 1
-            state.countItem += 1
             state.cartPrice += action.payload.price
             const findItem = state.cartItems.find((obj) => {
+                console.log(obj)
                 return (
                     obj.id === action.payload.id &&
                     obj.type === action.payload.type &&
@@ -37,7 +54,6 @@ export const cartSlice = createSlice({
         },
         minusCartItem(state, action) {
             if (state.cartCount > 0) {
-                state.countItem -= 1
                 const findItem = state.cartItems.find((obj) => {
                     return (
                         obj.id === action.payload.id &&
@@ -55,19 +71,18 @@ export const cartSlice = createSlice({
         },
         deleteCartItem(state, action) {
             const findIndex = state.cartItems.find((item, index) => index === action.payload.index)
-            if (findIndex !== -1) {
-                state.cartItems.splice(action.payload.index, 1)
-                const fullPriceItem = action.payload.price * action.payload.count
-                state.cartCount = state.cartCount - action.payload.count
-                state.cartPrice = state.cartPrice - fullPriceItem
-            }
+            state.cartItems.splice(action.payload.index, 1)
+            const fullPriceItem = action.payload.price * action.payload.count
+            state.cartCount = state.cartCount - action.payload.count
+            state.cartPrice = state.cartPrice - fullPriceItem
+
         }
     }
 })
 
 
-export const cartSelector = (state) => state.cartReducer
-export const {addItemForCart, clearCart, minusCartItem, deleteCartItem, getCountItems} = cartSlice.actions;
-export const selectCartItems = (state) => state.cartReducer.cartItems
-export const selectCart = (state) => state.cartReducer
+export const cartSelector = (state: RootState) => state.cartReducer
+export const {addItemForCart, clearCart, minusCartItem, deleteCartItem} = cartSlice.actions;
+export const selectCartItems = (state: RootState) => state.cartReducer.cartItems
+export const selectCart = (state: RootState) => state.cartReducer
 export default cartSlice.reducer;

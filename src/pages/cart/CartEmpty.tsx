@@ -1,7 +1,8 @@
 import {Link} from "react-router-dom";
 import spaceEmpty from "../../images/spaceEmpty.svg"
+import React from "react";
 
-function CartEmpty() {
+const CartEmpty: React.FC = () => {
     return (
         <div className="content content__cartEmpty">
             <div className="container">

@@ -1,7 +1,8 @@
 import {closeAllPopups} from "../redux/slices/popupWithFormSlice";
 import {useDispatch} from "react-redux";
+import React from "react";
 
-function CloseButton() {
+const CloseButton: React.FC = () => {
 
     const dispatch = useDispatch();
     return(
@@ -11,8 +12,10 @@ function CloseButton() {
             aria-label="Закрыть"
             onClick={() => dispatch(closeAllPopups())}
         >
-            <span className="popup__close popup__close_left"></span>
-            <span className="popup__close popup__close_right"></span>
+            <span className="popup__close popup__close_left">
+            </span>
+            <span className="popup__close popup__close_right">
+            </span>
         </button>
     )
 }

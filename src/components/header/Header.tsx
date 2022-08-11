@@ -5,17 +5,19 @@ import {useSelector} from "react-redux";
 import {cartSelector} from "../../redux/slices/cartSlice";
 import {useLocation} from "react-router";
 import Search from "./search/Search";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 
-const Header = () => {
+const Header: React.FC = () => {
+    type ScrollbarItem = null | number;
+
     const {cartCount, cartPrice} = useSelector(cartSelector)
     const location = useLocation();
-    const [scroll, setScroll] = useState(false);
+    const [scroll, setScroll] = useState<ScrollbarItem>(null);
     const [headerActive, setHeaderActive] = useState(false);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll)
-        if (scroll > 80) {
+        if ( scroll !== null && scroll > 80) {
             setHeaderActive(true)
         } else {
             setHeaderActive(false)

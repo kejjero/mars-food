@@ -1,6 +1,6 @@
 import '../scss/app.scss'
 import Header from "./header/Header";
-import {useEffect, useRef} from "react";
+import React, {useEffect, useRef} from "react";
 import {Routes, Route } from "react-router-dom";
 import BuyPopup from "./BuyPopup";
 import Footer from "./Footer"
@@ -15,9 +15,9 @@ import qs from "qs"
 import {selectFilter, setFilters} from "../redux/slices/filterSlice";
 import {fetchItems} from "../redux/slices/itemSlice";
 
-function App() {
+const App: React.FC = () => {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<any>();
     const isSearch = useRef(false);
     const isMounted = useRef(false);
     const {categoryId, sort, currentPage} = useSelector(selectFilter);
@@ -73,7 +73,7 @@ function App() {
               <main className="content">
                   <div className="container">
                       <Routes>
-                          <Route exact path="/mars-food" element={<Home/>}/>
+                          <Route path="/mars-food" element={<Home/>}/>
                           <Route path="/cart" element={<Cart/>}/>
                           <Route path="*" element={<NotFound/>}/>
                       </Routes>
