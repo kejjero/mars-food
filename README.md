@@ -16,6 +16,7 @@
 ![Axios](https://img.shields.io/badge/-Axios-0d1117?style=for-the-badge&logo=Axios)
 ![SCSS](https://img.shields.io/badge/-SCSS-0d1117?style=for-the-badge&logo=sass)
 ![Material_UI](https://img.shields.io/badge/-Material_UI-0d1117?style=for-the-badge&logo=mui)
+![Styled-components](https://img.shields.io/badge/-Styled_components-0d1117?style=for-the-badge&logo=Styled-components)
 ![Swiper](https://img.shields.io/badge/-Swiper-0d1117?style=for-the-badge&logo=swiper)
 ![lodash](https://img.shields.io/badge/-Lodash-0d1117?style=for-the-badge&logo=lodash)
 
