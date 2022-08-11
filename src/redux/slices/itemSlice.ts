@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit"
 import axios from "axios";
+import {RootState} from "../store";
 
 export const fetchItems = createAsyncThunk('itemsData/fetchItemsStatus', async (filterRequest) => {
     const {data} = await axios.get(`https://6291e4289d159855f081d72e.mockapi.io/items?${filterRequest}`)
@@ -11,11 +12,16 @@ export const fetchCategoryItems = createAsyncThunk('itemsCategory/fetchCategoryI
     return data
 })
 
-const initialState = {
+type itemTypes = {
+    itemsData: [],
+    itemsCategory: [],
+    statusItems: 'loading' | 'success' | 'error'
+}
+
+const initialState: itemTypes = {
     itemsData: [],
     itemsCategory: [],
     statusItems: 'loading', // loading | success | error
-
 }
 
 export const itemSlice = createSlice({
@@ -47,5 +53,5 @@ export const itemSlice = createSlice({
 })
 
 export default itemSlice.reducer;
-export const selectItems = (state) => state.itemsReducer
-export const selectItemsCategory = (state) => state.itemsReducer.itemsCategory
+export const selectItems = (state: RootState) => state.itemsReducer
+export const selectItemsCategory = (state: RootState) => state.itemsReducer.itemsCategory

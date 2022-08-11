@@ -28,7 +28,7 @@ const categories: CategoriesItem[] = [
 const Categories = () => {
     const categoryId = useSelector(selectCategoryId)
     const itemsCategory = useSelector(selectItemsCategory)
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<any>()
 
 
     function onClickCategory(index: number) {

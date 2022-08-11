@@ -17,7 +17,7 @@ import {fetchItems} from "../redux/slices/itemSlice";
 
 const App: React.FC = () => {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<any>();
     const isSearch = useRef(false);
     const isMounted = useRef(false);
     const {categoryId, sort, currentPage} = useSelector(selectFilter);

@@ -9,12 +9,12 @@ const ItemBlock: React.FC<itemData> = ({id, title, description, imageUrl, price,
 
     const dispatch = useDispatch()
     const cartItems = useSelector(selectCartItems)
-    const filterItem = cartItems.filter((item) => Number(item.id === id))
-    const [itemCounter, setItemCounter] = useState<object[]>([])
+    const filterItem = cartItems.filter((item) => Number(item?.id === id))
+    const [itemCounter, setItemCounter] = useState<itemData[]>([])
 
     useEffect(() => {
         filterItem.map((item) => {
-            setItemCounter([...itemCounter, item.count])
+            setItemCounter([...itemCounter, item?.count])
         })
     }, [cartItems])
 

@@ -6,6 +6,7 @@ export default interface itemData {
     category?: number;
     rating?: number;
     price: number;
+    count?: number
     property: {
         custom?: [
             {

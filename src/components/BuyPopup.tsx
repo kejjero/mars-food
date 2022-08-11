@@ -12,7 +12,6 @@ const BuyPopup: React.FC = () => {
     type propertyItem = {
         name: string;
         value: number;
-        typeId: number;
     }
 
     const handleActiveType = (typeId: number, obj: propertyItem) => {
@@ -57,6 +56,7 @@ const BuyPopup: React.FC = () => {
                         <ul className="buy-popup__category">
                             {
                                 property.custom.map((obj: propertyItem, typeId: number) => {
+                                    console.log(obj)
                                     return (
                                         <li
                                             key={typeId}
