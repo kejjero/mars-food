@@ -1,22 +1,19 @@
-import Categories from "../components/сategories/Categories";
-import Sort from "../components/Sort";
-import Skeleton from "../components/ItemsBlock/Skeleton";
-import ItemBlock from "../components/ItemsBlock/ItemBlock";
+import {Sort, Skeleton, ItemBlock, Categories} from "../components";
 import ufoMenu from "../images/ufo_menu.svg"
 import ReactPaginate from "react-paginate";
 import styles from "../scss/modules/pagination.module.scss"
 import {useDispatch, useSelector} from "react-redux";
-import {selectSearchValue, setCurrentPage} from "../redux/slices/filterSlice";
-import {selectItems} from "../redux/slices/itemSlice";
+import {selectSearchValue, setCurrentPage} from "../redux/filter/filterSlice";
+import {selectItems} from "../redux/item/itemSlice";
 import React from "react";
 import itemData from "../interfaces/interfaces"
 
 const Home: React.FC = () => {
-
     const dispatch = useDispatch();
     const searchValue = useSelector(selectSearchValue)
     const {itemsData, statusItems} = useSelector(selectItems);
     // const pageCount = useSelector((state) => state.filterReducer.pageCount)
+
     const ErrorGetItems = () => {
         return (
             <div className="errorBlock">
