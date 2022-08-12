@@ -1,4 +1,4 @@
-import {selectFilter, setSearchValue} from "../../../redux/slices/filterSlice";
+import {selectFilter, setSearchValue} from "../../redux/filter/filterSlice";
 import React, {useCallback, useRef} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import SearchIcon from '@mui/icons-material/Search';
