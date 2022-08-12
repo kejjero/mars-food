@@ -5,7 +5,7 @@ import React from "react";
 const NotFound: React.FC = () => {
     return(
         <div className="noteFound">
-            <img className="noteFound__image" src={ window.screen.width > 820 ? errorImage : errorImageMobile} alt=""/>
+            <img className="noteFound__image" src={ window.screen.width > 820 ? errorImage : errorImageMobile} alt="Космос"/>
         </div>
     )
 }
