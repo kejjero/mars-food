@@ -2,10 +2,10 @@ import logo from '../../images/logo.svg'
 import logoMobile from '../../images/logo-mobile.svg'
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {cartSelector} from "../../redux/slices/cartSlice";
+import {cartSelector, selectCart} from "../../redux/cart/cartSlice";
 import {useLocation} from "react-router";
-import Search from "./search/Search";
-import React, {useEffect, useState} from "react";
+// import {Search} from "../index"
+import React, {useEffect, useRef, useState} from "react";
 
 const Header: React.FC = () => {
     type ScrollbarItem = null | number;
@@ -14,6 +14,17 @@ const Header: React.FC = () => {
     const location = useLocation();
     const [scroll, setScroll] = useState<ScrollbarItem>(null);
     const [headerActive, setHeaderActive] = useState(false);
+    const isMounted = useRef(false)
+    const {cartItems} = useSelector(selectCart)
+
+    // useEffect(() => {
+    //     if(isMounted.current) {
+    //         const json = JSON.stringify(cartItems)
+    //         localStorage.setItem('items', json)
+    //     }
+    //     isMounted.current = true
+    // }, [cartItems])
+
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll)
@@ -82,9 +93,9 @@ const Header: React.FC = () => {
                     }
                 </Link>
                 <div className="header__right-block">
-                    {
-                        location.pathname === "/mars-food" && <Search/>
-                    }
+                    {/*{*/}
+                    {/*    location.pathname === "/mars-food" && <Search/>*/}
+                    {/*}*/}
                     {
                         <DesktopCart/>
                     }

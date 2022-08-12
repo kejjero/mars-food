@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
-import {closeAllPopups, selectPopupWithForm} from "../redux/slices/popupWithFormSlice";
-import CloseButton from "./CloseButton";
+import {closeAllPopups, selectPopupWithForm} from "../../redux/popup/popupWithFormSlice";
+import {CloseButton} from "./../index";
 import React, {useEffect} from "react";
 
 type FormProps = {

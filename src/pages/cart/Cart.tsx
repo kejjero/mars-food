@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import CartItem from "./CartItem";
-import {clearCart, selectCart} from "../../redux/slices/cartSlice";
+import {clearCart, selectCart} from "../../redux/cart/cartSlice";
 import CartEmpty from "./CartEmpty";
 import React, {useEffect, useState} from "react";
 import Box from '@mui/material/Box';
@@ -9,20 +9,20 @@ import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgr
 import { styled } from '@mui/material/styles';
 import cartIcon from '../../images/cart.svg'
 
+type CartItem = {
+    count: number;
+    id: number;
+    imageUrl: string;
+    price: number;
+    size: string;
+    title: string;
+    type: string;
+}
+
 const Cart: React.FC = () => {
     const { cartItems, cartCount, cartPrice } = useSelector(selectCart)
     const [isPay, setIsPay] = useState(true);
     const dispatch = useDispatch();
-
-    type CartItem = {
-        count: number;
-        id: number;
-        imageUrl: string;
-        price: number;
-        size: string;
-        title: string;
-        type: string;
-    }
 
     const BorderLinearProgress = styled(LinearProgress)(() => ({
         height: 53.5,
@@ -92,7 +92,6 @@ const Cart: React.FC = () => {
                     <div className="cart__items">
                         {
                             cartItems.map((item: CartItem) => {
-                                console.log(item)
                                 return (
                                     <CartItem
                                         key={Math.random()}

@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
-import {loadDataForPopup, resetActiveCategory} from "../../redux/slices/buyPopupSlice";
-import {openBuyPopup} from "../../redux/slices/popupWithFormSlice";
-import {selectCartItems} from "../../redux/slices/cartSlice";
+import {loadDataForPopup, resetActiveCategory} from "../../redux/popup/buyPopupSlice";
+import {openBuyPopup} from "../../redux/popup/popupWithFormSlice";
+import {selectCartItems} from "../../redux/cart/cartSlice";
 import React, {useEffect, useState} from "react";
 import itemData from "../../interfaces/interfaces"
 
@@ -13,8 +13,8 @@ const ItemBlock: React.FC<itemData> = ({id, title, description, imageUrl, price,
     const [itemCounter, setItemCounter] = useState<itemData[]>([])
 
     useEffect(() => {
-        filterItem.map((item) => {
-            setItemCounter([...itemCounter, item?.count])
+        filterItem.map((item: any) => {
+            setItemCounter([...itemCounter, item.count])
         })
     }, [cartItems])
 

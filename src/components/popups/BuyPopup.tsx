@@ -1,7 +1,12 @@
-import PopupWithForm from "./PopupWithForm";
+import {PopupWithForm} from "./../index";
 import {useDispatch, useSelector} from "react-redux";
-import {selectBuyPopup, selectBuyPopupData, setCountSizePrice, setCountTypePrice} from "../redux/slices/buyPopupSlice";
-import {addItemForCart} from "../redux/slices/cartSlice";
+import {
+    selectBuyPopup,
+    selectBuyPopupData,
+    setCountSizePrice,
+    setCountTypePrice
+} from "../../redux/popup/buyPopupSlice";
+import {addItemForCart} from "../../redux/cart/cartSlice";
 import React from "react";
 
 const BuyPopup: React.FC = () => {
@@ -56,7 +61,6 @@ const BuyPopup: React.FC = () => {
                         <ul className="buy-popup__category">
                             {
                                 property.custom.map((obj: propertyItem, typeId: number) => {
-                                    console.log(obj)
                                     return (
                                         <li
                                             key={typeId}

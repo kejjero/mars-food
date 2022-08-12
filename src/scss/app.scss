@@ -5,7 +5,7 @@
 body {
   background: linear-gradient(180deg, #240048 0%, #060117 42.71%);
   width: 100%;
-  min-height: 100vh;
+  min-height: 101vh;
   height: 100%;
   cursor: default;
 }
@@ -210,6 +210,7 @@ body {
           stroke: darken($color: #b6b6b6, $amount: 50);
         }
       }
+
       span {
         color: darken($color: #b6b6b6, $amount: 50);
       }
@@ -302,6 +303,28 @@ body {
         bottom: 0;
       }
 
+      &_disabled {
+        opacity: 0.5;
+        border-color: #fff;
+        cursor: inherit;
+
+        &:active {
+          transform: none;
+        }
+
+        &:hover {
+          background-color: transparent;
+
+          svg path {
+            fill: #fff;
+          }
+        }
+
+        svg path {
+          fill: #f3f3f3;
+        }
+      }
+
       &-minus {
         svg {
           path:first-of-type {
@@ -374,6 +397,7 @@ body {
           height: 11.5px;
           position: relative;
         }
+
         &:hover,
         &:active {
           border-color: darken($color: $gray-line, $amount: 80);
@@ -609,6 +633,7 @@ body {
     line-height: 30px;
     text-align: center;
   }
+
   &__img {
     position: relative;
     left: 10px;
@@ -637,6 +662,7 @@ body {
   &__title {
     margin-bottom: 20px;
   }
+
   &__paragraph {
     font-size: 18px;
   }
