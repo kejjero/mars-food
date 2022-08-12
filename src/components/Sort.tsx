@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
-import {setSort} from "../redux/slices/filterSlice";
+import {setSort} from "../redux/filter/filterSlice";
 import {useDispatch, useSelector} from "react-redux";
 
 type sortItem = {
@@ -87,4 +87,4 @@ const Sort: React.FC = () => {
     )
 }
 
-export default Sort;
+export default React.memo(Sort);
