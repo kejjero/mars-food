@@ -1,5 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit"
 import {RootState} from "../store";
+import {getCartFromLS} from "../../utils/getCartFromLS";
+import {getTargetItem} from "../../utils/getTargetItem";
 
 interface objectItem {
     count: number;
@@ -11,16 +13,18 @@ interface objectItem {
     type: string;
 }
 
-interface initalStateSlice {
+interface initialStateSlice {
     cartCount: number;
     cartPrice: number;
-    cartItems: objectItem[]
+    cartItems: objectItem[];
 }
 
-const initialState: initalStateSlice = {
+const { items } = getCartFromLS();
+
+const initialState: initialStateSlice = {
     cartCount: 0,
     cartPrice: 0,
-    cartItems: [],
+    cartItems: items,
 }
 
 export const cartSlice = createSlice({
@@ -30,15 +34,7 @@ export const cartSlice = createSlice({
         addItemForCart(state, action) {
             state.cartCount += 1
             state.cartPrice += action.payload.price
-            const findItem = state.cartItems.find((obj) => {
-                console.log(obj)
-                return (
-                    obj.id === action.payload.id &&
-                    obj.type === action.payload.type &&
-                    obj.size === action.payload.size &&
-                    obj.title === action.payload.title
-                )
-            })
+            const findItem: any = getTargetItem(state.cartItems, action.payload)
             if (findItem) {
                 findItem.count++
             } else {
@@ -54,14 +50,7 @@ export const cartSlice = createSlice({
         },
         minusCartItem(state, action) {
             if (state.cartCount > 0) {
-                const findItem = state.cartItems.find((obj) => {
-                    return (
-                        obj.id === action.payload.id &&
-                        obj.type === action.payload.type &&
-                        obj.size === action.payload.size &&
-                        obj.title === action.payload.title
-                    )
-                })
+                const findItem: any = getTargetItem(state.cartItems, action.payload)
                 if (findItem && action.payload.count > 1) {
                     findItem.count = findItem.count - 1
                     state.cartCount = state.cartCount - 1
@@ -70,7 +59,7 @@ export const cartSlice = createSlice({
             }
         },
         deleteCartItem(state, action) {
-            const findIndex = state.cartItems.find((item, index) => index === action.payload.index)
+            // const findIndex = state.cartItems.find((item, index) => index === action.payload.index)
             state.cartItems.splice(action.payload.index, 1)
             const fullPriceItem = action.payload.price * action.payload.count
             state.cartCount = state.cartCount - action.payload.count

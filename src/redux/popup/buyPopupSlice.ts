@@ -19,12 +19,9 @@ const initialState = {
         property: {
             custom: [
                 {name: "", value: 0},
-                {name: "", value: 0}
             ],
             size: [
-                {name: "M", value: 0},
-                {name: "L", value: 0},
-                {name: "XL", value: 0}
+                {name: "", value: 0},
             ]
         }
     },
