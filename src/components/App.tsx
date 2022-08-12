@@ -1,19 +1,14 @@
 import '../scss/app.scss'
-import Header from "./header/Header";
+import {Footer, Home} from "../pages";
+import {Header, BuyPopup, LazyAlert, BackgroundSpace} from "./index";
 import React, {useEffect, useRef} from "react";
-import {Routes, Route } from "react-router-dom";
-import BuyPopup from "./BuyPopup";
-import Footer from "./Footer"
-import Home from "../pages/Home";
-import NotFound from "../pages/NotFound";
-import Cart from "../pages/cart/Cart";
-import backgroundDesktop from "../images/background_space.svg"
-import backgroundMobile from "../images/background_space-mobile.svg"
+import {Routes, Route} from "react-router-dom";
 import {useNavigate} from "react-router";
 import {useSelector, useDispatch} from "react-redux";
 import qs from "qs"
-import {selectFilter, setFilters} from "../redux/slices/filterSlice";
-import {fetchItems} from "../redux/slices/itemSlice";
+import {selectFilter, setFilters} from "../redux/filter/filterSlice";
+import {fetchItems} from "../redux/item/asyncActions";
+import Loadable from 'react-loadable';
 
 const App: React.FC = () => {
     const navigate = useNavigate();
@@ -22,8 +17,18 @@ const App: React.FC = () => {
     const isMounted = useRef(false);
     const {categoryId, sort, currentPage} = useSelector(selectFilter);
 
+    // Разделение бандла на чанки с ленивой подгрузкой компонентов
+    const Cart = Loadable({
+        loader: () => import(/* webpackChunkName: "Cart" */ '../pages/cart/Cart'),
+        loading: () => <LazyAlert/>
+    });
+    const NotFound = Loadable({
+        loader: () => import(/* webpackChunkName: "NotFound" */ '../pages/NotFound'),
+        loading: () => <LazyAlert/>
+    });
+
     // асинхронная функция получения данных из mockAPI
-    function getItems () {
+    function getItems() {
         const isCategory = categoryId !== 0 ? categoryId : ''
         const isSort = `sortBy=${sort.property}&order=${sort.type}`
         const filterRequest = `category=${isCategory}&${isSort}&page=${currentPage}&limit=4`
@@ -31,7 +36,7 @@ const App: React.FC = () => {
     }
 
     useEffect(() => {
-        if(isMounted.current) {
+        if (isMounted.current) {
             const queryString = qs.stringify({
                 category: categoryId,
                 property: sort.property,
@@ -45,7 +50,7 @@ const App: React.FC = () => {
     }, [categoryId, currentPage, sort])
 
     useEffect(() => {
-        if(window.location.search){
+        if (window.location.search) {
             const params = qs.parse(window.location.search.substring(1))
             dispatch(setFilters(params))
         }
@@ -54,36 +59,32 @@ const App: React.FC = () => {
 
     // потставить ! isSearch.current и isSearch.current = false;
     useEffect(() => {
-        if(isSearch.current) {
+        if (isSearch.current) {
             getItems();
         }
         isSearch.current = true;
-    },[categoryId, currentPage, sort])
+    }, [categoryId, currentPage, sort])
 
 
-  return (
-      <>
-          <div className="wrapper">
-              <img
-                  className="background-space"
-                  src={window.screen.width > 520 ? backgroundDesktop : backgroundMobile}
-                  alt=""
-              />
-              <Header/>
-              <main className="content">
-                  <div className="container">
-                      <Routes>
-                          <Route path="/mars-food" element={<Home/>}/>
-                          <Route path="/cart" element={<Cart/>}/>
-                          <Route path="*" element={<NotFound/>}/>
-                      </Routes>
-                  </div>
-              </main>
-              <Footer/>
-          </div>
-          <BuyPopup/>
-      </>
-  )
+    return (
+        <>
+            <div className="wrapper">
+                <BackgroundSpace/>
+                <Header/>
+                <main className="content">
+                    <div className="container">
+                        <Routes>
+                            <Route path="/mars-food" element={<Home/>}/>
+                            <Route path="/cart" element={<Cart/>}/>
+                            <Route path="*" element={<NotFound/>}/>
+                        </Routes>
+                    </div>
+                </main>
+                <Footer/>
+            </div>
+            <BuyPopup/>
+        </>
+    )
 }
 
 export default App;
