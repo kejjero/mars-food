@@ -1,8 +1,9 @@
 @import '../variables.scss';
+@import '../mixins';
 
 .button {
   display: inline-block;
-  background-color: $orange;
+  background-color: $red;
   border-radius: 30px;
   padding: 10px 10px;
   min-width: 130px;
@@ -28,18 +29,16 @@
   }
 
   &:hover {
-    background-color: darken($orange, 8%);
+    background-color: darken($red, 8%);
   }
 
   &:active {
-    background-color: darken($orange, 12%);
+    background-color: darken($red, 12%);
     transform: translateY(1px);
   }
 
   &--circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center-center;
     width: 32px;
     height: 32px;
     min-width: 32px;
@@ -58,35 +57,35 @@
 
   &--outline {
     background: rgba(0, 0, 0, 0.05);
-    border-color: $orange;
+    border-color: $red;
     &,
     span {
-      color: $orange;
+      color: $red;
     }
 
     svg {
       path {
-        fill: $orange;
+        fill: $red;
       }
     }
 
     &:hover {
-      background-color: $orange;
+      background-color: $red;
 
       &,
       span {
-        color: #fff;
+        color: $white;
       }
 
       svg {
         path {
-          fill: #fff;
+          fill: $white;
         }
       }
     }
 
     &:active {
-      background-color: darken($orange, 8%);
+      background-color: darken($red, 8%);
     }
   }
 
@@ -111,15 +110,15 @@
     &:hover {
       i {
         background-color: #fff;
-        color: $orange;
+        color: $red;
       }
     }
 
     i {
       display: inline-block;
       border-radius: 30px;
-      background-color: $orange;
-      color: #fff;
+      background-color: $red;
+      color: $white;
       font-weight: 600;
       width: 22px;
       height: 22px;
@@ -133,8 +132,7 @@
   }
 
   &--cart {
-    display: flex;
-    align-items: center;
+    @include flex-center;
     line-height: 23px;
     padding: 12px 25px;
 
