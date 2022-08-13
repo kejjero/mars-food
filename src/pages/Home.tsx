@@ -3,18 +3,20 @@ import ufoMenu from "../images/ufo_menu.svg"
 import ReactPaginate from "react-paginate";
 import styles from "../scss/modules/pagination.module.scss"
 import {useDispatch, useSelector} from "react-redux";
-import {selectSearchValue, setCurrentPage} from "../redux/filter/filterSlice";
+import {setCurrentPage} from "../redux/filter/filterSlice";
+import {selectSearchValue} from "../redux/filter/selectors"
 import {selectItems} from "../redux/item/itemSlice";
 import React from "react";
-import itemData from "../interfaces/interfaces"
+import {itemData} from "../@types/types"
+import {AppDispatch} from "../redux/store";
 
 const Home: React.FC = () => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const searchValue = useSelector(selectSearchValue)
     const {itemsData, statusItems} = useSelector(selectItems);
     // const pageCount = useSelector((state) => state.filterReducer.pageCount)
 
-    const ErrorGetItems = () => {
+    const ErrorGetItems = (): JSX.Element => {
         return (
             <div className="errorBlock">
                 <h2 className="errorBlock__title">Не удалось получить еду 😕</h2>
@@ -40,7 +42,7 @@ const Home: React.FC = () => {
     })
 
     return (
-        <>
+        <React.Fragment>
             <div className="content__top">
                 <img className="content__ufo-menu" src={ufoMenu} alt=""/>
                 <Categories/>
@@ -69,7 +71,7 @@ const Home: React.FC = () => {
                 pageCount={3}
                 previousLabel="←"
             />
-        </>
+        </React.Fragment>
     )
 }
 

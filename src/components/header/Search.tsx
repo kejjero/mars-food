@@ -1,14 +1,16 @@
-import {selectFilter, setSearchValue} from "../../redux/filter/filterSlice";
+import {setSearchValue} from "../../redux/filter/filterSlice";
+import {selectFilter} from "../../redux/filter/selectors"
 import React, {useCallback, useRef} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import SearchIcon from '@mui/icons-material/Search';
-import {Input, Stack, } from '@mui/material';
+import {Input, Stack,} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import {AppDispatch} from "../../redux/store";
 
 const Search: React.FC = () => {
     const {searchValue} = useSelector(selectFilter)
     const inputRef = useRef<HTMLInputElement>(null);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
 
     function onClickClear() {
         dispatch(setSearchValue(''))
@@ -22,8 +24,8 @@ const Search: React.FC = () => {
     //     [],
     // );
 
-    const onChangeInput = (evt: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-        dispatch(setSearchValue( evt.target.value));
+    const onChangeInput = (evt: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
+        dispatch(setSearchValue(evt.target.value));
     };
 
 
@@ -35,7 +37,7 @@ const Search: React.FC = () => {
     //     },
     // });
 
-    const DesktopSearch = () => {
+    const DesktopSearch = (): JSX.Element => {
         return (
             <Stack
                 direction="row"

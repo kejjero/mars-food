@@ -1,4 +1,5 @@
 @import '../variables.scss';
+@import '../mixins';
 
 .item-block {
   text-align: center;
@@ -84,10 +85,9 @@
   }
 
   &__selector {
-    display: flex;
+    @include flex-column;
     background-color: #f3f3f3;
     border-radius: 10px;
-    flex-direction: column;
     padding: 6px;
 
     ul {
@@ -116,9 +116,7 @@
   }
 
   &__bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flex-center-between;
     margin-top: 20px;
 
     @media screen and (max-width: 520px) {

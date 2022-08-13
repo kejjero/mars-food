@@ -1,4 +1,5 @@
-@import '../variables.scss';
+@import "../mixins";
+@import "../variables";
 
 .categories {
   width: $container-width;
@@ -29,16 +30,14 @@
   }
 
   &__item-mobile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center-center;
     flex-direction: column;
   }
 
   &__slide {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    align-items: stretch;
+    justify-content: center;
     width: 100%;
   }
 
@@ -55,16 +54,14 @@
     li {
       font-weight: bold;
       cursor: pointer;
-      display: flex;
+      @include flex-center-between;
       flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
       @include noselect();
 
 
       &.active h2 {
-        color: #EF4137;
-        border: 2px solid #EF4137;
+        color: $red;
+        border: 2px solid $red;
       }
 
       img {
@@ -83,7 +80,7 @@
         line-height: 24px;
         text-align: center;
         letter-spacing: 0.015em;
-        color: #fff;
+        color: $white;
         border: 2px solid rgba(255, 255, 255, 0.7);
         border-radius: 21px;
       }

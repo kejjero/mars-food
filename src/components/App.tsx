@@ -6,15 +6,17 @@ import {Routes, Route} from "react-router-dom";
 import {useNavigate} from "react-router";
 import {useSelector, useDispatch} from "react-redux";
 import qs from "qs"
-import {selectFilter, setFilters} from "../redux/filter/filterSlice";
+import {setFilters} from "../redux/filter/filterSlice";
+import {selectFilter} from "../redux/filter/selectors"
 import {fetchItems} from "../redux/item/asyncActions";
 import Loadable from 'react-loadable';
+import {AppDispatch} from "../redux/store";
 
 const App: React.FC = () => {
     const navigate = useNavigate();
-    const dispatch = useDispatch<any>();
-    const isSearch = useRef(false);
-    const isMounted = useRef(false);
+    const dispatch = useDispatch<AppDispatch>();
+    const isSearch = useRef<boolean>(false);
+    const isMounted = useRef<boolean>(false);
     const {categoryId, sort, currentPage} = useSelector(selectFilter);
 
     // Разделение бандла на чанки с ленивой подгрузкой компонентов
@@ -28,7 +30,7 @@ const App: React.FC = () => {
     });
 
     // асинхронная функция получения данных из mockAPI
-    function getItems() {
+    const getItems = (): void => {
         const isCategory = categoryId !== 0 ? categoryId : ''
         const isSort = `sortBy=${sort.property}&order=${sort.type}`
         const filterRequest = `category=${isCategory}&${isSort}&page=${currentPage}&limit=4`

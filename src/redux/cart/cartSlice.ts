@@ -1,27 +1,11 @@
 import {createSlice} from "@reduxjs/toolkit"
-import {RootState} from "../store";
 import {getCartFromLS} from "../../utils/getCartFromLS";
 import {getTargetItem} from "../../utils/getTargetItem";
-
-interface objectItem {
-    count: number;
-    id: number;
-    imageUrl: string;
-    price: number;
-    size: string;
-    title: string;
-    type: string;
-}
-
-interface initialStateSlice {
-    cartCount: number;
-    cartPrice: number;
-    cartItems: objectItem[];
-}
+import {initialStateCart} from "./types"
 
 const { items } = getCartFromLS();
 
-const initialState: initialStateSlice = {
+const initialState: initialStateCart = {
     cartCount: 0,
     cartPrice: 0,
     cartItems: items,
@@ -34,7 +18,7 @@ export const cartSlice = createSlice({
         addItemForCart(state, action) {
             state.cartCount += 1
             state.cartPrice += action.payload.price
-            const findItem: any = getTargetItem(state.cartItems, action.payload)
+            const findItem = getTargetItem(state.cartItems, action.payload)
             if (findItem) {
                 findItem.count++
             } else {
@@ -69,9 +53,5 @@ export const cartSlice = createSlice({
     }
 })
 
-
-export const cartSelector = (state: RootState) => state.cartReducer
 export const {addItemForCart, clearCart, minusCartItem, deleteCartItem} = cartSlice.actions;
-export const selectCartItems = (state: RootState) => state.cartReducer.cartItems
-export const selectCart = (state: RootState) => state.cartReducer
 export default cartSlice.reducer;

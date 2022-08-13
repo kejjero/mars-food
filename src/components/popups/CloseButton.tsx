@@ -1,9 +1,10 @@
-import {closeAllPopups} from "../../redux/popup/popupWithFormSlice";
+import {closeAllPopups} from "../../redux/popups/popupWithForm/popupWithFormSlice";
 import {useDispatch} from "react-redux";
 import React from "react";
+import {AppDispatch} from "../../redux/store";
 
 const CloseButton: React.FC = () => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     return(
         <button
             type="button"

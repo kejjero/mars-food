@@ -1,14 +1,14 @@
 import {Player} from '@lottiefiles/react-lottie-player';
 import React from "react";
 
-type PlayerItem = {
+type PlayerCategoryType = {
     animation: string;
     index: number;
     categoryId: number;
     img: string;
 }
 
-const PlayerCategory: React.FC<PlayerItem> = ({animation, index, categoryId, img}) => {
+const PlayerCategory: React.FC<PlayerCategoryType> = ({animation, index, categoryId, img}):JSX.Element => {
     return (
         <React.Fragment>
             {

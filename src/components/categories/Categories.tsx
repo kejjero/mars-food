@@ -4,47 +4,48 @@ import iconLasagna from '../../images/icon-lasagna.svg'
 import iconJuice from '../../images/icon-juice.svg'
 import iconFork from '../../images/icon-fork.svg'
 import {useSelector, useDispatch} from "react-redux";
-import {selectCategoryId, setCategoryId} from "../../redux/filter/filterSlice";
+import {setCategoryId} from "../../redux/filter/filterSlice";
+import {selectCategoryId} from "../../redux/filter/selectors"
 import {fetchCategoryItems} from "../../redux/item/asyncActions";
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import React, {useCallback} from     "react";
 import {PlayerCategory} from "../index"
+import {AppDispatch} from "../../redux/store";
 
-type CategoriesItem = {
+type categoriesItemType = {
     name: string;
     animation: string;
     img: string;
 }
 
-type CurrentIndexItem = number | string;
+type TIndexCategory = number | string;
 
-const categories: CategoriesItem[] = [
+const categories: categoriesItemType[] = [
     {name: 'Все', animation: "https://assets1.lottiefiles.com/private_files/lf30_cq4x96b3.json", img: iconFork},
-    {name: 'Бургеры', animation: "https://assets6.lottiefiles.com/private_files/lf30_xmcqzkqy.json", img: iconBurger},
-    {name: 'Пицца', animation: "https://assets6.lottiefiles.com/private_files/lf30_xmcqzkqy.json", img: iconPizza},
-    {name: 'Десерты', animation: "https://assets6.lottiefiles.com/private_files/lf30_xmcqzkqy.json", img: iconLasagna},
-    {name: 'Напитки', animation: "https://assets6.lottiefiles.com/private_files/lf30_xmcqzkqy.json", img: iconJuice},
+    {name: 'Бургеры', animation: "https://assets1.lottiefiles.com/private_files/lf30_cq4x96b3.json", img: iconBurger},
+    {name: 'Пицца', animation: "https://assets1.lottiefiles.com/private_files/lf30_cq4x96b3.json", img: iconPizza},
+    {name: 'Десерты', animation: "https://assets1.lottiefiles.com/private_files/lf30_cq4x96b3.json", img: iconLasagna},
+    {name: 'Напитки', animation: "https://assets1.lottiefiles.com/private_files/lf30_cq4x96b3.json", img: iconJuice},
 ]
 
-const Categories: React.FC<any> = () => {
+const Categories: React.FC = () => {
 
     const categoryId = useSelector(selectCategoryId)
-    const dispatch = useDispatch<any>()
+    const dispatch = useDispatch<AppDispatch>()
 
-
-    const onClickCategory = useCallback((index: number) => {
+    const onClickCategory = useCallback((index: number): void => {
         dispatch(setCategoryId(index))
         mathItems(index)
     }, [])
 
 
-    function mathItems(index: number) {
-        const indexCategory: CurrentIndexItem = index !== 0 ? index : ''
+    const mathItems = (index: number): void => {
+        const indexCategory: TIndexCategory = index !== 0 ? index : ''
         dispatch(fetchCategoryItems(indexCategory))
     }
 
-    const DesktopCategories = () => {
+    const DesktopCategories = (): JSX.Element => {
         return (
             <ul className="categories__slide">{
                 categories.map((category, index) => {

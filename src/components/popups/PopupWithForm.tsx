@@ -1,14 +1,15 @@
 import {useDispatch, useSelector} from "react-redux";
-import {closeAllPopups, selectPopupWithForm} from "../../redux/popup/popupWithFormSlice";
+import {closeAllPopups, selectPopupWithForm} from "../../redux/popups/popupWithForm/popupWithFormSlice";
 import {CloseButton} from "./../index";
 import React, {useEffect} from "react";
+import {AppDispatch} from "../../redux/store";
 
-type FormProps = {
+type PopupWithFormType = {
     children: JSX.Element|JSX.Element[];
 }
 
-const PopupWithForm: React.FC <FormProps> = ({children}) => {
-    const dispatch = useDispatch();
+const PopupWithForm: React.FC <PopupWithFormType> = ({children}) => {
+    const dispatch = useDispatch<AppDispatch>();
     const {name, isOpen} = useSelector(selectPopupWithForm)
 
     useEffect(() => {

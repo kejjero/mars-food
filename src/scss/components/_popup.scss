@@ -1,8 +1,9 @@
+@import "../mixins";
+@import "../variables";
+
 .popup {
-  display: flex;
+  @include flex-center-center;
   visibility: hidden;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   position: fixed;
   top: 0;
@@ -26,8 +27,7 @@
   }
 
   &__container {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     box-sizing: border-box;
     position: relative;
     background: linear-gradient(180deg, #3B0A6C 0%, #160724 76.04%);
@@ -92,8 +92,7 @@
   }
 
   &__form {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     align-items: center;
     width: 100%;
   }

@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
-import {RootState} from "../store";
+import {RootState} from "../../store";
+import {initialStatePopupWP} from "./types"
 
-const initialState = {
+const initialState: initialStatePopupWP = {
     isOpen: false,
     name: '',
 }

@@ -1,4 +1,6 @@
-export const getTargetItem = (cartItems: object[], payload: any) => {
+import {itemType} from "../redux/cart/types";
+
+export const getTargetItem = (cartItems: itemType[], payload: itemType) => {
     return cartItems.find((obj: any) => {
         return (
             obj.id === payload.id &&
