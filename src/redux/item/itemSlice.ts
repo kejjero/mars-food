@@ -1,15 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit"
 import {RootState} from "../store";
 import {fetchItems} from "./asyncActions"
+import {initialStateItem} from "./types"
 
-
-type itemTypes = {
-    itemsData: [],
-    itemsCategory: [],
-    statusItems: 'loading' | 'success' | 'error'
-}
-
-const initialState: itemTypes = {
+const initialState: initialStateItem = {
     itemsData: [],
     itemsCategory: [],
     statusItems: 'loading', // loading | success | error
@@ -24,17 +18,17 @@ const itemSlice = createSlice({
         },
     },
     extraReducers: (builder) => {
-        builder.addCase(fetchItems.pending, (state: any) => {
+        builder.addCase(fetchItems.pending, (state) => {
             state.itemsData = [];
             state.statusItems = 'loading';
         });
 
-        builder.addCase(fetchItems.fulfilled, (state: any, action: any) => {
+        builder.addCase(fetchItems.fulfilled, (state, action) => {
             state.itemsData = action.payload;
             state.statusItems = 'success'
         });
 
-        builder.addCase(fetchItems.rejected, (state: any) => {
+        builder.addCase(fetchItems.rejected, (state) => {
             state.statusItems = 'error'
             state.itemsData = [];
         });

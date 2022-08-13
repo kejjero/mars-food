@@ -5,37 +5,38 @@ import {
     selectBuyPopupData,
     setCountSizePrice,
     setCountTypePrice
-} from "../../redux/popup/buyPopupSlice";
+} from "../../redux/popups/buyPopup/buyPopupSlice";
 import {addItemForCart} from "../../redux/cart/cartSlice";
 import React from "react";
+import {AppDispatch} from "../../redux/store";
 
 const BuyPopup: React.FC = () => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const {data, type, size, activeType, activeSize, totalPrice} = useSelector(selectBuyPopup)
     const {property, id, title, imageUrl} = useSelector(selectBuyPopupData)
 
-    type propertyItem = {
+    type propertyType = {
         name: string;
         value: number;
     }
 
-    const handleActiveType = (typeId: number, obj: propertyItem) => {
+    const handleActiveType = (typeId: number, property: propertyType): void => {
         dispatch(setCountTypePrice({
             id: typeId,
-            price: obj.value,
-            name: obj.name
+            price: property.value,
+            name: property.name
         }))
     }
 
-    function handleActiveSize(sizeId: number, obj: propertyItem) {
+    const handleActiveSize = (sizeId: number, property: propertyType): void => {
         dispatch(setCountSizePrice({
             id: sizeId,
-            price: obj.value,
-            name: obj.name
+            price: property.value,
+            name: property.name
         }))
     }
 
-    function handleItemsForCard(evt: React.MouseEvent<HTMLButtonElement>) {
+    const handleItemsForCard = (evt: React.MouseEvent<HTMLButtonElement>): void => {
         evt.preventDefault()
         dispatch(addItemForCart({
             id,
@@ -60,26 +61,26 @@ const BuyPopup: React.FC = () => {
                     <nav className="buy-popup__constructor">
                         <ul className="buy-popup__category">
                             {
-                                property.custom.map((obj: propertyItem, typeId: number) => {
+                                property.custom.map((property: propertyType, typeId: number) => {
                                     return (
                                         <li
                                             key={typeId}
                                             className={activeType === typeId ? 'active' : ''}
-                                            onClick={() => handleActiveType(typeId, obj)}
-                                        >{obj.name}</li>
+                                            onClick={() => handleActiveType(typeId, property)}
+                                        >{property.name}</li>
                                     )
                                 })
                             }
                         </ul>
                         <ul className="buy-popup__category">
                             {
-                                property.size.map((obj: propertyItem, sizeId: number) => {
+                                property.size.map((property: propertyType, sizeId: number) => {
                                     return (
                                         <li
                                             key={sizeId}
                                             className={activeSize === sizeId ? 'active' : ''}
-                                            onClick={() => handleActiveSize(sizeId, obj)}
-                                        >{obj.name}</li>
+                                            onClick={() => handleActiveSize(sizeId, property)}
+                                        >{property.name}</li>
                                     )
                                 })
                             }

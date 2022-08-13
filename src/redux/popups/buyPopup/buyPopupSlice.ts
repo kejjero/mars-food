@@ -1,7 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit"
-import {RootState} from "../store";
+import {RootState} from "../../store";
+import {initialStateBuyPopup} from "./types"
 
-const initialState = {
+const initialState: initialStateBuyPopup = {
     totalPrice: 0,
     countTypePrice: 0,
     countSizePrice: 0,

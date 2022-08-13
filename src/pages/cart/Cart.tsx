@@ -1,15 +1,17 @@
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import CartItem from "./CartItem";
-import {clearCart, selectCart} from "../../redux/cart/cartSlice";
+import {selectCart} from "../../redux/cart/selectors";
+import {clearCart} from "../../redux/cart/cartSlice"
 import CartEmpty from "./CartEmpty";
 import React, {useEffect, useState} from "react";
 import Box from '@mui/material/Box';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import { styled } from '@mui/material/styles';
 import cartIcon from '../../images/cart.svg'
+import {AppDispatch} from "../../redux/store";
 
-type CartItem = {
+type CartItemType = {
     count: number;
     id: number;
     imageUrl: string;
@@ -21,8 +23,8 @@ type CartItem = {
 
 const Cart: React.FC = () => {
     const { cartItems, cartCount, cartPrice } = useSelector(selectCart)
-    const [isPay, setIsPay] = useState(true);
-    const dispatch = useDispatch();
+    const [isPay, setIsPay] = useState<boolean>(true);
+    const dispatch = useDispatch<AppDispatch>();
 
     const BorderLinearProgress = styled(LinearProgress)(() => ({
         height: 53.5,
@@ -37,7 +39,7 @@ const Cart: React.FC = () => {
         },
     }));
 
-    const ProgressBlock = () => {
+    const ProgressBlock = (): JSX.Element => {
         return (
             <div className="cart__bottom-progress">
                 <h3 className="cart__bottom-progress-title">Заказ от 1 000 λ</h3>
@@ -57,7 +59,7 @@ const Cart: React.FC = () => {
     },[cartPrice, isPay])
 
     if (cartCount === 0){
-        return <CartEmpty />
+        return <CartEmpty/>
     }
 
     return (
@@ -91,12 +93,14 @@ const Cart: React.FC = () => {
                     </div>
                     <div className="cart__items">
                         {
-                            cartItems.map((item: CartItem) => {
+                            cartItems.map((item: CartItemType) => {
+                                const itemKey = item.id + item.size + item.type;
+                                const currentIndex = cartItems.indexOf(item);
                                 return (
                                     <CartItem
-                                        key={Math.random()}
+                                        key={itemKey}
                                         id={item.id}
-                                        index={cartItems.indexOf(item)}
+                                        index={currentIndex}
                                         title={item.title}
                                         image={item.imageUrl}
                                         price={item.price}

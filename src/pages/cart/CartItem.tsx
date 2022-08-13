@@ -1,8 +1,9 @@
 import {useDispatch} from "react-redux";
 import {addItemForCart, deleteCartItem, minusCartItem} from "../../redux/cart/cartSlice";
 import React from "react";
+import {AppDispatch} from "../../redux/store";
 
-interface CartCountItem {
+type CartItemType = {
     title: string;
     image: string;
     size: string;
@@ -13,9 +14,9 @@ interface CartCountItem {
     index: number;
 }
 
-const CartItem: React.FC<CartCountItem> = ({title, image, size, type, count, price, id, index}) => {
+const CartItem: React.FC<CartItemType> = ({title, image, size, type, count, price, id, index}) => {
+    const dispatch = useDispatch<AppDispatch>();
 
-    const dispatch = useDispatch();
     return (
         <div className="cart__item">
             <div

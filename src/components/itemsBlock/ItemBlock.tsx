@@ -1,24 +1,23 @@
 import {useDispatch, useSelector} from "react-redux";
-import {loadDataForPopup, resetActiveCategory} from "../../redux/popup/buyPopupSlice";
-import {openBuyPopup} from "../../redux/popup/popupWithFormSlice";
-import {selectCartItems} from "../../redux/cart/cartSlice";
+import {loadDataForPopup, resetActiveCategory} from "../../redux/popups/buyPopup/buyPopupSlice";
+import {openBuyPopup} from "../../redux/popups/popupWithForm/popupWithFormSlice";
+import {selectCartItems} from "../../redux/cart/selectors";
 import React, {useEffect, useState} from "react";
-import itemData from "../../interfaces/interfaces"
+import {itemData} from "../../@types/types"
+import {AppDispatch} from "../../redux/store";
 
 const ItemBlock: React.FC<itemData> = ({id, title, description, imageUrl, price, property}) => {
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<AppDispatch>()
     const cartItems = useSelector(selectCartItems)
     const filterItem = cartItems.filter((item) => Number(item?.id === id))
     const [itemCounter, setItemCounter] = useState<itemData[]>([])
 
     useEffect(() => {
-        filterItem.map((item: any) => {
-            setItemCounter([...itemCounter, item.count])
-        })
+        filterItem.map((item: any) => setItemCounter([...itemCounter, item.count]))
     }, [cartItems])
 
-    function handleBuyPopup() {
+    const handleBuyPopup = (): void => {
         dispatch(resetActiveCategory())
         dispatch(loadDataForPopup(
                 {

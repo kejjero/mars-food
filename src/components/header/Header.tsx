@@ -2,19 +2,18 @@ import logo from '../../images/logo.svg'
 import logoMobile from '../../images/logo-mobile.svg'
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {cartSelector, selectCart} from "../../redux/cart/cartSlice";
+import {cartSelector, selectCart} from "../../redux/cart/selectors";
 import {useLocation} from "react-router";
 // import {Search} from "../index"
 import React, {useEffect, useRef, useState} from "react";
 
 const Header: React.FC = () => {
-    type ScrollbarItem = null | number;
-
+    type scrollType = null | number;
     const {cartCount, cartPrice} = useSelector(cartSelector)
     const location = useLocation();
-    const [scroll, setScroll] = useState<ScrollbarItem>(null);
-    const [headerActive, setHeaderActive] = useState(false);
-    const isMounted = useRef(false)
+    const [scroll, setScroll] = useState<scrollType>(null);
+    const [headerActive, setHeaderActive] = useState<boolean>(false);
+    const isMounted = useRef<boolean>(false)
     const {cartItems} = useSelector(selectCart)
 
     // useEffect(() => {
@@ -36,11 +35,11 @@ const Header: React.FC = () => {
         return () => window.removeEventListener("scroll", handleScroll)
     }, [scroll])
 
-    const handleScroll = () => {
+    const handleScroll = (): void => {
         setScroll(window.scrollY);
     };
 
-    const DesktopCart = () => {
+    const DesktopCart = (): JSX.Element => {
         return (
             <div className="header__cart">
                 <Link to="/cart" className="button button--cart">
