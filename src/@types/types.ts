@@ -1,4 +1,4 @@
-export default interface itemData {
+export interface itemData {
     id: number;
     title: string;
     description: string;
@@ -8,13 +8,13 @@ export default interface itemData {
     price: number;
     count?: number
     property: {
-        custom?: [
+        custom: [
             {
                 name: string;
                 value: number;
             }
         ];
-        size?: [
+        size: [
             {
                 name: string;
                 value: number;
