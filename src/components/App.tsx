@@ -24,6 +24,7 @@ const App: React.FC = () => {
         loader: () => import(/* webpackChunkName: "Cart" */ '../pages/cart/Cart'),
         loading: () => <LazyAlert/>
     });
+
     const NotFound = Loadable({
         loader: () => import(/* webpackChunkName: "NotFound" */ '../pages/NotFound'),
         loading: () => <LazyAlert/>
@@ -37,6 +38,7 @@ const App: React.FC = () => {
         dispatch(fetchItems(filterRequest))
     }
 
+    // Сохранение фильтрации по URL
     useEffect(() => {
         if (isMounted.current) {
             const queryString = qs.stringify({
@@ -69,7 +71,7 @@ const App: React.FC = () => {
 
 
     return (
-        <>
+        <React.Fragment>
             <div className="wrapper">
                 <BackgroundSpace/>
                 <Header/>
@@ -85,7 +87,7 @@ const App: React.FC = () => {
                 <Footer/>
             </div>
             <BuyPopup/>
-        </>
+        </React.Fragment>
     )
 }
 
