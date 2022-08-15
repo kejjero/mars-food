@@ -19,6 +19,11 @@
     position: absolute;
   }
 
+  &__input-box {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
   &__mobile_active {
     @media screen and (max-width: 520px) {
       background-color: rgba(0, 0, 0, 0.4);
@@ -42,6 +47,7 @@
 
   &__right-block {
     @include flex-center-center;
+    gap: 40px;
 
     @media screen and (max-width: 950px) {
       gap: 10px;
