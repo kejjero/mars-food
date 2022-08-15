@@ -23,7 +23,7 @@ type TIndexCategory = number | string;
 
 const categories: categoriesItemType[] = [
     {name: 'Все', animation: "https://assets1.lottiefiles.com/private_files/lf30_cq4x96b3.json", img: iconFork},
-    {name: 'Бургеры', animation: "https://assets1.lottiefiles.com/private_files/lf30_cq4x96b3.json", img: iconBurger},
+    {name: 'Бургеры', animation: "https://assets10.lottiefiles.com/private_files/lf30_c9kpqjs2.json", img: iconBurger},
     {name: 'Пицца', animation: "https://assets1.lottiefiles.com/private_files/lf30_cq4x96b3.json", img: iconPizza},
     {name: 'Десерты', animation: "https://assets1.lottiefiles.com/private_files/lf30_cq4x96b3.json", img: iconLasagna},
     {name: 'Напитки', animation: "https://assets1.lottiefiles.com/private_files/lf30_cq4x96b3.json", img: iconJuice},
@@ -111,7 +111,7 @@ const Categories: React.FC = () => {
     return (
         <div className="categories">
             {
-                <DesktopCategories/>  //window.screen.width > 520 ? <DesktopCategories/> //: <MobileCategories/>
+                window.screen.width > 520 ? <DesktopCategories/>  : <MobileCategories/>
             }
         </div>
     )
