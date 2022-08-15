@@ -1,5 +1,4 @@
 export {default as Header} from './header/Header';
-export {default as Search} from './header/Search';
 export {default as ItemBlock} from './itemsBlock/ItemBlock';
 export {default as Skeleton} from './itemsBlock/Skeleton';
 export {default as Categories} from './categories/Categories';
