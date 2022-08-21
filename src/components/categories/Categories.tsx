@@ -7,9 +7,10 @@ import {useSelector, useDispatch} from "react-redux";
 import {setCategoryId} from "../../redux/filter/filterSlice";
 import {selectCategoryId} from "../../redux/filter/selectors"
 import {fetchCategoryItems} from "../../redux/item/asyncActions";
-import {Swiper, SwiperSlide} from 'swiper/react';
-import 'swiper/css';
-import React, {useCallback} from     "react";
+import Chip from '@mui/material/Chip';
+// import {Swiper, SwiperSlide} from 'swiper/react';
+// import 'swiper/css';
+import React, {useCallback} from "react";
 import {PlayerCategory} from "../index"
 import {AppDispatch} from "../../redux/store";
 
@@ -19,14 +20,26 @@ type categoriesItemType = {
     img: string;
 }
 
-type TIndexCategory = number | string;
+type TIndexCategory = number | null;
 
 const categories: categoriesItemType[] = [
     {name: 'Все', animation: "https://assets1.lottiefiles.com/private_files/lf30_cq4x96b3.json", img: iconFork},
     {name: 'Бургеры', animation: "https://assets10.lottiefiles.com/private_files/lf30_c9kpqjs2.json", img: iconBurger},
-    {name: 'Пицца', animation: "https://assets1.lottiefiles.com/private_files/lf30_cq4x96b3.json", img: iconPizza},
-    {name: 'Десерты', animation: "https://assets1.lottiefiles.com/private_files/lf30_cq4x96b3.json", img: iconLasagna},
-    {name: 'Напитки', animation: "https://assets1.lottiefiles.com/private_files/lf30_cq4x96b3.json", img: iconJuice},
+    {
+        name: 'Пицца',
+        animation: "https://lottie.host/94599d92-e526-4536-bb82-45f22457024d/G7lY67IuY6.json",
+        img: iconPizza
+    },
+    {
+        name: 'Десерты',
+        animation: "https://lottie.host/4cbfe516-7cbb-4556-a322-70c6a37c3f73/vvl1hFXT4X.json",
+        img: iconLasagna
+    },
+    {
+        name: 'Напитки',
+        animation: "https://lottie.host/e3708210-fd70-4d9d-849b-1253c28ef23f/hNHJgIzK8m.json",
+        img: iconJuice
+    },
 ]
 
 const Categories: React.FC = () => {
@@ -41,7 +54,7 @@ const Categories: React.FC = () => {
 
 
     const mathItems = (index: number): void => {
-        const indexCategory: TIndexCategory = index !== 0 ? index : ''
+        const indexCategory: TIndexCategory = index !== 0 ? index : null
         dispatch(fetchCategoryItems(indexCategory))
     }
 
@@ -62,7 +75,13 @@ const Categories: React.FC = () => {
                                 categoryId={categoryId}
                                 img={category.img}
                             />
-                            <h2 className="categories__title-mobile">{category.name}</h2>
+                            <Chip
+                                key={index}
+                                variant={categoryId !== index ? "outlined" : "filled"}
+                                label={category.name}
+                                style={{fontSize: '16px'}}
+                                color={categoryId === index ? "error" : "default"}
+                            />
                         </li>
                     )
                 })
@@ -71,21 +90,21 @@ const Categories: React.FC = () => {
         )
     }
 
-    const MobileCategories = (slidesCategories:any) => {
-        return (
-            <Swiper
-                slidesPerView={3}
-                spaceBetween={10}
-                centeredSlides
-                watchSlidesProgress
-                centeredSlidesBounds
-                pagination={{type: 'fraction'}}
-                loop
-            >
-                {slidesCategories}
-            </Swiper>
-        )
-    }
+    // const MobileCategories = (slidesCategories:any) => {
+    //     return (
+    //         <Swiper
+    //             slidesPerView={3}
+    //             spaceBetween={10}
+    //             centeredSlides
+    //             watchSlidesProgress
+    //             centeredSlidesBounds
+    //             pagination={{type: 'fraction'}}
+    //             loop
+    //         >
+    //             {slidesCategories}
+    //         </Swiper>
+    //     )
+    // }
 
     //
     // const slidesCategories = categories.map((category, index) => {
@@ -111,7 +130,7 @@ const Categories: React.FC = () => {
     return (
         <div className="categories">
             {
-                window.screen.width > 520 ? <DesktopCategories/>  : <MobileCategories/>
+                window.screen.width > 520 ? <DesktopCategories/> : <></>
             }
         </div>
     )

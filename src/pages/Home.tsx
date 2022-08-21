@@ -35,6 +35,7 @@ const Home: React.FC = () => {
                 title={item.title}
                 description={item.description}
                 price={item.price}
+                rating={item.rating}
                 imageUrl={item.imageUrl}
                 property={item.property}
             />
