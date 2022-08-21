@@ -1,5 +1,4 @@
 @import './variables.scss';
-@import './libs/normalize.scss';
 @import './components/all.scss';
 @import './mixins';
 
@@ -360,24 +359,10 @@ body {
       justify-content: flex-end;
       width: 4%;
       grid-area: clear-cart;
-      opacity: 0.8;
 
       @media screen and (max-width: 755px) {
         justify-content: flex-end;
         width: 100%;
-      }
-
-
-      .button {
-        border-color: darken($color: $gray-line, $amount: 10);
-      }
-
-      svg {
-        transform: rotate(45deg);
-
-        path {
-          fill: darken($color: $gray-line, $amount: 15);
-        }
       }
 
       .button {
@@ -416,7 +401,7 @@ body {
       opacity: 0.7;
       z-index: 1;
       font-size: 16px;
-      top: 18px;
+      top: 12px;
 
       @media screen and (max-width: 520px) {
         font-size: 14px;
@@ -444,7 +429,7 @@ body {
     }
 
     &-buttons {
-      @include flex-between;
+      @include flex-center-between;
       margin-top: 40px;
 
       @media screen and (max-width: 520px) {
@@ -571,7 +556,7 @@ body {
 .content__ufo-menu {
   position: absolute;
   top: -20px;
-  left: 270px;
+  left: 295px;
   animation: 2.5s ease-in-out infinite pulse-ufo;
   width: 230px;
 
