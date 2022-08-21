@@ -1,0 +1,352 @@
+[
+    {
+     "id": 0,
+     "title": "Пицца",
+     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
+     "imageUrl": "https://svgshare.com/i/iGK.svg",
+     "category": 1,
+     "rating": 2.5,
+     "price": 230,
+     "property": {
+      "custom": [
+       {
+        "name": "Классический",
+        "value": 0
+       },
+       {
+        "name": "Острый",
+        "value": 15
+       }
+      ],
+      "size": [
+       {
+        "name": "M",
+        "value": 0
+       },
+       {
+        "name": "L",
+        "value": 30
+       },
+       {
+        "name": "XL",
+        "value": 70
+       }
+      ]
+     }
+    },
+    {
+     "id": 1,
+     "title": "Саларианский малыш",
+     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
+     "imageUrl": "https://i.ibb.co/MV7pSHN/burger-two.png",
+     "category": 1,
+     "rating": 4,
+     "price": 120,
+     "property": {
+      "custom": [
+       {
+        "name": "Классический",
+        "value": 0
+       },
+       {
+        "name": "Острый",
+        "value": 15
+       }
+      ],
+      "size": [
+       {
+        "name": "M",
+        "value": 0
+       },
+       {
+        "name": "L",
+        "value": 30
+       },
+       {
+        "name": "XL",
+        "value": 70
+       }
+      ]
+     }
+    },
+    {
+     "id": 2,
+     "title": "Жгучий аннунак",
+     "description": "Криптонитовая булочка, мясо фароанга, листья шаньси, кальмар черная звезда, соус хога, сыр левиафан",
+     "imageUrl": "https://i.ibb.co/RygM3yC/2-2x.png",
+     "category": 1,
+     "rating": 5,
+     "price": 155,
+     "property": {
+      "custom": [
+       {
+        "name": "Классический",
+        "value": 0
+       },
+       {
+        "name": "Острый",
+        "value": 15
+       }
+      ],
+      "size": [
+       {
+        "name": "M",
+        "value": 0
+       },
+       {
+        "name": "L",
+        "value": 30
+       },
+       {
+        "name": "XL",
+        "value": 70
+       }
+      ]
+     }
+    },
+    {
+     "id": 3,
+     "title": "Турианский чизкейк",
+     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
+     "imageUrl": "https://i.ibb.co/wMd5xxW/3-2x.png",
+     "category": 3,
+     "rating": 4.5,
+     "price": 170,
+     "property": {
+      "custom": [
+       {
+        "name": "Классический",
+        "value": 0
+       },
+       {
+        "name": "Острый",
+        "value": 15
+       }
+      ],
+      "size": [
+       {
+        "name": "M",
+        "value": 0
+       },
+       {
+        "name": "L",
+        "value": 30
+       },
+       {
+        "name": "XL",
+        "value": 70
+       }
+      ]
+     }
+    },
+    {
+     "id": 4,
+     "title": "Той'хан",
+     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
+     "imageUrl": "https://i.ibb.co/6PTY3vj/burger-four.png",
+     "category": 1,
+     "rating": 3.5,
+     "price": 110,
+     "property": {
+      "custom": [
+       {
+        "name": "Классический",
+        "value": 0
+       },
+       {
+        "name": "Острый",
+        "value": 15
+       }
+      ],
+      "size": [
+       {
+        "name": "M",
+        "value": 0
+       },
+       {
+        "name": "L",
+        "value": 30
+       },
+       {
+        "name": "XL",
+        "value": 70
+       }
+      ]
+     }
+    },
+    {
+     "id": 5,
+     "title": "Няма",
+     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
+     "imageUrl": "https://i.ibb.co/1vmFwkR/burger-one.png",
+     "category": 1,
+     "rating": 3,
+     "price": 180,
+     "property": {
+      "custom": [
+       {
+        "name": "Классический",
+        "value": 0
+       },
+       {
+        "name": "Острый",
+        "value": 15
+       }
+      ],
+      "size": [
+       {
+        "name": "M",
+        "value": 0
+       },
+       {
+        "name": "L",
+        "value": 30
+       },
+       {
+        "name": "XL",
+        "value": 70
+       }
+      ]
+     }
+    },
+    {
+     "id": 6,
+     "title": "Млечный путь",
+     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
+     "imageUrl": "https://i.ibb.co/VJh8fNz/3-1-2x.png",
+     "category": 4,
+     "rating": 4.5,
+     "price": 115,
+     "property": {
+      "custom": [
+       {
+        "name": "Классический",
+        "value": 0
+       },
+       {
+        "name": "Острый",
+        "value": 15
+       }
+      ],
+      "size": [
+       {
+        "name": "M",
+        "value": 0
+       },
+       {
+        "name": "L",
+        "value": 30
+       },
+       {
+        "name": "XL",
+        "value": 70
+       }
+      ]
+     }
+    },
+    {
+     "id": 7,
+     "title": "Не ешь меня",
+     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
+     "imageUrl": "https://i.ibb.co/MV7pSHN/burger-two.png",
+     "category": 2,
+     "rating": 3,
+     "price": 120,
+     "property": {
+      "custom": [
+       {
+        "name": "Классический",
+        "value": 0
+       },
+       {
+        "name": "Острый",
+        "value": 15
+       }
+      ],
+      "size": [
+       {
+        "name": "M",
+        "value": 0
+       },
+       {
+        "name": "L",
+        "value": 30
+       },
+       {
+        "name": "XL",
+        "value": 70
+       }
+      ]
+     }
+    },
+    {
+     "id": 8,
+     "title": "Бургер",
+     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
+     "imageUrl": "https://i.ibb.co/6PTY3vj/burger-four.png",
+     "category": 2,
+     "rating": 3.5,
+     "price": 120,
+     "property": {
+      "custom": [
+       {
+        "name": "Классический",
+        "value": 0
+       },
+       {
+        "name": "Острый",
+        "value": 15
+       }
+      ],
+      "size": [
+       {
+        "name": "M",
+        "value": 0
+       },
+       {
+        "name": "L",
+        "value": 30
+       },
+       {
+        "name": "XL",
+        "value": 70
+       }
+      ]
+     }
+    },
+    {
+     "id": 9,
+     "title": "Азари",
+     "description": "Ветчина, полукопченая колбаса, болгарский перец, маринованные огурцы, белый соус, сыр моцарелла, зелень",
+     "imageUrl": "https://i.ibb.co/5jXvK67/1-2x.png",
+     "category": 2,
+     "rating": 4.5,
+     "price": 120,
+     "property": {
+      "custom": [
+       {
+        "name": "Классический",
+        "value": 0
+       },
+       {
+        "name": "Острый",
+        "value": 15
+       }
+      ],
+      "size": [
+       {
+        "name": "M",
+        "value": 0
+       },
+       {
+        "name": "L",
+        "value": 30
+       },
+       {
+        "name": "XL",
+        "value": 70
+       }
+      ]
+     }
+    }
+   ]
