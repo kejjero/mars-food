@@ -4,6 +4,7 @@ import buyPopupReducer from './popups/buyPopup/buyPopupSlice'
 import popupWithFormReducer from './popups/popupWithForm/popupWithFormSlice'
 import cartReducer from "./cart/cartSlice";
 import itemsReducer from "./item/itemSlice";
+import favoriteReducer from "./favorite/FavoriteSlice"
 
 export const store = configureStore({
     reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
         buyPopupReducer,
         popupWithFormReducer,
         cartReducer,
-        itemsReducer
+        itemsReducer,
+        favoriteReducer,
     },
 })
 

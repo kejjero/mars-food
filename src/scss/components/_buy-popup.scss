@@ -11,12 +11,25 @@
     grid-template-rows: repeat(2, 1fr 1fr);
   }
 
+  &__raiting {
+    @include flex-column;
+    align-items: center;
+    gap: 5px;
+    padding-right: 40px;
+
+    &-text{
+      font-weight: bold;
+    }
+  }
+
   .buy-popup__preview{
-    @include flex-center-center;
+    flex-direction: column;
+    @include flex-center-between;
+    height: 100%;
 
     .buy-popup__image-preview {
       @include flex-center-center;
-      width: 320px;
+      width: 300px;
       padding-right: 40px;
 
       @media screen and (max-width: 840px) {
@@ -67,7 +80,7 @@
   .buy-popup__constructor {
     @include flex-column;
     background: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 30px;
 
     .buy-popup__category {
@@ -89,7 +102,7 @@
         text-align: center;
         letter-spacing: 0.015em;
         color: $white;
-        border-radius: 5px;
+        border-radius: 3px;
         cursor: pointer;
 
         &.active {

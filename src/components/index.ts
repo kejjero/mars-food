@@ -2,7 +2,7 @@ export {default as Header} from './header/Header';
 export {default as ItemBlock} from './itemsBlock/ItemBlock';
 export {default as Skeleton} from './itemsBlock/Skeleton';
 export {default as Categories} from './categories/Categories';
-export {default as PlayerCategory} from './categories/PlayerCategory';
+export {default as PlayerCategory} from './PlayerCategory/PlayerCategory';
 export {default as BuyPopup} from './popups/BuyPopup';
 export {default as CloseButton} from './popups/CloseButton';
 export {default as LazyAlert} from './LazyAlert';

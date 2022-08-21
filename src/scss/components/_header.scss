@@ -19,6 +19,19 @@
     position: absolute;
   }
 
+  &__avatar {
+    position: relative;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+
+    img {
+      width: 53px;
+      position: absolute;
+      left: -2px;
+    }
+  }
+
   &__input-box {
     display: flex;
     background-color: rgba(0, 0, 0, 0.2);
@@ -52,6 +65,13 @@
     @media screen and (max-width: 950px) {
       gap: 10px;
     }
+  }
+
+  &__text-badge {
+    font-size: 16px;
+    position: relative;
+    bottom: -5px;
+    margin-left: 5px;
   }
 
   &__search {
