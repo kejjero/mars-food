@@ -1,16 +1,16 @@
-import '../scss/app.scss'
-import {Footer, Home} from "../pages";
-import {Header, BuyPopup, LazyAlert, BackgroundSpace} from "./index";
+import '../../scss/app.scss'
+import {Footer, Home, Favorite} from "../../pages";
+import {Header, BuyPopup, LazyAlert, BackgroundSpace} from "../index";
 import React, {useEffect, useRef} from "react";
 import {Routes, Route} from "react-router-dom";
 import {useNavigate} from "react-router";
 import {useSelector, useDispatch} from "react-redux";
 import qs from "qs"
-import {setFilters} from "../redux/filter/filterSlice";
-import {selectFilter} from "../redux/filter/selectors"
-import {fetchItems} from "../redux/item/asyncActions";
+import {setFilters} from "../../redux/filter/filterSlice";
+import {selectFilter} from "../../redux/filter/selectors"
+import {fetchItems} from "../../redux/item/asyncActions";
 import Loadable from 'react-loadable';
-import {AppDispatch} from "../redux/store";
+import {AppDispatch} from "../../redux/store";
 
 const App: React.FC = () => {
     const navigate = useNavigate();
@@ -21,12 +21,12 @@ const App: React.FC = () => {
 
     // Разделение бандла на чанки с ленивой подгрузкой компонентов
     const Cart = Loadable({
-        loader: () => import(/* webpackChunkName: "Cart" */ '../pages/cart/Cart'),
+        loader: () => import(/* webpackChunkName: "Cart" */ '../../pages/cart/Cart'),
         loading: () => <LazyAlert/>
     });
 
     const NotFound = Loadable({
-        loader: () => import(/* webpackChunkName: "NotFound" */ '../pages/NotFound'),
+        loader: () => import(/* webpackChunkName: "NotFound" */ '../../pages/NotFound'),
         loading: () => <LazyAlert/>
     });
 
@@ -80,6 +80,7 @@ const App: React.FC = () => {
                         <Routes>
                             <Route path="/mars-food" element={<Home/>}/>
                             <Route path="/cart" element={<Cart/>}/>
+                            <Route path="/favorites" element={<Favorite/>}/>
                             <Route path="*" element={<NotFound/>}/>
                         </Routes>
                     </div>
