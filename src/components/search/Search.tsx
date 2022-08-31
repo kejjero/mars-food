@@ -39,27 +39,7 @@ const Search: React.FC = () => {
   };
 
   return (
-    <Stack
-      direction="row"
-      spacing={2}
-      flex="row"
-      alignItems="center"
-      borderRadius="10px"
-      height="30px"
-    >
-      <button
-        style={{
-          backgroundColor: "inherit",
-          border: "none",
-          cursor: "pointer",
-        }}
-      >
-        <Badge badgeContent={0} style={{ color: "#fff" }} color="error">
-          <SearchIcon style={{ color: "#fff"}} color={"error"} />
-        </Badge>
-        <span className="header__text-badge">Поиск</span>
-      </button>
-      {isOpenSearch && (
+    <Stack>
         <Input
           type="text"
           inputRef={inputRef}
@@ -69,14 +49,6 @@ const Search: React.FC = () => {
           sx={{ color: "#fff" }}
           color="error"
         />
-      )}
-      {searchValue.length >= 1 && (
-        <CloseIcon
-          sx={{ color: "fff" }}
-          cursor="pointer"
-          onClick={() => onClickClear()}
-        />
-      )}
     </Stack>
   );
 };

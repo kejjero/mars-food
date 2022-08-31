@@ -18,9 +18,8 @@ const Header: React.FC = () => {
     const location = useLocation();
     const [scroll, setScroll] = useState<scrollType>(null);
     const [headerActive, setHeaderActive] = useState<boolean>(false);
-    const isMounted = useRef<boolean>(false);
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const openProfile = Boolean(anchorEl);
+
+    console.log(location.pathname)
 
     // получение блюд из LocalStorage
 
@@ -46,15 +45,6 @@ const Header: React.FC = () => {
         setScroll(window.scrollY);
     };
 
-
-    const handleProfile = (event: any) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
     return (
         <header className={`header ${headerActive && "header__mobile_active"}`}>
             <div className="container">
@@ -71,7 +61,9 @@ const Header: React.FC = () => {
                     )}
                 </Link>
                 <div className="header__right-block">
-                    <Search/>
+                    {
+                        location.pathname === '/mars-food' && <Search/>
+                    }
                     <Link to="/favorites">
                         <Badge badgeContent={0} color="error">
                             <FavoriteBorderIcon style={{color: "#fff"}} color={"error"} max={5}/>
@@ -79,10 +71,6 @@ const Header: React.FC = () => {
                         <span className="header__text-badge">Избранное</span>
                     </Link>
                     {window.screen.width > 720 ? <DesktopCart/> : <MobileCart/>}
-                    <IconButton className="header__avatar" onClick={handleProfile}>
-                        <Avatar sx={{ width: 46, height: 46, bgcolor: '#EF4137' }}>M</Avatar>
-                    </IconButton>
-                    <Profile anchorEl={anchorEl} openProfile={openProfile} handleClose={handleClose} />
                 </div>
             </div>
         </header>
