@@ -11,6 +11,8 @@ import {selectFilter} from "../../redux/filter/selectors"
 import {fetchItems} from "../../redux/item/asyncActions";
 import Loadable from 'react-loadable';
 import {AppDispatch} from "../../redux/store";
+import CartOrder from "../../pages/cart/CartOrder";
+import CartBuy from "../../pages/cart/CartBuy";
 
 const App: React.FC = () => {
     const navigate = useNavigate();
@@ -80,6 +82,8 @@ const App: React.FC = () => {
                         <Routes>
                             <Route path="/mars-food" element={<Home/>}/>
                             <Route path="/cart" element={<Cart/>}/>
+                            <Route path="/cart/order" element={<CartOrder/>}/>
+                            <Route path="/cart/order/buy" element={<CartBuy/>}/>
                             <Route path="/favorites" element={<Favorite/>}/>
                             <Route path="*" element={<NotFound/>}/>
                         </Routes>

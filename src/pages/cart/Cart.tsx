@@ -6,8 +6,8 @@ import {clearCart} from "../../redux/cart/cartSlice"
 import CartEmpty from "./CartEmpty";
 import React, {useEffect, useState} from "react";
 import Box from '@mui/material/Box';
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
-import { styled } from '@mui/material/styles';
+import LinearProgress, {linearProgressClasses} from '@mui/material/LinearProgress';
+import {styled} from '@mui/material/styles';
 import cartIcon from '../../images/cart.svg'
 import {AppDispatch} from "../../redux/store";
 import Button from "@mui/material/Button";
@@ -27,7 +27,7 @@ type CartItemType = {
 }
 
 const Cart: React.FC = () => {
-    const { cartItems, cartCount, cartPrice } = useSelector(selectCart)
+    const {cartItems, cartCount, cartPrice} = useSelector(selectCart)
     const [isPay, setIsPay] = useState<boolean>(true);
     const dispatch = useDispatch<AppDispatch>();
 
@@ -45,21 +45,25 @@ const Cart: React.FC = () => {
             <div className="cart__bottom-progress">
                 <h3 className="cart__bottom-progress-title">Заказ от 1 000 λ</h3>
                 <Box>
-                    <BorderLinearProgress style={{borderRadius: '5px', height: '42.25px', width: '219px'}} variant="determinate" value={(cartPrice / 1000) * 100} />
+                    <BorderLinearProgress
+                        style={{borderRadius: '5px', height: '42.25px', width: '219px'}}
+                        variant="determinate"
+                        value={(cartPrice / 1000) * 100}
+                    />
                 </Box>
             </div>
         )
     }
 
     useEffect(() => {
-        if (cartPrice >= 1000) {
+        if (cartPrice >= 0) {
             setIsPay(false)
         } else {
             setIsPay(true)
         }
-    },[cartPrice, isPay])
+    }, [cartPrice, isPay])
 
-    if (cartCount === 0){
+    if (cartCount === 0) {
         return <CartEmpty/>
     }
 
@@ -77,7 +81,7 @@ const Cart: React.FC = () => {
                                 label="Очистить корзину"
                                 color="default"
                                 onClick={() => dispatch(clearCart())}
-                                icon={<DeleteIcon />}
+                                icon={<DeleteIcon/>}
                             />
                         </div>
                     </div>
@@ -110,8 +114,6 @@ const Cart: React.FC = () => {
                                 to="/mars-food"
                                 onClick={() => window.scroll(0, 0)}
                             >
-
-
                                 <Button
                                     startIcon={<KeyboardBackspaceIcon/>}
                                     size="large"
@@ -121,19 +123,19 @@ const Cart: React.FC = () => {
                                 >
                                     Вернуться назад
                                 </Button>
-
-
                             </Link>
                             {
                                 isPay ? <ProgressBlock/> :
-                                    <Button
-                                        startIcon={<ShoppingBagOutlinedIcon/>}
-                                        size="large"
-                                        variant="contained"
-                                        color="error"
-                                    >
-                                        Оформить заказ
-                                    </Button>
+                                    <Link to="/cart/order">
+                                        <Button
+                                            startIcon={<ShoppingBagOutlinedIcon/>}
+                                            size="large"
+                                            variant="contained"
+                                            color="error"
+                                        >
+                                            Продолжить
+                                        </Button>
+                                    </Link>
                             }
                         </div>
                     </div>

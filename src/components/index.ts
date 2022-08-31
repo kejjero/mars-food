@@ -9,3 +9,6 @@ export {default as LazyAlert} from './LazyAlert';
 export {default as PopupWithForm} from './popups/PopupWithForm';
 export {default as Sort} from './Sort';
 export {default as BackgroundSpace} from './BackgroundSpace';
+export {default as Input} from './formCart/Input';
+export {default as Form} from './formCart/Form';
+export {default as InputPlanet} from './formCart/InputPlanet';
