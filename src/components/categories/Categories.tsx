@@ -69,14 +69,12 @@ const Categories: React.FC = () => {
                             onClick={() => onClickCategory(index)}
                         >
                             <PlayerCategory
-                                key={index}
                                 animation={category.animation}
                                 index={index}
                                 categoryId={categoryId}
                                 img={category.img}
                             />
                             <Chip
-                                key={index}
                                 variant={categoryId !== index ? "outlined" : "filled"}
                                 label={category.name}
                                 style={{fontSize: '16px'}}
