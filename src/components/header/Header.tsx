@@ -8,28 +8,15 @@ import DesktopCart from "./cart/DesktopCart";
 import MobileCart from "./cart/MobileCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Badge from "@mui/material/Badge";
-import Avatar from "@mui/material/Avatar";
-import ava from "../../images/avatar.svg";
-import {IconButton} from "@mui/material"
-import Profile from "../profile/Profile"
+import {selectFavoriteData} from "../../redux/favorite/FavoriteSlice";
+import {useSelector} from "react-redux";
 
 const Header: React.FC = () => {
     type scrollType = null | number;
     const location = useLocation();
     const [scroll, setScroll] = useState<scrollType>(null);
     const [headerActive, setHeaderActive] = useState<boolean>(false);
-
-    console.log(location.pathname)
-
-    // получение блюд из LocalStorage
-
-    // useEffect(() => {
-    //     if(isMounted.current) {
-    //         const json = JSON.stringify(cartItems)
-    //         localStorage.setItem('items', json)
-    //     }
-    //     isMounted.current = true
-    // }, [cartItems])
+    const favoriteData = useSelector(selectFavoriteData);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -65,7 +52,7 @@ const Header: React.FC = () => {
                         location.pathname === '/mars-food' && <Search/>
                     }
                     <Link to="/favorites">
-                        <Badge badgeContent={0} color="error">
+                        <Badge badgeContent={favoriteData.length} color="error">
                             <FavoriteBorderIcon style={{color: "#fff"}} color={"error"} max={5}/>
                         </Badge>
                         <span className="header__text-badge">Избранное</span>

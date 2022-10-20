@@ -31,7 +31,9 @@
 
 :white_check_mark: Создать сортировку блюд
 
-:white_large_square: Сохраненять выбранные блюда в localStorage (почти готово)
+:white_check_mark: Сохраненять корзину в localStorage
+
+:white_check_mark: Сохраненять избранное в localStorage
 
 :white_check_mark: Исправить типизацию асинхронных экшенов Redux-Toolkit
 
@@ -51,9 +53,7 @@
 
 :white_check_mark: Исправить баг некорректного подсчета корзины
 
-:white_large_square: Внедрить CI/CD (Jest тесты) с автодеплоем ( o˘◡˘o)
-
-:white_large_square: Создать легкую lottie_files анимацию для заднего фона с планетами
+:white_large_square: Создать легкую lottie_files анимацию для заднего фона
 
 :white_large_square: Оптимизировать приложение под мобильную версию (почти готово)
 
@@ -62,13 +62,6 @@
 :white_check_mark: Создать вкладку для избранного
 
 :white_large_square: Создать lottie_files анимацию перемещения НЛО при выборе категории
-
-:white_large_square: Написать собственный бэкенд (Node.js / Nest.js / MongoDB):
-- Получение блюд
-- Получение количества страниц для корректной пагинации
-- Поиск блюд 
-- Сортировка блюд
-- Отправка заказа на бэкенд
 
 ## Инструкция для работы с проектом:
 ```

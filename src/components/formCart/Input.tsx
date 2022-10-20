@@ -41,6 +41,7 @@ const Input: any = forwardRef((props, ref) => {
                 margin="none"
                 fullWidth
                 {...props}
+                className="order_input"
             >
             </ValidationTextField>
         </React.Fragment>

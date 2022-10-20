@@ -1,21 +1,27 @@
 import {createSlice} from "@reduxjs/toolkit"
 import {RootState} from "../store";
 import {initialStateFavorite} from "./types"
+import {getFavoriteFromLS} from "../../utils/getFavoriteFromLS";
+
+const { favorites } = getFavoriteFromLS();
 
 const initialState: initialStateFavorite = {
-    itemsFavorite: [],
-
+    favoriteData: favorites,
 }
 
 const favoriteSlice = createSlice({
     name: 'favorites',
     initialState,
     reducers: {
-        setFavorites(state: any, action: any) {
-            state.itemsFavorite = action.payload;
+        addFavorite(state: any, action: any) {
+            state.favoriteData = [...state.favoriteData, action.payload]
         },
+        deleteFavoriteItem(state, action) {
+            state.favoriteData = action.payload
+        }
     },
 });
 
+export const selectFavoriteData = (state: RootState) => state.favoriteReducer.favoriteData;
+export const { addFavorite, deleteFavoriteItem } = favoriteSlice.actions;
 export default favoriteSlice.reducer;
-export const selectFavorites = (state: RootState) => state.favoriteReducer

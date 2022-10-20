@@ -1,7 +1,10 @@
 import React from "react";
-import {Sort} from "../components";
+import {ItemBlock} from "../components";
+import {selectFavoriteData} from "../redux/favorite/FavoriteSlice";
+import {useSelector} from "react-redux";
 
 const Favorite: React.FC = () => {
+    const favoriteData = useSelector(selectFavoriteData);
 
     return (
         <>
@@ -10,13 +13,22 @@ const Favorite: React.FC = () => {
             </div>
             <div className="content__items">
                 {
-                //     favoritesArray.map((item, index) => {
-                //         return (
-                //             <></>
-                //         )
-                //     })
-                // }
-                // {
+                    favoriteData.map((item: any) => {
+                        return (
+                            <ItemBlock
+                                key={item.id}
+                                id={item.id}
+                                title={item.title}
+                                description={item.description}
+                                price={item.price}
+                                rating={item.rating}
+                                imageUrl={item.imageUrl}
+                                property={item.property}
+                            />
+                        )
+                    })
+                }
+                {
 
                 }
             </div>

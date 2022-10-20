@@ -19,7 +19,7 @@ const CartOrder = () => {
                     <div className="cart__top">
                         <h2 className="content__title">
                             <img className="cart__icon" src={cartIcon} alt="Корзина"/>
-                            Оплата заказа
+                            Оформление заказа
                         </h2>
                     </div>
                     <div>

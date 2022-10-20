@@ -7,12 +7,15 @@ import {useNavigate} from "react-router";
 import {useSelector, useDispatch} from "react-redux";
 import qs from "qs"
 import {setFilters} from "../../redux/filter/filterSlice";
+import {selectFavoriteData} from "../../redux/favorite/FavoriteSlice"
 import {selectFilter} from "../../redux/filter/selectors"
 import {fetchItems} from "../../redux/item/asyncActions";
 import Loadable from 'react-loadable';
 import {AppDispatch} from "../../redux/store";
 import CartOrder from "../../pages/cart/CartOrder";
 import CartBuy from "../../pages/cart/CartBuy";
+import {selectCart} from "../../redux/cart/selectors"
+import {checkCartPrice} from "../../utils/checkCartPrice";
 
 const App: React.FC = () => {
     const navigate = useNavigate();
@@ -20,6 +23,8 @@ const App: React.FC = () => {
     const isSearch = useRef<boolean>(false);
     const isMounted = useRef<boolean>(false);
     const {categoryId, sort, currentPage} = useSelector(selectFilter);
+    const favoriteData = useSelector(selectFavoriteData);
+    const {cartItems} = useSelector(selectCart)
 
     // Разделение бандла на чанки с ленивой подгрузкой компонентов
     const Cart = Loadable({
@@ -71,6 +76,16 @@ const App: React.FC = () => {
         isSearch.current = true;
     }, [categoryId, currentPage, sort])
 
+    useEffect(() => {
+       const newFavorites = JSON.stringify(favoriteData);
+       localStorage.setItem('favorites', newFavorites)
+    },[favoriteData])
+
+    useEffect(() => {
+        const newCartItems = JSON.stringify(cartItems);
+        localStorage.setItem('items', newCartItems)
+        checkCartPrice(cartItems)
+    },[cartItems])
 
     return (
         <React.Fragment>

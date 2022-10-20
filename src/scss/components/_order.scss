@@ -21,7 +21,7 @@
 
   &__left-side {
     @include flex-column;
-    gap: 20px;
+    gap: 40px;
     grid-area: left;
     justify-content: space-between;
   }
@@ -29,8 +29,18 @@
   &__right-side {
     @include flex-column;
     justify-content: space-between;
-    gap: 20px;
     grid-area: right;
+  }
+
+  &__persons {
+    background-color: inherit;
+    color: #DBDBDB;
+    font-size: 22px;
+    font-weight: 700;
+    border: none;
+    min-width: 10px;
+    text-align: center;
+
   }
 
   &__title {
@@ -56,6 +66,14 @@
       @include flex-center;
       margin-left: -10px;
       gap: 10px;
+    }
+  }
+
+  &_input {
+    p {
+      position: absolute !important;
+      bottom: -25px !important;
+      left: -15px;
     }
   }
 

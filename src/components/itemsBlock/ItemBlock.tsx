@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {loadDataForPopup, resetActiveCategory} from "../../redux/popups/buyPopup/buyPopupSlice";
 import {openBuyPopup} from "../../redux/popups/popupWithForm/popupWithFormSlice";
 import {selectCartItems} from "../../redux/cart/selectors";
+import {addFavorite, selectFavoriteData, deleteFavoriteItem} from "../../redux/favorite/FavoriteSlice"
 import React, {useEffect, useState} from "react";
 import {itemData} from "../../@types/types"
 import {AppDispatch} from "../../redux/store";
@@ -10,47 +11,57 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import {IconButton} from "@mui/material"
 import Button from '@mui/material/Button';
 
-const ItemBlock: React.FC<itemData> = ({id, title, description, imageUrl, price, property, rating}) => {
-
+const ItemBlock: React.FC<itemData> = (props) => {
+    const {id, title, description, imageUrl, price} = props
     const dispatch = useDispatch<AppDispatch>()
     const cartItems = useSelector(selectCartItems)
     const filterItem = cartItems.filter((item) => Number(item?.id === id))
     const [itemCounter, setItemCounter] = useState<itemData[]>([])
-    const [favoriteItem, setFavoriteItem] = useState<boolean>(false);
+    const [isLiked, setIsLiked] = useState<boolean>(false);
+    const favoriteData = useSelector(selectFavoriteData)
+    const isFavorite = favoriteData.some((favorite: any) => favorite.id === id)
 
     useEffect(() => {
         filterItem.map((item: any) => setItemCounter([...itemCounter, item.count]))
     }, [cartItems])
 
+    useEffect(() => {
+        if (isFavorite){
+            setIsLiked(true)
+        }
+    }, [])
+
     const handleBuyPopup = (): void => {
         dispatch(resetActiveCategory())
-        dispatch(loadDataForPopup(
-                {
-                    id: id,
-                    title: title,
-                    description: description,
-                    imageUrl: imageUrl,
-                    price: price,
-                    property: property,
-                    rating: rating,
-                }
-            )
-        )
+        dispatch(loadDataForPopup(props))
         dispatch(openBuyPopup({name: 'buy-popup'}))
     }
 
-    const handleFavorite = () => {
-        setFavoriteItem(!favoriteItem)
+
+    const handleIsFavorite = () => {
+        if (!isLiked) {
+            dispatch(addFavorite(props))
+            return true
+        }
+        const withoutItemsFavorite = favoriteData.filter((favorite: any) => favorite.id !== id)
+        dispatch(deleteFavoriteItem(withoutItemsFavorite))
+        return false
     }
+
+    const onClickFavoriteButton = () => {
+        setIsLiked(handleIsFavorite())
+    }
+
+
 
     return (
         <div className="item-block">
             <IconButton
-                style={{position: 'absolute', right: '0',color: '#fff', opacity: favoriteItem ? 1.0 : 0.5}}
-                onClick={() => handleFavorite()}
+                style={{position: 'absolute', right: '0',color: '#fff', opacity: isLiked ? 1.0 : 0.5}}
+                onClick={() => onClickFavoriteButton()}
             >
                 {
-                    favoriteItem ?
+                    isLiked ?
                         <FavoriteIcon sx={{fontSize: '23px'}}/> :
                         <FavoriteBorderIcon sx={{fontSize: '23px'}}/>
                 }

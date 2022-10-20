@@ -12,4 +12,5 @@ export interface initialStateCart {
     cartCount: number;
     cartPrice: number;
     cartItems: itemType[];
+    persons: number;
 }
