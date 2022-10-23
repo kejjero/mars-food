@@ -14,9 +14,16 @@ import {yupResolver} from "@hookform/resolvers/yup";
 import {parsePhoneNumberFromString} from "libphonenumber-js"
 import {useNavigate} from "react-router";
 import CountPersons from "./components/CountPersons";
+import {updateCartForm} from "../../redux/cart/cartSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {selectCart} from "../../redux/cart/selectors";
+import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 
 const CartOrder = () => {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const {cartForm, cartPrice, cartItems} = useSelector(selectCart)
+
 
     const schema = yup.object().shape({
         firstName: yup.string()
@@ -44,9 +51,16 @@ const CartOrder = () => {
 
     const onSubmit = (data: any) => {
         if(data) {
+            dispatch(updateCartForm(data))
             navigate('/cart/order/buy')
         }
     }
+
+    useEffect(() => {
+        if (!cartItems.length) {
+            navigate('/cart')
+        }
+    },[])
 
     return (
         <div className="content">
@@ -68,6 +82,7 @@ const CartOrder = () => {
                                     {...register('firstName')}
                                     error={!!errors.firstName}
                                     helperText={errors?.firstName?.message}
+                                    defaultValue={cartForm.firstName}
                                 />
                                 <Input
                                     required
@@ -76,9 +91,8 @@ const CartOrder = () => {
                                     {...register('phone')}
                                     error={!!errors.phone}
                                     helperText={errors?.phone?.message}
-                                    onChange={(evt: any) => {
-                                        evt.target.value = normalizePhoneNumber(evt.target.value);
-                                    }}
+                                    onChange={(evt: any) => {evt.target.value = normalizePhoneNumber(evt.target.value);}}
+                                    defaultValue={cartForm.phone}
                                 />
                                 <Input
                                     type="email"
@@ -86,6 +100,7 @@ const CartOrder = () => {
                                     {...register('email')}
                                     error={!!errors.email}
                                     helperText={errors?.email?.message}
+                                    defaultValue={cartForm.email}
                                 />
                                 <div>
                                     <FormLabel>Доставка</FormLabel>
@@ -98,12 +113,14 @@ const CartOrder = () => {
                                             control={<Radio/>}
                                             label="Курьером"
                                             {...register('variant')}
+                                            defaultValue={cartForm.variant}
                                         />
                                         <FormControlLabel
                                             value="Телепорт"
                                             control={<Radio/>}
                                             label="Телепорт"
                                             {...register('variant')}
+                                            defaultValue={cartForm.variant}
                                         />
                                     </RadioGroup>
                                 </div>
@@ -124,9 +141,10 @@ const CartOrder = () => {
                                     multiline
                                     rows={6}
                                     {...register('comment')}
+                                    defaultValue={cartForm.comment}
                                 />
                                 <div className="cart__bottom-details" style={{justifyContent: 'flex-end'}}>
-                                    <span> Сумма заказа: <b>{1231} &lambda;</b> </span>
+                                    <span> Сумма заказа: <b>{cartPrice} &lambda;</b> </span>
                                 </div>
                             </div>
                             <div className="cart__bottom-buttons" style={{gridArea: 'submit'}}>
@@ -145,10 +163,11 @@ const CartOrder = () => {
                                     </Button>
                                 </Link>
                                 <Button
-                                    type="submit"
+                                    startIcon={<ShoppingBagOutlinedIcon/>}
                                     size="large"
-                                    color="error"
                                     variant="contained"
+                                    color="error"
+                                    type="submit"
                                 >
                                     Продолжить
                                 </Button>

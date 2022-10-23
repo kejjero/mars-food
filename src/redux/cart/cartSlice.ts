@@ -5,12 +5,19 @@ import {initialStateCart} from "./types"
 import {checkCartPrice} from "../../utils/checkCartPrice";
 import {checkCountPrice} from "../../utils/checkCountPrice";
 
-const { items } = getCartFromLS();
+const {items} = getCartFromLS();
 
 const initialState: initialStateCart = {
     cartCount: checkCountPrice(items),
     cartPrice: checkCartPrice(items),
     cartItems: items,
+    cartForm: {
+        comment: "",
+        email: "",
+        firstName: "",
+        phone: "",
+        variant: ""
+    },
     persons: 1,
 }
 
@@ -58,9 +65,20 @@ export const cartSlice = createSlice({
             if (state.persons > 1) {
                 state.persons = state.persons - 1
             }
+        },
+        updateCartForm(state: any, action) {
+            state.cartForm = action.payload
         }
     }
 })
 
-export const {addItemForCart, clearCart, minusCartItem, deleteCartItem, addPerson, deletePerson} = cartSlice.actions;
+export const {
+    addItemForCart,
+    clearCart,
+    minusCartItem,
+    deleteCartItem,
+    addPerson,
+    deletePerson,
+    updateCartForm
+} = cartSlice.actions;
 export default cartSlice.reducer;

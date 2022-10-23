@@ -13,4 +13,11 @@ export interface initialStateCart {
     cartPrice: number;
     cartItems: itemType[];
     persons: number;
+    cartForm: {
+        comment: string;
+        email: string;
+        firstName: string;
+        phone: string;
+        variant: string;
+    };
 }

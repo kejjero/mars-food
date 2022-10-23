@@ -12,9 +12,9 @@ import cartIcon from '../../images/cart.svg'
 import {AppDispatch} from "../../redux/store";
 import Button from "@mui/material/Button";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
-import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import Chip from '@mui/material/Chip';
 import DeleteIcon from '@mui/icons-material/Delete';
+import ButtonPay from "./components/ButtonPay";
 
 type CartItemType = {
     count: number;
@@ -28,7 +28,6 @@ type CartItemType = {
 
 const Cart: React.FC = () => {
     const {cartItems, cartCount, cartPrice} = useSelector(selectCart)
-    const [isPay, setIsPay] = useState<boolean>(true);
     const dispatch = useDispatch<AppDispatch>();
 
     const BorderLinearProgress = styled(LinearProgress)(() => ({
@@ -54,14 +53,6 @@ const Cart: React.FC = () => {
             </div>
         )
     }
-
-    useEffect(() => {
-        if (cartPrice >= 0) {
-            setIsPay(false)
-        } else {
-            setIsPay(true)
-        }
-    }, [cartPrice, isPay])
 
     if (cartCount === 0) {
         return <CartEmpty/>
@@ -124,19 +115,7 @@ const Cart: React.FC = () => {
                                     Вернуться назад
                                 </Button>
                             </Link>
-                            {
-                                isPay ? <ProgressBlock/> :
-                                    <Link to="/cart/order">
-                                        <Button
-                                            startIcon={<ShoppingBagOutlinedIcon/>}
-                                            size="large"
-                                            variant="contained"
-                                            color="error"
-                                        >
-                                            Продолжить
-                                        </Button>
-                                    </Link>
-                            }
+                            <ButtonPay ProgressBlock={<ProgressBlock/>}/>
                         </div>
                     </div>
                 </div>
