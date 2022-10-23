@@ -1,0 +1,61 @@
+@import "../mixins";
+@import "../variables";
+
+.buy {
+
+  &__form {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+  }
+
+
+  &__info {
+
+    &_comment {
+      margin-top: 20px;
+    }
+
+    &-items {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      @include flex-column;
+      gap: 20px;
+    }
+
+    &-item {
+      margin: 0;
+      @include flex-center-between;
+      color: #fff;
+      font-size: 18px;
+      line-height: 24px;
+      letter-spacing: 0.01em;
+
+      span {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      em {
+        font-style: normal;
+      }
+    }
+  }
+
+  &__comment {
+    color: #fff;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+
+    span {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    em {
+      font-style: normal;
+
+    }
+  }
+}

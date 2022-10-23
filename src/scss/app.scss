@@ -242,6 +242,10 @@ body {
       width: 10%;
       grid-area: img-cart;
 
+      &_buy {
+        width: auto;
+      }
+
       img {
         width: 80px;
         height: 80px;
@@ -256,6 +260,11 @@ body {
 
       @media screen and (max-width: 950px) {
         width: auto;
+      }
+
+      &_buy {
+        width: 100%;
+        gap: 2px;
       }
 
 
@@ -381,6 +390,15 @@ body {
     }
   }
 
+  &__ufo {
+    width: 25px;
+    height: 25px;
+  }
+
+  &__persons {
+    font-size: 22px;
+  }
+
   &__bottom {
     margin: 50px 0;
 
@@ -409,8 +427,14 @@ body {
       }
     }
 
+    &-group {
+      @include flex-column;
+      gap: 5px;
+    }
+
     &-details {
       @include flex-between;
+      margin-bottom: 10px;
 
 
       span {
