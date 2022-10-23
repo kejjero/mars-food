@@ -40,13 +40,13 @@ const Search: React.FC = () => {
 
   return (
     <Stack>
-        <Input
+        <input
           type="text"
-          inputRef={inputRef}
+          ref={inputRef}
           value={searchValue}
           onChange={(evt) => onChangeInput(evt)}
           placeholder="Поиск вкусной еды..."
-          sx={{ color: "#fff" }}
+          className="header__input"
           color="error"
         />
     </Stack>

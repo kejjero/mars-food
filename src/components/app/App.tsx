@@ -18,10 +18,8 @@ import {selectCart} from "../../redux/cart/selectors"
 import {checkCartPrice} from "../../utils/checkCartPrice";
 
 const App: React.FC = () => {
-    const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
     const isSearch = useRef<boolean>(false);
-    const isMounted = useRef<boolean>(false);
     const {categoryId, sort, currentPage} = useSelector(selectFilter);
     const favoriteData = useSelector(selectFavoriteData);
     const {cartItems} = useSelector(selectCart)
@@ -46,19 +44,19 @@ const App: React.FC = () => {
     }
 
     // Сохранение фильтрации по URL
-    useEffect(() => {
-        if (isMounted.current) {
-            const queryString = qs.stringify({
-                category: categoryId,
-                property: sort.property,
-                order: sort.type,
-                sortId: sort.sortId,
-                page: currentPage
-            })
-            navigate(`?${queryString}`)
-        }
-        isMounted.current = true;
-    }, [categoryId, currentPage, sort])
+    // useEffect(() => {
+    //     if (isMounted.current) {
+    //         const queryString = qs.stringify({
+    //             category: categoryId,
+    //             property: sort.property,
+    //             order: sort.type,
+    //             sortId: sort.sortId,
+    //             page: currentPage
+    //         })
+    //         navigate(`?${queryString}`)
+    //     }
+    //     isMounted.current = true;
+    // }, [categoryId, currentPage, sort])
 
     useEffect(() => {
         if (window.location.search) {
@@ -95,6 +93,7 @@ const App: React.FC = () => {
                 <main className="content">
                     <div className="container">
                         <Routes>
+                            <Route path="/" element={<Home/>}/>
                             <Route path="/mars-food" element={<Home/>}/>
                             <Route path="/cart" element={<Cart/>}/>
                             <Route path="/cart/order" element={<CartOrder/>}/>
