@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/mars-food/static/css/main.528318c4.css",
-    "main.js": "/mars-food/static/js/main.525ce440.js",
-    "Cart.js": "/mars-food/static/js/Cart.65d5f255.chunk.js",
+    "main.css": "/mars-food/static/css/main.ca93f1f0.css",
+    "main.js": "/mars-food/static/js/main.015abd31.js",
+    "Cart.js": "/mars-food/static/js/Cart.4ea204ab.chunk.js",
     "NotFound.js": "/mars-food/static/js/NotFound.f3d14978.chunk.js",
     "static/media/logo.svg": "/mars-food/static/media/logo.c8b732d549a2b7a6e12ce75f54f6a01c.svg",
     "static/media/error404-mobile.svg": "/mars-food/static/media/error404-mobile.d72ff270dfc8e41521ff13a22dafa8db.svg",
@@ -19,13 +19,13 @@
     "static/media/icon-lasagna.svg": "/mars-food/static/media/icon-lasagna.d507686b902528c5d5f33e41cf00d432.svg",
     "static/media/icon-pizza.svg": "/mars-food/static/media/icon-pizza.4f09594e9689a2850092726259a81d68.svg",
     "index.html": "/mars-food/index.html",
-    "main.528318c4.css.map": "/mars-food/static/css/main.528318c4.css.map",
-    "main.525ce440.js.map": "/mars-food/static/js/main.525ce440.js.map",
-    "Cart.65d5f255.chunk.js.map": "/mars-food/static/js/Cart.65d5f255.chunk.js.map",
+    "main.ca93f1f0.css.map": "/mars-food/static/css/main.ca93f1f0.css.map",
+    "main.015abd31.js.map": "/mars-food/static/js/main.015abd31.js.map",
+    "Cart.4ea204ab.chunk.js.map": "/mars-food/static/js/Cart.4ea204ab.chunk.js.map",
     "NotFound.f3d14978.chunk.js.map": "/mars-food/static/js/NotFound.f3d14978.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.528318c4.css",
-    "static/js/main.525ce440.js"
+    "static/css/main.ca93f1f0.css",
+    "static/js/main.015abd31.js"
   ]
 }
