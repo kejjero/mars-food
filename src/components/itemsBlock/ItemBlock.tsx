@@ -10,6 +10,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import {IconButton} from "@mui/material"
 import Button from '@mui/material/Button';
+import {SnackbarProvider, useSnackbar} from "notistack";
+import SnackBar from "../SnackBar"
 
 const ItemBlock: React.FC<itemData> = (props) => {
     const {id, title, description, imageUrl, price} = props
@@ -26,7 +28,7 @@ const ItemBlock: React.FC<itemData> = (props) => {
     }, [cartItems])
 
     useEffect(() => {
-        if (isFavorite){
+        if (isFavorite) {
             setIsLiked(true)
         }
     }, [])
@@ -52,19 +54,32 @@ const ItemBlock: React.FC<itemData> = (props) => {
         setIsLiked(handleIsFavorite())
     }
 
+    //
+    // const { enqueueSnackbar } = useSnackbar();
+    //
+    // const handleClickVariant = () => () => {
+    //     const text = isLiked ? "добавлен в избранное" : "удален из избранного"
+    //     const span = <span>{`${title} ${text}`}</span>
+    //     enqueueSnackbar(span);
+    // };
 
 
     return (
         <div className="item-block">
             <IconButton
-                style={{position: 'absolute', right: '0',color: '#fff', opacity: isLiked ? 1.0 : 0.5}}
+                style={{position: 'absolute', right: '0', color: '#fff', opacity: isLiked ? 1.0 : 0.5}}
                 onClick={() => onClickFavoriteButton()}
             >
-                {
-                    isLiked ?
-                        <FavoriteIcon sx={{fontSize: '23px'}}/> :
-                        <FavoriteBorderIcon sx={{fontSize: '23px'}}/>
-                }
+                <SnackbarProvider maxSnack={3}>
+                    <SnackBar>
+                    {
+                        isLiked ?
+                            <FavoriteIcon sx={{fontSize: '23px'}}/>
+                            :
+                            <FavoriteBorderIcon sx={{fontSize: '23px'}}/>
+                    }
+                    </SnackBar>
+                </SnackbarProvider>
             </IconButton>
             <img className="item-block__image" src={imageUrl} alt={title}
             />
@@ -75,9 +90,7 @@ const ItemBlock: React.FC<itemData> = (props) => {
             <div className="item-block__bottom">
                 <div className="item-block__price">от {price} &lambda;</div>
 
-                <Button color={"error"} variant="outlined"
-                        onClick={handleBuyPopup}>Заказать</Button>
-                {/*{itemCounter.length > 0 && <i>{itemCounter.length}</i>}*/}
+                <Button color={"error"} variant="outlined" onClick={handleBuyPopup}>Заказать</Button>
             </div>
         </div>
     )

@@ -3,7 +3,6 @@ import {Footer, Home, Favorite} from "../../pages";
 import {Header, BuyPopup, LazyAlert, BackgroundSpace} from "../index";
 import React, {useEffect, useRef} from "react";
 import {Routes, Route} from "react-router-dom";
-import {useNavigate} from "react-router";
 import {useSelector, useDispatch} from "react-redux";
 import qs from "qs"
 import {setFilters} from "../../redux/filter/filterSlice";
