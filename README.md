@@ -26,43 +26,6 @@
 ![After Effects](https://img.shields.io/badge/-After_Effects-0d1117?style=for-the-badge&logo=adobeaftereffects)
 ![lottie_files](https://img.shields.io/badge/-lottiefiles-0d1117?style=for-the-badge&logo=lottiefiles)
 
-## Планы по доработке проекта:
-:white_check_mark: Типизировать проект (TypeScript)
-
-:white_check_mark: Создать сортировку блюд
-
-:white_check_mark: Сохраненять корзину в localStorage
-
-:white_check_mark: Сохраненять избранное в localStorage
-
-:white_check_mark: Исправить типизацию асинхронных экшенов Redux-Toolkit
-
-:white_check_mark: Нарисовать красочные иллюстрации для главной страницы блюд
-
-:white_large_square: Оптимизировать загрузку img
-
-:white_check_mark: Добавить рейтинг к каждому блюду из меню
-
-:white_large_square: Нарисовать красочные иллюстрации всех блюд из меню
-
-:white_check_mark: Исправить баг поиска блюд (повторный рендер страницы)
-
-:white_large_square: Создать lottie_files анимации для категорий и избавиться от повторных рендеров компонента
-
-:white_check_mark: Исправить баг передачи данных в попап
-
-:white_check_mark: Исправить баг некорректного подсчета корзины
-
-:white_large_square: Создать легкую lottie_files анимацию для заднего фона
-
-:white_large_square: Оптимизировать приложение под мобильную версию (почти готово)
-
-:white_check_mark: Заменить все кнопки на MUI компоненты
-
-:white_check_mark: Создать вкладку для избранного
-
-:white_large_square: Создать lottie_files анимацию перемещения НЛО при выборе категории
-
 ## Инструкция для работы с проектом:
 ```
 git clone git@github.com:kejjero/mars-food.git
